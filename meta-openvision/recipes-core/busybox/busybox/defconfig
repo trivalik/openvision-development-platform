@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Busybox version: 1.31.0
-# Sun Sep 25 00:06:23 2019
+# Sun Sep 25 00:34:23 2019
 #
 CONFIG_HAVE_DOT_CONFIG=y
 
@@ -669,7 +669,7 @@ CONFIG_NOLOGIN=y
 CONFIG_NOLOGIN_DEPENDENCIES=y
 # CONFIG_NSENTER is not set
 CONFIG_PIVOT_ROOT=y
-CONFIG_RDATE=y
+# CONFIG_RDATE is not set
 CONFIG_RDEV=y
 CONFIG_READPROFILE=y
 CONFIG_RENICE=y
@@ -811,7 +811,7 @@ CONFIG_FEATURE_LESS_ENV=y
 # CONFIG_MAN is not set
 CONFIG_MICROCOM=y
 # CONFIG_MT is not set
-# CONFIG_NANDWRITE is not set
+CONFIG_NANDWRITE=y
 # CONFIG_NANDDUMP is not set
 # CONFIG_PARTPROBE is not set
 # CONFIG_RAIDAUTORUN is not set
