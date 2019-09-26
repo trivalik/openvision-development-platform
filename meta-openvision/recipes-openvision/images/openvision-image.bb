@@ -33,6 +33,7 @@ IMAGE_INSTALL = "\
 	sdparm \
 	tuxbox-common \
 	tzdata \
+	util-linux-ionice \
 	volatile-media \
 	vsftpd \
 "
