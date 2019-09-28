@@ -6,7 +6,9 @@ require conf/license/license-gplv2.inc
 
 inherit module
 
-SRC_URI = "git://github.com/atvcaptain/mt7603u.git"
+SRC_URI = "git://github.com/atvcaptain/mt7603u.git \
+           file://compile_fix.patch \
+           file://missing-defines.patch"
 
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
