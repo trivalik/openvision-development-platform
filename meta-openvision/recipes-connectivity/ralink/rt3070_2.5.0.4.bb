@@ -10,6 +10,7 @@ SRC_URI = " \
     file://makefile.patch \
     file://config.patch \
     file://remove_linux_2_4_compability.patch \
+    file://compile_fix.patch \
 "
 
 SRC_URI[md5sum] = "c314f126ba47fac563988b08b5554d82"

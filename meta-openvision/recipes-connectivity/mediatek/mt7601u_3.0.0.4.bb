@@ -10,6 +10,7 @@ SRC_URI = " \
           https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913c.zip \
           file://mt7601u.patch \
           file://remove_linux_2_4_compability.patch \
+          file://compile_fix.patch \
           "
 
 SRC_URI[md5sum] = "0b6d799d007de1594d8ae5bd34165341"
@@ -19,7 +20,7 @@ FILES_${PN}_append = "${sysconfdir}/Wireless"
 
 S = "${WORKDIR}/MT7601U/"
 
-EXTRA_OEMAKE = 'LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR} CFLAGS="${CFLAGS} -Wno-error=incompatible-pointer-types"'
+EXTRA_OEMAKE = 'LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}'
 
 do_install() {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
