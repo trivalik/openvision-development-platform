@@ -103,6 +103,7 @@ OPTIONAL_PACKAGES += "\
 	tmux \
 	transmission \
 	udpxy \
+	unzip \
 	upx \
 	usb-modeswitch \
 	usb-modeswitch-data \
