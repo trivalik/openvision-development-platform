@@ -8,7 +8,6 @@ inherit gitpkgv
 
 PV = "2+git${SRCPV}"
 PKGV = "2+git${GITPKGV}"
-RDEPENDS_${PN} = "enigma2-plugin-systemplugins-transcodingsetup"
 
 SRC_URI = "git://github.com/eriksl/streamproxy.git;protocol=git"
 FILES_${PN} = "${bindir}/streamproxy ${sysconfdir}/init.d/streamproxy.sh ${sysconfdir}/enigma2/streamproxy.conf"
