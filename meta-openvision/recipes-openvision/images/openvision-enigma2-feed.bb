@@ -111,6 +111,7 @@ OPTIONAL_PACKAGES += "\
 	vim \
 	wget \
 	wscan \
+	wireless-tools \
 	yafc \
 	zeroconf \
 	zip \
