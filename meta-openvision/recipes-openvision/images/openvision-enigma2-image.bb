@@ -1,6 +1,8 @@
 require openvision-image.bb
 require ../../recipes-core/package-index/package-index.bb
 
+BB_HASH_IGNORE_MISMATCH = "1"
+
 KERNEL_WIFI_DRIVERS += "\
 	firmware-carl9170 \
 	firmware-htc7010 \
