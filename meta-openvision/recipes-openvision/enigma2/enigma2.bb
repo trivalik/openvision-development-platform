@@ -83,7 +83,7 @@ DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align 
 DESCRIPTION_append_enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
 RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python-twisted-web"
 DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
-RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools iw python-wifi"
+RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
 DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
 # Note that these tools lack recipes
 RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL}"
@@ -100,7 +100,7 @@ ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
 RDEPENDS_${PN}-build-dependencies = "\
 	aio-grab \
 	dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} \
-	wpa-supplicant iw python-wifi \
+	wpa-supplicant wireless-tools python-wifi \
 	python-twisted-web \
 	"
 
