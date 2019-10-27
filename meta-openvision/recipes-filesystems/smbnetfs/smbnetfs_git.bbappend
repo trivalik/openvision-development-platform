@@ -21,3 +21,6 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 755 ${WORKDIR}/init ${D}${sysconfdir}/init.d/${PN}.sh
 }
+
+SRC_URI_remove_su980 += "file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch"
+SRC_URI_remove_sh4 += "file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch"

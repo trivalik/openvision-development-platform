@@ -10,3 +10,8 @@ do_install_append() {
 FILES_${PN} += " ${sysconfdir}/udev/rules.d/98-dbox-devices.rules "
 
 INITSCRIPT_PARAMS_eudev = "stop 04 S ."
+
+SRC_URI_append_sh4 += " \
+    file://add-sh4.patch \
+    file://udev-builtin-input_id.patch \
+"

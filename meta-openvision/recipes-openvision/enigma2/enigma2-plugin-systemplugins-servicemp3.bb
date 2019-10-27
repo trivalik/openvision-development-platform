@@ -116,3 +116,6 @@ FILES_${PN} = "\
 FILES_${PN}-dev = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.py \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.la"
+
+CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "
+CXXFLAGS_append_su980 += " -std=c++11 -fPIC -fno-strict-aliasing "

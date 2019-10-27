@@ -18,3 +18,11 @@ S = "${WORKDIR}/git"
 inherit autotools pkgconfig
 
 EXTRA_OECONF = "ac_cv_prog_c_openmp=-fopenmp"
+
+SRC_URI_azboxhd = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_azboxme = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_azboxminime = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_dm900 = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_dm920 = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_sh4 = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+SRC_URI_su980 = "${GITHUB_URI}/oe-alliance/${BPN}.git"
