@@ -59,6 +59,7 @@ OPTIONAL_PACKAGES += "\
 	nano \
 	nbench-byte \
 	net-tools \
+	netatalk \
 	ntfs-3g \
 	ntp \
 	ofgwrite \
