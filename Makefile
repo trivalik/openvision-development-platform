@@ -87,7 +87,7 @@ hash = $(shell echo $(1) | $(XSUM) | awk '{print $$1}')
 .DEFAULT_GOAL := all
 all: init
 	@echo
-	@echo "Openembedded for the Open Vision $(GIT_BRANCH) environment has been initialized"
+	@echo "OE for Open Vision $(GIT_BRANCH) environment has been initialized"
 	@echo "properly. Now you can start building your image, by doing either:"
 	@echo
 	@echo " MACHINE=... make image"
@@ -119,6 +119,14 @@ image: init
 feed: init
 	@echo 'Building feed for $(MACHINE)$(DMTYPE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openvision-enigma2-feed
+
+kernel-clean: init
+	@echo 'Cleanup kernel for $(MACHINE)$(DMTYPE)'
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean virtual/kernel
+
+version-clean: init
+	@echo 'Cleanup openvision-version-info for $(MACHINE)$(DMTYPE)'
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean openvision-version-info
 
 update:
 	@echo 'Updating Git repositories...'
