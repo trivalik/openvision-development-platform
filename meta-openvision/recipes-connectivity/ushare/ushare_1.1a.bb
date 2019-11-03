@@ -3,7 +3,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
 HOMEPAGE = "http://ushare.geexbox.org/"
-DEPENDS = "libupnp1.6 virtual/libiconv virtual/libintl gettext"
+DEPENDS = "libupnp virtual/libiconv virtual/libintl gettext"
 SRC_URI = "http://ushare.geexbox.org/releases/ushare-${PV}.tar.bz2 \
         file://remove-lsb-dependency.patch \
         file://0002-ushare-fix-building-with-gcc-5.x.patch \
