@@ -157,6 +157,7 @@
 # Edision
 * osmega
 * osmini
+* osmini4k
 * osminiplus
 * osmio4k
 * osmio4kplus
