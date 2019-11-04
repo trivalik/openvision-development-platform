@@ -50,7 +50,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-openwebif-vision \
 	enigma2-plugin-extensions-pictureplayer \
-	enigma2-plugin-extensions-tmbd \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-extensions-pluginskinmover", "", d)} \
 	enigma2-plugin-extensions-socketmmi \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-skins-pli-hd", "", d)} \
@@ -78,6 +77,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-e2iplayer-deps \
+	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
 	enigma2-plugin-extensions-filecommander \
