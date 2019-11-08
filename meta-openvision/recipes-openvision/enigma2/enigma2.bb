@@ -29,7 +29,7 @@ RDEPENDS_${PN} = " \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
 	enigma2-plugin-extensions-pespeedup \
-	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "glibc-gconv-cp1250", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	ntpdate \
@@ -44,7 +44,7 @@ RDEPENDS_${PN}_append_sh4 += "\
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
-	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "ofgwrite", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "ofgwrite", d)} \
 	python-sendfile \
 	virtual/enigma2-mediaservice \
 	"
@@ -68,7 +68,7 @@ PYTHON_RDEPS = " \
 	python-xml \
 	python-zlib \
 	python-zopeinterface \
-	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "python-imaging", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-imaging", d)} \
 	python-process \
 	python-pyusb \
 	"
