@@ -102,7 +102,7 @@ EXTRA_OECONF = "\
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
-	${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "--with-boxtype=${MACHINE} --with-amlogic" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "--with-boxtype=${MACHINE} --with-boxbrand=${BOX_BRAND} --with-amlogic" , "", d)} \
 	"
 
 do_install_append() {
