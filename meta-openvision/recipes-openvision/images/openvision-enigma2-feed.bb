@@ -18,6 +18,7 @@ OPTIONAL_PACKAGES += "\
 	autossh \
 	ccextractor \
 	ccid \
+	cdtextinfo \
 	cloudflare-dns \
 	ctorrent \
 	cups \
@@ -41,7 +42,6 @@ OPTIONAL_PACKAGES += "\
 	gstplayer \
 	gstreamer1.0-libav \
 	hddtemp \
-	hdparm \
 	inadyn-mt \
 	inetutils \
 	iperf3 \
@@ -68,7 +68,6 @@ OPTIONAL_PACKAGES += "\
 	openresolv \
 	openssh \
 	openvpn \
-	parted \
 	picocom \
 	ppp \
 	procps \
@@ -76,7 +75,6 @@ OPTIONAL_PACKAGES += "\
 	pyload \
 	python-beautifulsoup4 \
 	python-futures \
-	python-ipaddress \
 	python-iso3166 \
 	python-iso639 \
 	python-isodate \
@@ -105,6 +103,7 @@ OPTIONAL_PACKAGES += "\
 	tmux \
 	transmission \
 	udpxy \
+	unrar \
 	unzip \
 	upx \
 	usb-modeswitch \
@@ -112,7 +111,6 @@ OPTIONAL_PACKAGES += "\
 	ushare \
 	v4l-utils \
 	vim \
-	wget \
 	wscan \
 	wireless-tools \
 	yafc \
@@ -175,11 +173,9 @@ EXTRA_WIFI_DRIVERS_remove_sh4 += "\
 OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 
 ENIGMA2_OPTIONAL += "\
-	cdtextinfo \
 	channelsettings-enigma2-meta \
 	dvb-usb-drivers-meta \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "bwlcd96 bwlcd128 bwlcd140 bwlcd255 colorlcd220 colorlcd390 colorlcd400 colorlcd480 colorlcd720 colorlcd800", "enigma2-display-skins", "", d)} \
-	enigma2-pliplugins \
 	${@bb.utils.contains("EXTRA_IMAGEDEPENDS", "vuplus-tuner-turbo", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-arabicsavior \
@@ -209,7 +205,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-extensions-raedquicksignal \
 	enigma2-plugin-extensions-refreshbouquet \
-	${@bb.utils.contains_any("MACHINE", "cube su980 raspberrypi raspberrypi0", "", "enigma2-plugin-extensions-sdgradio", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980", "", "enigma2-plugin-extensions-sdgradio", d)} \
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-vcs \
 	enigma2-plugin-extensions-weathermsn \
@@ -259,7 +255,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-systemplugins-quadpip \
 	enigma2-plugins \
 	enigma2-skins \
-	libcrypto-compat \
 	meta-enigma2-dvdburn \
 	packagegroup-openplugins \
 	picons-enigma2-meta \
