@@ -15,6 +15,8 @@ EXTRA_OECONF = " \
 SRC_URI = "svn://ssl.bulix.org/svn/lcd4linux/;module=trunk;protocol=https;rev=1200 \
     file://lcd4linux.init"
 
+CFLAGS += "-fgnu89-inline"
+
 S =  "${WORKDIR}/trunk"
 
 addtask setlibtool before do_configure after do_patch
