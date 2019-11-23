@@ -93,7 +93,7 @@ do_install_append() {
 	install -m 644 ${WORKDIR}/smbpasswd ${D}${sysconfdir}/samba/private
 }
 
-pkg_postinst_${BPN}-common_prepend() {
+pkg_postinst_ontarget_${PN}-common_prepend() {
 #!/bin/sh
 
 if [ -z "$D" ]; then
