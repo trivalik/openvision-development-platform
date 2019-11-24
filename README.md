@@ -65,6 +65,8 @@ If you want to go clean again, do not remove your "sources" directoy! Never!
 
 If you answered something wrong don't worry, just remove "user.ovstep"!
 
+Recommended to delete the build directory after each openembedded-core submodule update to save disc space!
+
 # Hints for multiple architectures
 
 * Removing the "build" directory solves most of the errors. For a fast remove use "cleanup.sh".
