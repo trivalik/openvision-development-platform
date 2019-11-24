@@ -235,6 +235,13 @@ do_install_append() {
 	install -d ${D}${datadir}/keymaps
 	# remove unused .pyc files
 	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
+	ln -s ${libdir}/enigma2/python/Tools/StbHardware.pyo ${D}${libdir}/enigma2/python/Tools/DreamboxHardware.pyo
+	ln -s ${libdir}/enigma2/python/Components/PackageInfo.pyo ${D}${libdir}/enigma2/python/Components/DreamboxInfoHandler.pyo
+	if [ "${base_libdir}" = "/lib64" ]; then
+		install -d ${D}/usr/lib
+		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
+		ln -s ${libdir}/python2.7 ${D}/usr/lib/python2.7
+	fi
 	# make scripts executable
 	find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
 }
