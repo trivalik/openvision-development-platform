@@ -18,6 +18,7 @@ echo "Each time you run this script all git repositories will get updated to the
 echo ""
 echo -e "${BLUE}Is there a merge conflict with repos?"
 echo -e "Answers are in ${GREEN}green:${NC}"
+echo -e "${BLUE}For development always choose No!"
 echo -e ""
 echo -e "${GREEN}No ${NC}- ${GREEN}Yes"
 echo -e ""
