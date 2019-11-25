@@ -14,7 +14,7 @@ INSANE_SKIP_${PN} += "file-rdeps"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "file://settings \
+SRC_URI = " \
            file://ov.py \
           "
 
@@ -64,9 +64,22 @@ do_install() {
 		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
 	install -d ${D}${sysconfdir}/enigma2
-	install -m 0755 ${WORKDIR}/settings ${D}${sysconfdir}/enigma2
+	#install -m 0755 ${WORKDIR}/settings ${D}${sysconfdir}/enigma2
 	install -d ${D}${libdir}/python2.7
 	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
+}
+pkg_postinst_ontarget_${PN} () {
+touch /etc/enigma2/settings
+if ! grep -qs "config.plugins.CacheFlush" cat /etc/enigma2/settings ; then
+	echo "config.plugins.CacheFlush.free_default=2039" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.timescrinfo=3" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.enable=true" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.timeout=5" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.uncached=0" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.where=1" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.sync=true" >>/etc/enigma2/settings
+	echo "config.plugins.CacheFlush.scrinfo=false" >>/etc/enigma2/settings
+fi
 }
 
 do_install[vardepsexclude] += "DATETIME"
