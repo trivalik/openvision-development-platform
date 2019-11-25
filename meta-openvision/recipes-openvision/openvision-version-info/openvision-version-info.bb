@@ -14,9 +14,7 @@ INSANE_SKIP_${PN} += "file-rdeps"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = " \
-           file://ov.py \
-          "
+SRC_URI = "file://ov.py"
 
 FILES_${PN} = "${sysconfdir} /usr"
 
@@ -63,8 +61,6 @@ do_install() {
 		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
 		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
-	install -d ${D}${sysconfdir}/enigma2
-	#install -m 0755 ${WORKDIR}/settings ${D}${sysconfdir}/enigma2
 	install -d ${D}${libdir}/python2.7
 	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
 }
