@@ -16,22 +16,6 @@ echo "https://github.com/orgs/OpenVisionE2/people"
 echo ""
 echo "Each time you run this script all git repositories will get updated to their latest versions!"
 echo ""
-echo -e "${BLUE}Is there a merge conflict with repos?"
-echo -e "Answers are in ${GREEN}green:${NC}"
-echo -e "${BLUE}For development always choose No!"
-echo -e ""
-echo -e "${GREEN}No ${NC}- ${GREEN}Yes"
-echo -e ""
-echo -e "${BLUE}Enter conflict mode:${NC}"
-echo -e "${GREEN}"
-read CONFLICTMODE
-echo -e "${NC}"
-if [ $CONFLICTMODE != "Yes" -a $CONFLICTMODE != "No" ]
-then
-	echo -e "${BLUE}Not a valid answer!${NC}"
-	echo -e ""
-	exit 0
-fi
 echo -e "${BLUE}Updating from git, please wait ...${NC}"
 echo ""
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
@@ -43,18 +27,7 @@ echo ""
 echo -e "${BLUE}Done!${NC}"
 echo ""
 METAS="$( ls | grep meta- | tr '\n' ' ' | sed 's/ $//g' )"
-if [ $CONFLICTMODE = "No" ]
-then
-	git pull
-fi
-if [ $CONFLICTMODE = "Yes" ]
-then
-	# Lets restore everything first.
-	git checkout .
-	# Clear the modifications we've done to the submodules before updating.
-	git submodule foreach git checkout .
-	git pull --rebase
-fi
+git pull
 rm -rf build/env.source
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
 echo ""
