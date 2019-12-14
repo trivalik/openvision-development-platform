@@ -58,7 +58,7 @@ do_install_append() {
 }
 
 do_compile_append() {
-    python -O -m compileall ${S}
+    python2 -O -m compileall ${S}
 }
 
 python populate_packages_prepend() {
