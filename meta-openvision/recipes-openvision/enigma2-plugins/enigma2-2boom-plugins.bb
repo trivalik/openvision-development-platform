@@ -73,7 +73,7 @@ DESCRIPTION_enigma2-plugin-extensions-yweather = "Yahoo weather plugin by 2boom"
 DESCRIPTION_enigma2-plugin-extensions-ywfh = "Yahoo weather plugin for Hotkey by 2boom"
 
 do_compile_append() {
-    python -O -m compileall ${S}
+    python2 -O -m compileall ${S}
 }
 
 ALLOW_EMPTY_${PN} = "1"

@@ -17,7 +17,7 @@ RDEPENDS_${PN} = "enigma2-plugin-skincomponents-weathercomponent enigma2-plugin-
 S = "${WORKDIR}/git"
 
 do_compile() {
-	python -O -m compileall ${S}/usr/lib/
+	python2 -O -m compileall ${S}/usr/lib/
 }
 
 do_install() {

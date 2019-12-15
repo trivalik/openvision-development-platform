@@ -16,7 +16,7 @@ SRC_URI = "git://github.com/OpenAZBox/AZPlay.git;protocol=git"
 S = "${WORKDIR}/git"
 
 do_compile() {
-	python -O -m compileall ${S}
+	python2 -O -m compileall ${S}
 }
 
 python populate_packages_prepend () {

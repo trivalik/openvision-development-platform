@@ -27,7 +27,7 @@ do_install() {
 	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/LEDBrightnessSetup/*.py \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/LEDBrightnessSetup
 	
-	python -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
+	python2 -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
 }
 
 FILES_enigma2-plugin-systemplugins-manualfancontrol = "${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol"

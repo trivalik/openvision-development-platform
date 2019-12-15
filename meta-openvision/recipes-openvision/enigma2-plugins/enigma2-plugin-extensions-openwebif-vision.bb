@@ -36,7 +36,7 @@ S="${WORKDIR}/git"
 # Just a quick hack to "compile" it
 do_compile() {
 	cheetah-compile -R --nobackup ${S}/plugin
-	python -O -m compileall ${S}
+	python2 -O -m compileall ${S}
 }
 
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif"

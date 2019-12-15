@@ -193,7 +193,7 @@ FILES_enigma2-plugin-skincomponents-reftopiconname += " ${libdir}/enigma2/python
 FILES_enigma2-plugin-skincomponents-reftopiconname-src += " ${libdir}/enigma2/python/Components/Converter/RefToPiconName.py"
 
 do_compile_append() {
-    python -O -m compileall ${S}
+    python2 -O -m compileall ${S}
 }
 
 ALLOW_EMPTY_${PN} = "1"

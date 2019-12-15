@@ -32,7 +32,7 @@ do_install() {
 	install -m 0755 -d ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV/locale
 	cp -av ${S}/lib/python/Plugins/Extensions/HbbTV/locale/*.po ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV/locale
 
-	python -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
+	python2 -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
 }
 
 do_install_append() {

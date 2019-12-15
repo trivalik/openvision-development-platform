@@ -16,7 +16,7 @@ PKGV = "5.2+git${GITPKGV}"
 FILES_${PN} = "/usr/"
 
 do_compile() {
-	python -O -m compileall ${S}/usr/lib/enigma2/python/
+	python2 -O -m compileall ${S}/usr/lib/enigma2/python/
 }
 
 do_install() {

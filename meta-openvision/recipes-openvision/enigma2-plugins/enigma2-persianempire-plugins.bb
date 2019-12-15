@@ -70,7 +70,7 @@ DESCRIPTION_enigma2-plugin-systemplugins-serviceeditor = "Services Editor"
 RDEPENDS_enigma2-plugin-systemplugins-serviceeditor = "enigma2-plugin-systemplugins-satelliteeditor"
 
 do_compile_append() {
-    python -O -m compileall ${S}
+    python2 -O -m compileall ${S}
 }
 
 ALLOW_EMPTY_${PN} = "1"

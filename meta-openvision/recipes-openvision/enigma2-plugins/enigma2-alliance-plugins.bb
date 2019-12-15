@@ -127,7 +127,7 @@ DESCRIPTION_enigma2-plugin-systemplugins-wirelessaccesspoint = "Using a Wireless
 RDEPENDS_enigma2-plugin-systemplugins-wirelessaccesspoint = "bridge-utils hostapd"
 
 do_compile_append() {
-    python -O -m compileall ${S}
+    python2 -O -m compileall ${S}
 }
 
 ALLOW_EMPTY_${PN} = "1"
