@@ -5,19 +5,18 @@ SECTION = "multimedia"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=ed7e492ee44e70125a5d42e118354a13"
 
-inherit gitpkgv
+DEPENDS = "bitstream libev"
+
+inherit gitpkgv autotools-brokensep
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
-
-DEPENDS = "bitstream libev"
 
 SRC_URI = "git://github.com/OpenVisionE2/dvblast.git"
 
 S = "${WORKDIR}/git"
 
-inherit autotools-brokensep
-
 do_compile_prepend() {
         sed -i 's#/usr/local#/usr#' ${S}/Makefile
 }
+
