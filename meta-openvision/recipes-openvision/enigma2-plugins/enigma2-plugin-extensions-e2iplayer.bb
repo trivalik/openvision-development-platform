@@ -15,21 +15,31 @@ PKGV = "git${GITPKGV}"
 
 inherit allarch distutils-openplugins gettext
 
-RCONFLICTS_${PN} = "enigma2-plugin-extensions-iptvplayer"
-RREPLACES_${PN} = "enigma2-plugin-extensions-iptvplayer"
-
 DEPENDS = "gettext-native python"
 
-RRECOMMENDS_${PN} = " \
-	enigma2-plugin-extensions-e2iplayer-deps \
+RDEPENDS_${PN} = " \
+	cmdwrapper \
+	duktape \
+	exteplayer3 \
+	f4mdump \
+	ffmpeg \
+	gst-ifdsrc \
+	gstplayer \
+	hlsdl \
+	iptvsubparser \
+	lsdir \
 	python-compression \
 	python-core \
 	python-e2icjson \
 	python-html \
 	python-json \
+	python-pycurl \
 	python-shell \
 	python-subprocess \
 	python-textutils \
+	rtmpdump \
+	uchardet \
+	wget \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
