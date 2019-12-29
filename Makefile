@@ -143,6 +143,7 @@ $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'export DMTYPE' >> $@
 	@echo 'export BOX_BRAND' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
+	@echo 'export BUILDDIR=$(BUILD_DIR)' >> $@
 
 OPENVISION_CONF_HASH := $(call hash, \
 	'OPENVISION_CONF_VERSION = "1"' \
