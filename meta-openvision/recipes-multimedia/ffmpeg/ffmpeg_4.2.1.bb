@@ -24,6 +24,8 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02 \
 	"
 
+MIPSFPU = "${@bb.utils.contains("TARGET_FPU", "soft", "--disable-mipsfpu", "--enable-mipsfpu", d)}"
+
 SRC_URI = "\
 	git://github.com/FFmpeg/FFmpeg.git \
 	file://01-mips64_cpu_detection.patch \
@@ -203,6 +205,9 @@ EXTRA_FFCONF = " \
 	--disable-txtpages \
 	--disable-vfp \
 	--disable-neon \
+	${@bb.utils.contains("TARGET_ARCH", "mipsel", "${MIPSFPU} --disable-vfp --disable-neon --disable-mipsdsp --disable-mipsdspr2", "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "arm", "--enable-armv6 --enable-armv6t2 --enable-vfp --enable-neon", "", d)} \
+	${@bb.utils.contains("TUNE_FEATURES", "aarch64", "--enable-armv8 --enable-vfp --enable-neon", "", d)} \
 	--disable-debug \
 	--pkg-config="pkg-config" \
 	--enable-zlib \
