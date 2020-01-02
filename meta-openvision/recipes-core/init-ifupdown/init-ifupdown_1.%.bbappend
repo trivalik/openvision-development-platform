@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}: ${THISDIR}/${MACHINE}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}: ${THISDIR}/${PN}/${MACHINE}:"
 
 # override the default interfaces config
 SRC_URI += "\
