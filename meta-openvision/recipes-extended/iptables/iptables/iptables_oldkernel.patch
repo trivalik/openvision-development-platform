@@ -1,6 +1,7 @@
---- iptables-1.6.0/extensions/libebt_log.c.log	2017-08-24 15:12:14.741755634 +0200
-+++ iptables-1.6.0/extensions/libebt_log.c	2017-08-24 15:19:39.961901026 +0200
-@@ -27,6 +27,29 @@
+diff -Naur a/extensions/libebt_log.c b/extensions/libebt_log.c
+--- a/extensions/libebt_log.c	2019-05-27 19:39:32.000000000 +0430
++++ b/extensions/libebt_log.c	2020-01-03 19:53:02.182074948 +0330
+@@ -27,6 +27,28 @@
  #define LOG_LOG    '5'
  #define LOG_IP6    '6'
  
@@ -26,7 +27,6 @@
 +#define EBT_LOG_WATCHER "log"
 +#endif
 +
-+
- typedef struct _code {
+ struct code {
  	char *c_name;
  	int c_val;
