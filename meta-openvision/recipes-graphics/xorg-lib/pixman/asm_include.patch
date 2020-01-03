@@ -1,0 +1,20 @@
+diff -Naur a/pixman/pixman-private.h b/pixman/pixman-private.h
+--- a/pixman/pixman-private.h	2019-04-08 00:01:33.000000000 +0430
++++ b/pixman/pixman-private.h	2020-01-03 21:37:54.002995185 +0330
+@@ -15,6 +15,8 @@
+ 
+ #ifndef __ASSEMBLER__
+ 
++#include <float.h>
++
+ #ifndef PACKAGE
+ #  error config.h must be included before pixman-private.h
+ #endif
+@@ -28,7 +30,6 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <stddef.h>
+-#include <float.h>
+ 
+ #include "pixman-compiler.h"
+ 
