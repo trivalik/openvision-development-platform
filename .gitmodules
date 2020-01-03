@@ -46,7 +46,6 @@
 [submodule "meta-dream"]
 	path = meta-dream
 	url = https://github.com/OpenVisionE2/meta-dream.git
-	branch = upcoming
 [submodule "meta-ebox"]
 	path = meta-ebox
 	url = https://github.com/OpenVisionE2/meta-ebox.git
@@ -101,7 +100,6 @@
 [submodule "meta-sh4"]
 	path = meta-sh4
 	url = https://github.com/OpenVisionE2/meta-sh4.git
-	branch = upcoming
 [submodule "meta-tiviar"]
 	path = meta-tiviar
 	url = https://github.com/OpenVisionE2/meta-tiviar.git
