@@ -32,7 +32,7 @@ then
 	read SUBMODULENAME
 	echo -e "${NC}"
 	cd meta-${SUBMODULENAME}
-	if [ ${SUBMODULENAME} = "dream" -o ${SUBMODULENAME} = "sh4" ];then
+	if [ ${SUBMODULENAME} = "dream" ];then
 		echo "Checking out meta-${SUBMODULENAME} upcoming branch:"
 		git checkout upcoming
 	else
@@ -309,8 +309,8 @@ then
 	echo -e "\n"
 	cd ..
 	cd meta-sh4
-	echo "Checking out meta-sh4 upcoming branch:"
-	git checkout upcoming
+	echo "Checking out meta-sh4 develop branch:"
+	git checkout develop
 	git pull
 	echo -e "\n"
 	cd ..
