@@ -1,5 +1,5 @@
 # Ubuntu 18.04.x LTS setup
-* Run our https://github.com/OpenVisionE2/openvision-development-platform/blob/upcoming/ltsubuntu.sh
+* Run our https://github.com/OpenVisionE2/openvision-development-platform/blob/develop/ltsubuntu.sh
 
 # How to get latest Ubuntu 18.04.x updates
 * Just run our "ltsubuntu.sh" again!
