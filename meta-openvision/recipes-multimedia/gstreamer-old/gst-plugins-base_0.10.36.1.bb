@@ -70,6 +70,8 @@ do_configure_prepend() {
 do_package_qa() {
 }
 
-require mips-only.inc
+require architecture-compatibility.inc
+
 FILES_${PN} += "${datadir}/${BPN}"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"

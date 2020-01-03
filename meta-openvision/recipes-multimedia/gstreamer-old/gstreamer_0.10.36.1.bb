@@ -73,7 +73,8 @@ do_configure_prepend() {
     touch ${S}/ABOUT-NLS
 }
 
-require mips-only.inc
+require architecture-compatibility.inc
+
 FILES_${PN} += " ${libdir}/gstreamer-0.10/*.so"
 FILES_${PN}-dev += " ${libdir}/gstreamer-0.10/*.la ${libdir}/gstreamer-0.10/*.a"
 FILES_${PN}-dbg += " ${libdir}/gstreamer-0.10/.debug/ ${libexecdir}/gstreamer-0.10/.debug/"

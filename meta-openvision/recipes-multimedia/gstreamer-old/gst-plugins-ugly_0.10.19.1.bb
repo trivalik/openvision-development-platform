@@ -60,4 +60,4 @@ do_configure_prepend() {
     touch ${S}/ABOUT-NLS
 }
 
-require mips-only.inc
+require architecture-compatibility.inc
