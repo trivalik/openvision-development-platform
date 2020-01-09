@@ -63,6 +63,7 @@ OPTIONAL_PACKAGES += "\
 	net-tools \
 	ntfs-3g \
 	ntp \
+	nodejs \
 	ofgwrite \
 	openmultiboot \
 	openresolv \
