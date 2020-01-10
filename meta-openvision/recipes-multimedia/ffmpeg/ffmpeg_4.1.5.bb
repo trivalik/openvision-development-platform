@@ -28,20 +28,18 @@ MIPSFPU = "${@bb.utils.contains("TARGET_FPU", "soft", "--disable-mipsfpu", "--en
 
 SRC_URI = "\
 	https://www.ffmpeg.org/releases/${BP}.tar.xz \
-	file://01-mips64_cpu_detection.patch;apply=no \
-	file://02-fix-hls.patch;apply=no \
-	file://03-buffer-size.patch;apply=no \
-	file://04-aac.patch;apply=no \
-	file://05-fix-mpegts.patch;apply=no \
-	file://06-allow_to_choose_rtmp_impl_at_runtime.patch;apply=no \
-	file://07-fix-edit-list-parsing.patch;apply=no \
-	file://08-hls-replace-key-uri.patch;apply=no \
+	file://01-mips64_cpu_detection.patch \
+	file://02-fix-hls.patch \
+	file://03-buffer-size.patch \
+	file://04-aac.patch \
+	file://05-fix-mpegts.patch \
+	file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
+	file://07-fix-edit-list-parsing.patch \
+	file://08-hls-replace-key-uri.patch \
 	"
 
-SRC_URI[md5sum] = "8f7f0a6c5d81ff20d9d65d000a6b419d"
-SRC_URI[sha256sum] = "b95f0ae44798ab1434155ac7f81f30a7e9760a02282e4b5898372c22a335347b"
-
-S = "${WORKDIR}/git"
+SRC_URI[md5sum] = "c7e9f14de0cdabb18344977db45cccaf"
+SRC_URI[sha256sum] = "8033428428efb53252406ebefccc980ddad6ed79df98f70e3c7da448e36a207c"
 
 inherit autotools pkgconfig
 
