@@ -28,6 +28,6 @@ echo -e "${BLUE}Done!${NC}"
 echo ""
 METAS="$( ls | grep meta- | tr '\n' ' ' | sed 's/ $//g' )"
 git pull
-rm -rf build/env.source
+# rm -rf build/env.source
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
 echo ""
