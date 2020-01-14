@@ -8,7 +8,9 @@ PV = "2+git${SRCPV}"
 PKGV = "2+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenPLi/tuxbox-xml.git;protocol=git"
+
 S = "${WORKDIR}/git/xml"
+
 FILES_${PN} = "${sysconfdir}/tuxbox/* /usr/* /var/*"
 
 do_compile() {
@@ -28,5 +30,5 @@ do_install() {
 	ln -s "${sysconfdir}/tuxbox/scce"	"${D}/var/"
 	ln -s "/usr/keys"			"${D}/var/"
 	ln -s "${bindir}"			"${D}/var/"
-	ln -s "${sysconfdir}"				"${D}/var/"
+	ln -s "${sysconfdir}"			"${D}/var/"
 }
