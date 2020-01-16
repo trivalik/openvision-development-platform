@@ -31,3 +31,7 @@ git pull
 # rm -rf build/env.source
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
 echo ""
+echo -e "${BLUE}Use oe-init-build-env to make OE's commands available, please wait ...${NC}"
+source openembedded-core/oe-init-build-env $BUILDDIR
+echo -e ""
+echo -e "${BLUE}Done.${NC}"
