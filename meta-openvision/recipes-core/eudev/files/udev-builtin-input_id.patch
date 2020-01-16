@@ -1,8 +1,18 @@
---- a/src/udev/udev-builtin-input_id.c	2016-03-09 18:19:57.048994784 +0100
-+++ a/src/udev/udev-builtin-input_id.c	2016-03-09 18:20:29.472994168 +0100
-@@ -33,6 +33,14 @@
- #include "udev.h"
+From 4722eb4a161ffb5c3886377d0379d93b96f81c79 Mon Sep 17 00:00:00 2001
+From: Persian Prince <persianpros@yahoo.com>
+Date: Fri, 3 Jan 2020 18:40:59 +0330
+
+---
+ src/udev/udev-builtin-input_id.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/src/udev/udev-builtin-input_id.c b/src/udev/udev-builtin-input_id.c
+index 3c769e3..4c03807 100644
+--- a/src/udev/udev-builtin-input_id.c
++++ b/src/udev/udev-builtin-input_id.c
+@@ -34,6 +34,14 @@
  #include "util.h"
+ #include "missing.h"
  
 +#ifndef BTN_TRIGGER_HAPPY
 +#define BTN_TRIGGER_HAPPY               0x2c0
