@@ -21,7 +21,6 @@ do_install() {
 	install -m 0755 ${S}/showiframe ${D}/${bindir}/
 }
 
-INSANE_SKIP_${PN} += "ldflags"
 
 SRC_URI_append_sh4 += "\
     file://showiframe-sh4.patch \

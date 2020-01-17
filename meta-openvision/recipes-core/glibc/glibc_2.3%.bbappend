@@ -13,4 +13,3 @@ SRC_URI_append_su980 += "\
     file://glibc-fix-with-old-kernel.patch \
 "
 
-INSANE_SKIP_${PN} += "textrel"
