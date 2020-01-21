@@ -97,9 +97,6 @@
 [submodule "meta-vuplus"]
 	path = meta-vuplus
 	url = https://github.com/OpenVisionE2/meta-vuplus.git
-[submodule "meta-wetek"]
-	path = meta-wetek
-	url = https://github.com/OpenVisionE2/meta-wetek.git
 [submodule "meta-xcore"]
 	path = meta-xcore
 	url = https://github.com/OpenVisionE2/meta-xcore.git
