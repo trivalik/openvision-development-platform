@@ -23,11 +23,11 @@ echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machin
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
 echo -e "${GREEN}Amiko ${NC}- ${GREEN}AX ${NC}- ${GREEN}AZBox  ${NC}- ${GREEN}Beyonwiz ${NC}- ${GREEN}BlackBox ${NC}- ${GREEN}BroadMedia ${NC}- ${GREEN}Ceryon"
-echo -e "Clap ${NC}- ${GREEN}Cube ${NC}- ${GREEN}DAGS ${NC}- ${GREEN}Dinobot ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}EBox ${NC}- ${GREEN}Edision ${NC}- ${GREEN}Entwopia"
-echo -e "Formuler ${NC}- ${GREEN}GFutures ${NC}- ${GREEN}GigaBlue ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}INI ${NC}- ${GREEN}IXUSS"
-echo -e "Linkdroid ${NC}- ${GREEN}MaxyTec ${NC}- ${GREEN}MINIX ${NC}- ${GREEN}Octagon ${NC}- ${GREEN}Odin ${NC}- ${GREEN}Odroid"
-echo -e "Protek ${NC}- ${GREEN}RaspberryPi ${NC}- ${GREEN}SH4 ${NC}- ${GREEN}Tiviar ${NC}- ${GREEN}Tripledot"
-echo -e "Uclan ${NC}- ${GREEN}UltraMini ${NC}- ${GREEN}VuPlus ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}XCore ${NC}- ${GREEN}XP"
+echo -e "Clap ${NC}- ${GREEN}DAGS ${NC}- ${GREEN}Dinobot ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}EBox ${NC}- ${GREEN}Edision ${NC}- ${GREEN}Entwopia"
+echo -e "Formuler ${NC}- ${GREEN}GFutures ${NC}- ${GREEN}GigaBlue ${NC}- ${GREEN}INI ${NC}- ${GREEN}IXUSS"
+echo -e "MaxyTec ${NC}- ${GREEN}Octagon ${NC}- ${GREEN}Odin"
+echo -e "Protek ${NC}- ${GREEN}SH4 ${NC}- ${GREEN}Tiviar ${NC}- ${GREEN}Tripledot"
+echo -e "Uclan ${NC}- ${GREEN}UltraMini ${NC}- ${GREEN}VuPlus ${NC}- ${GREEN}XCore ${NC}- ${GREEN}XP"
 echo -e "Xtrend ${NC}- ${GREEN}Zgemma ${NC}- ${GREEN}Specific"
 echo -e ""
 echo -e "${GREEN}Specific${BLUE}: You have a specific machine in mind, Check ${NC}Vision-metas.md"
@@ -36,7 +36,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "Amiko" -a $META != "AX" -a $META != "AZBox" -a $META != "Beyonwiz" -a $META != "BlackBox" -a $META != "BroadMedia" -a $META != "Ceryon" -a $META != "Clap" -a $META != "Cube" -a $META != "DAGS" -a $META != "Dinobot" -a $META != "Dreambox" -a $META != "EBox" -a $META != "Edision" -a $META != "Entwopia" -a $META != "Formuler" -a $META != "GFutures" -a $META != "GigaBlue" -a $META != "HyperCube" -a $META != "INI" -a $META != "IXUSS" -a $META != "Linkdroid" -a $META != "MaxyTec" -a $META != "MINIX" -a $META != "Octagon" -a $META != "Odin" -a $META != "Odroid" -a $META != "Protek" -a $META != "RaspberryPi" -a $META != "SH4" -a $META != "Tiviar" -a $META != "Tripledot" -a $META != "Uclan" -a $META != "UltraMini" -a $META != "VuPlus" -a $META != "WeTek" -a $META != "XCore" -a $META != "XP" -a $META != "Xtrend" -a $META != "Zgemma" -a $META != "Specific" ]
+if [ $META != "Amiko" -a $META != "AX" -a $META != "AZBox" -a $META != "Beyonwiz" -a $META != "BlackBox" -a $META != "BroadMedia" -a $META != "Ceryon" -a $META != "Clap" -a $META != "DAGS" -a $META != "Dinobot" -a $META != "Dreambox" -a $META != "EBox" -a $META != "Edision" -a $META != "Entwopia" -a $META != "Formuler" -a $META != "GFutures" -a $META != "GigaBlue" -a $META != "INI" -a $META != "IXUSS" -a $META != "MaxyTec" -a $META != "Octagon" -a $META != "Odin" -a $META != "Protek" -a $META != "SH4" -a $META != "Tiviar" -a $META != "Tripledot" -a $META != "Uclan" -a $META != "UltraMini" -a $META != "VuPlus" -a $META != "XCore" -a $META != "XP" -a $META != "Xtrend" -a $META != "Zgemma" -a $META != "Specific" ]
 then
 	echo -e "${BLUE}Not a valid answer!${NC}"
 	echo -e ""
@@ -190,10 +190,6 @@ if [ $META = "Clap" ]
 then
 	MACHINE=cc1 $IMAGECMD
 fi
-if [ $META = "Cube" ]
-then
-	MACHINE=cube $IMAGECMD
-fi
 if [ $META = "DAGS" ]
 then
 	MACHINE=force1 $IMAGECMD
@@ -280,7 +276,6 @@ then
 	MACHINE=dm7020hd $IMAGECMD
 	MACHINE=dm7020hdv2 $IMAGECMD
 	MACHINE=dm7080 $IMAGECMD
-	MACHINE=dm800 $IMAGECMD
 	MACHINE=dm8000 $IMAGECMD
 	MACHINE=dm800se $IMAGECMD
 	MACHINE=dm800sev2 $IMAGECMD
@@ -365,10 +360,6 @@ then
 	MACHINE=gbx34k $IMAGECMD
 	MACHINE=gbx3h $IMAGECMD
 fi
-if [ $META = "HyperCube" ]
-then
-	MACHINE=su980 $IMAGECMD
-fi
 if [ $META = "INI" ]
 then
 	MACHINE=atemio5x00 $IMAGECMD
@@ -400,28 +391,10 @@ then
 	MACHINE=ixussone $IMAGECMD
 	MACHINE=ixusszero $IMAGECMD
 fi
-if [ $META = "Linkdroid" ]
-then
-	MACHINE=alien4 $IMAGECMD
-	MACHINE=alien5 $IMAGECMD
-	MACHINE=c300 $IMAGECMD
-	MACHINE=c300pro $IMAGECMD
-	MACHINE=c400plus $IMAGECMD
-	MACHINE=k1plus $IMAGECMD
-	MACHINE=k1pro $IMAGECMD
-	MACHINE=k2pro $IMAGECMD
-	MACHINE=k2prov2 $IMAGECMD
-	MACHINE=k3pro $IMAGECMD
-	MACHINE=kvim2 $IMAGECMD
-fi
 if [ $META = "MaxyTec" ]
 then
 	MACHINE=multibox $IMAGECMD
 	MACHINE=v8plus $IMAGECMD
-fi
-if [ $META = "MINIX" ]
-then
-	MACHINE=x8hp $IMAGECMD
 fi
 if [ $META = "Octagon" ]
 then
@@ -445,21 +418,9 @@ then
 	MACHINE=maram9 $IMAGECMD
 	MACHINE=starsatlx $IMAGECMD
 fi
-if [ $META = "Odroid" ]
-then
-	MACHINE=odroidc2 $IMAGECMD
-fi
 if [ $META = "Protek" ]
 then
 	MACHINE=9900lx $IMAGECMD
-fi
-if [ $META = "RaspberryPi" ]
-then
-	MACHINE=raspberrypi $IMAGECMD
-	MACHINE=raspberrypi0 $IMAGECMD
-	MACHINE=raspberrypi2 $IMAGECMD
-	MACHINE=raspberrypi3 $IMAGECMD
-	MACHINE=raspberrypi4 $IMAGECMD
 fi
 if [ $META = "SH4" ]
 then
@@ -550,12 +511,6 @@ then
 	MACHINE=vuuno4kse $IMAGECMD
 	MACHINE=vuzero $IMAGECMD
 	MACHINE=vuzero4k $IMAGECMD
-fi
-if [ $META = "WeTek" ]
-then
-	MACHINE=wetekhub $IMAGECMD
-	MACHINE=wetekplay $IMAGECMD
-	MACHINE=wetekplay2 $IMAGECMD
 fi
 if [ $META = "XCore" ]
 then

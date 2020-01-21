@@ -1,4 +1,4 @@
-# Here is the list of what we support:
+# Here is the list of what 9.3 supports:
 
 # Amiko
 * viper4k
@@ -53,9 +53,6 @@
 
 # Clap
 * cc1
-
-# Cube
-* cube
 
 # DAGS
 * force1
@@ -218,9 +215,6 @@
 * gbx34k
 * gbx3h
 
-# HyperCube
-* su980
-
 # INI
 * atemio5x00
 * atemio6000
@@ -250,25 +244,9 @@
 * ixussone
 * ixusszero
 
-# Linkdroid
-* alien4
-* alien5
-* c300
-* c300pro
-* c400plus
-* k1plus
-* k1pro
-* k2pro
-* k2prov2
-* k3pro
-* kvim2
-
 # MaxyTec
 * multibox
 * v8plus
-
-# MINIX
-* x8hp
 
 # Octagon
 * sf4008
@@ -290,18 +268,8 @@
 * maram9
 * starsatlx
 
-# Odroid
-* odroidc2
-
 # Protek
 * 9900lx
-
-# RaspberryPi
-* raspberrypi
-* raspberrypi0
-* raspberrypi2
-* raspberrypi3
-* raspberrypi4
 
 # SH4
 * adb_box
@@ -386,11 +354,6 @@
 * vuuno4kse
 * vuzero
 * vuzero4k
-
-# WeTek
-* wetekhub
-* wetekplay
-* wetekplay2
 
 # XCore
 * bcm7358

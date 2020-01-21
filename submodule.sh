@@ -177,12 +177,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-cube
-	echo "Checking out meta-cube develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-dags
 	echo "Checking out meta-dags develop branch:"
 	git checkout develop
@@ -237,12 +231,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-hypercube
-	echo "Checking out meta-hypercube develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-ini
 	echo "Checking out meta-ini develop branch:"
 	git checkout develop
@@ -255,20 +243,8 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-linkdroid
-	echo "Checking out meta-linkdroid develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-maxytec
 	echo "Checking out meta-maxytec develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
-	cd meta-minix
-	echo "Checking out meta-minix develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
@@ -285,20 +261,8 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-odroid
-	echo "Checking out meta-odroid develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-protek
 	echo "Checking out meta-protek develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
-	cd meta-raspberrypi
-	echo "Checking out meta-raspberrypi develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
@@ -335,12 +299,6 @@ then
 	cd ..
 	cd meta-vuplus
 	echo "Checking out meta-vuplus develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
-	cd meta-wetek
-	echo "Checking out meta-wetek develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
