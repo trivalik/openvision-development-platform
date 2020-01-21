@@ -70,9 +70,6 @@
 [submodule "meta-maxytec"]
 	path = meta-maxytec
 	url = https://github.com/OpenVisionE2/meta-maxytec.git
-[submodule "meta-minix"]
-	path = meta-minix
-	url = https://github.com/OpenVisionE2/meta-minix.git
 [submodule "meta-octagon"]
 	path = meta-octagon
 	url = https://github.com/OpenVisionE2/meta-octagon.git
