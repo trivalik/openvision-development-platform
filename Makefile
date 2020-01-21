@@ -31,7 +31,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-broadmedia \
 	$(CURDIR)/meta-ceryon \
 	$(CURDIR)/meta-clap \
-	$(CURDIR)/meta-cube \
 	$(CURDIR)/meta-dags \
 	$(CURDIR)/meta-dinobot \
 	$(CURDIR)/meta-dream \
@@ -41,23 +40,17 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-formuler \
 	$(CURDIR)/meta-gfutures \
 	$(CURDIR)/meta-gigablue \
-	$(CURDIR)/meta-hypercube \
 	$(CURDIR)/meta-ini \
 	$(CURDIR)/meta-ixuss \
-	$(CURDIR)/meta-linkdroid \
 	$(CURDIR)/meta-maxytec \
-	$(CURDIR)/meta-minix \
 	$(CURDIR)/meta-octagon \
 	$(CURDIR)/meta-odin \
-	$(CURDIR)/meta-odroid \
 	$(CURDIR)/meta-protek \
-	$(CURDIR)/meta-raspberrypi \
 	$(CURDIR)/meta-sh4 \
 	$(CURDIR)/meta-tiviar \
 	$(CURDIR)/meta-tripledot \
 	$(CURDIR)/meta-uclan \
 	$(CURDIR)/meta-vuplus \
-	$(CURDIR)/meta-wetek \
 	$(CURDIR)/meta-xcore \
 	$(CURDIR)/meta-xp \
 	$(CURDIR)/meta-xtrend \
