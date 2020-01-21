@@ -34,9 +34,6 @@
 [submodule "meta-clap"]
 	path = meta-clap
 	url = https://github.com/OpenVisionE2/meta-clap.git
-[submodule "meta-cube"]
-	path = meta-cube
-	url = https://github.com/OpenVisionE2/meta-cube.git
 [submodule "meta-dags"]
 	path = meta-dags
 	url = https://github.com/OpenVisionE2/meta-dags.git
