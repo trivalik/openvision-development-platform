@@ -15,7 +15,7 @@ echo -e "${NC}Enter submodule type:${GREEN}"
 echo -e ""
 read SUBMODULETYPE
 echo -e "${NC}"
-if [ $SUBMODULETYPE != "All" -a $SUBMODULETYPE != "Specific" -a $SUBMODULETYPE != "BitBake" -a $SUBMODULETYPE != "OpenEmbedded" -a $SUBMODULETYPE != "Core" ]
+if [ $SUBMODULETYPE != "All" -a $SUBMODULETYPE != "Specific" -a $SUBMODULETYPE != "BitBake" -a $SUBMODULETYPE != "OpenEmbedded" -a $SUBMODULETYPE != "Core"  -a $SUBMODULETYPE != "Python2"]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -116,6 +116,30 @@ then
 	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
 	if [ "$choice" = "P" -o "$choice" = "p" ];then
 		git commit -S -m "Update openembedded-core submodule using submodule.sh"
+		echo "Stage 3: git push for new changes"
+		echo ""
+		git push
+		echo "Done: the repository got updated to its latest version!"
+		echo ""
+	else 
+		exit 0
+	fi
+fi
+if [ $SUBMODULETYPE = "Python2" ]
+then
+	cd meta-python2
+	echo "Checking out meta-python2 master branch:"
+	git checkout master
+	git pull
+	echo -e "\n"
+	cd ..
+	echo "Stage 2: git add for new changes"
+	echo ""
+	git add meta-python2
+	git commit --dry-run
+	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
+	if [ "$choice" = "P" -o "$choice" = "p" ];then
+		git commit -S -m "Update meta-python2 submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
 		git push
