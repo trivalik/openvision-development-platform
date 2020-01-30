@@ -15,7 +15,7 @@ echo -e "${NC}Enter submodule type:${GREEN}"
 echo -e ""
 read SUBMODULETYPE
 echo -e "${NC}"
-if [ $SUBMODULETYPE != "All" -a $SUBMODULETYPE != "Specific" -a $SUBMODULETYPE != "BitBake" -a $SUBMODULETYPE != "OpenEmbedded" -a $SUBMODULETYPE != "Core"  -a $SUBMODULETYPE != "Python2"]
+if [ $SUBMODULETYPE != "All" -a $SUBMODULETYPE != "Specific" -a $SUBMODULETYPE != "BitBake" -a $SUBMODULETYPE != "OpenEmbedded" -a $SUBMODULETYPE != "Core" -a $SUBMODULETYPE != "Python2"]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
