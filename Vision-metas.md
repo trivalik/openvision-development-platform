@@ -127,7 +127,6 @@
 * iziboxx3
 * jdhdduo
 * protek4kx1
-* spycatminiv2
 * turing
 
 # Dreambox

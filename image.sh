@@ -264,7 +264,6 @@ then
 	MACHINE=iziboxx3 $IMAGECMD
 	MACHINE=jdhdduo $IMAGECMD
 	MACHINE=protek4kx1 $IMAGECMD
-	MACHINE=spycatminiv2 $IMAGECMD
 	MACHINE=turing $IMAGECMD
 fi
 if [ $META = "Dreambox" ]
