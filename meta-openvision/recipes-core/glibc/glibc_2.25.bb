@@ -26,7 +26,7 @@ SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
            file://0008-__ieee754_sqrt-f-are-now-inline-functions-and-call-o.patch \
            file://0009-Quote-from-bug-1443-which-explains-what-the-patch-do.patch \
            file://0010-eglibc-run-libm-err-tab.pl-with-specific-dirs-in-S.patch \
-           file://0011-__ieee754_sqrt-f-are-now-inline-functions-and-call-o.patch \
+           file://0011-225__ieee754_sqrt-f-are-now-inline-functions-and-call-o.patch \
            file://0012-Make-ld-version-output-matching-grok-gold-s-output.patch \
            file://0013-sysdeps-gnu-configure.ac-handle-correctly-libc_cv_ro.patch \
            file://0014-Add-unused-attribute.patch \
