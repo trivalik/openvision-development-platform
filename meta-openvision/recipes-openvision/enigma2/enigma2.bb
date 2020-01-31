@@ -68,6 +68,7 @@ PYTHON_RDEPS = "\
 	python-fcntl \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging python-service-identity", d)} \
 	python-lang \
+	python-mmap \
 	python-netclient \
 	python-netserver \
 	python-numbers \
