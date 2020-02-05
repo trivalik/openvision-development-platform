@@ -88,7 +88,6 @@ do_install() {
 	rm -rf ${D}${datadir}/zoneinfo
 	rm -rf ${D}${libexecdir}/getconf
 
-do_install_append () {
 	rm -f ${D}${sysconfdir}/localtime
 	rm -rf ${D}${localstatedir}
 
