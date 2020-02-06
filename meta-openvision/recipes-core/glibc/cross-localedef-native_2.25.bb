@@ -38,7 +38,6 @@ SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
            file://0001-Include-locale_t.h-compatibility-header.patch \
            file://add_missing_IOfwide.patch \
            file://0024-localedef-add-to-archive-uses-a-hard-coded-locale-pa.patch \
-           file://0001-Include-locale_t.h-compatibility-header.patch \
            file://add-cross-localedef-hardlink.patch \
            file://allow-compile-separate-from-util-linux-hardlink.patch \
            file://0030-glibc-add-no-hard-links-option.patch \
