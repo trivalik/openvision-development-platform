@@ -8,6 +8,13 @@ LIC_FILES_CHKSUM = "file://LICENSES;md5=e9a558e243b36d3209f380deb394b213 \
       file://posix/rxspencer/COPYRIGHT;md5=dc5485bb394a13b2332ec1c785f5d83a \
       file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c"
 
+SRCBRANCH ?= "release/${PV}/master"
+PV = "2.25"
+SRCREV_glibc ?= "a0408ec51ea862dda102482036c401d2e707e20b"
+SRCREV_localedef ?= "29869b6dc11427c5bab839bdb155c85a7c644c71"
+
+GLIBC_GIT_URI ?= "git://sourceware.org/git/glibc.git"
+
 # Tell autotools that we're working in the localedef directory
 #
 AUTOTOOLS_SCRIPT_PATH = "${S}/localedef"
@@ -16,13 +23,6 @@ inherit native
 inherit autotools
 
 FILESEXTRAPATHS =. "${FILE_DIRNAME}/${PN}:${FILE_DIRNAME}/glibc:"
-
-SRCBRANCH ?= "release/${PV}/master"
-GLIBC_GIT_URI ?= "git://sourceware.org/git/glibc.git"
-UPSTREAM_CHECK_GITTAGREGEX = "(?P<pver>\d+\.\d+(\.(?!90)\d+)*)"
-
-SRCREV_glibc ?= "db0242e3023436757bbc7c488a779e6e3343db04"
-SRCREV_localedef ?= "29869b6dc11427c5bab839bdb155c85a7c644c71"
 
 SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
            git://github.com/kraj/localedef;branch=master;name=localedef;destsuffix=git/localedef \
@@ -35,9 +35,8 @@ SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
            file://0023-eglibc-Install-PIC-archives.patch \
            file://0024-eglibc-Forward-port-cross-locale-generation-support.patch \
            file://0025-Define-DUMMY_LOCALE_T-if-not-defined.patch \
-           file://0001-Include-locale_t.h-compatibility-header.patch \
-           file://add_missing_IOfwide.patch \
            file://0024-localedef-add-to-archive-uses-a-hard-coded-locale-pa.patch \
+           file://0001-Include-locale_t.h-compatibility-header.patch \
            file://add-cross-localedef-hardlink.patch \
            file://allow-compile-separate-from-util-linux-hardlink.patch \
            file://0030-glibc-add-no-hard-links-option.patch \
@@ -49,9 +48,10 @@ SRCREV_FORMAT = "glibc_localedef"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = "--with-glibc=${S}"
-CFLAGS += "-fgnu89-inline -std=gnu99 -DIS_IN\(x\)='0'"
+CFLAGS += "-fgnu89-inline -std=gnu99 -D_IO_fwide=fwide -DIS_IN\(x\)='0'"
 
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 ${B}/localedef ${D}${bindir}/cross-localedef
+	install -m 0755 ${B}/cross-localedef-hardlink ${D}${bindir}/cross-localedef-hardlink
 }
