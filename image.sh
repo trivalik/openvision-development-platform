@@ -260,11 +260,8 @@ then
 	MACHINE=dinoboth265 $IMAGECMD
 	MACHINE=dinobotu43 $IMAGECMD
 	MACHINE=dinobotu55 $IMAGECMD
-	MACHINE=iziboxecohd $IMAGECMD
 	MACHINE=iziboxx3 $IMAGECMD
-	MACHINE=jdhdduo $IMAGECMD
 	MACHINE=protek4kx1 $IMAGECMD
-	MACHINE=turing $IMAGECMD
 fi
 if [ $META = "Dreambox" ]
 then

@@ -123,11 +123,8 @@
 * dinoboth265
 * dinobotu43
 * dinobotu55
-* iziboxecohd
 * iziboxx3
-* jdhdduo
 * protek4kx1
-* turing
 
 # Dreambox
 * dm500hd
