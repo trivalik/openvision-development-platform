@@ -53,7 +53,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-pictureplayer \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-pluginskinmover", "", d)} \
 	enigma2-plugin-extensions-socketmmi \
-	enigma2-plugin-skins-octetfhd \
+	enigma2-plugin-skins-pli-hd \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "enigma2-plugin-systemplugins-animationsetup", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "ci", "enigma2-plugin-systemplugins-commoninterfaceassignment", "", d)} \
@@ -87,7 +87,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
-	enigma2-plugin-skins-pli-hd \
+	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
@@ -135,7 +135,7 @@ IMAGE_INSTALL += "\
 	libcrypto-compat \
 	settings-autorestore \
 	tuxbox-links \
-	${@bb.utils.contains_any("MACHINE", "vuuno4kse vuultimo4k vuduo4k", "vuplus-hdmi-in-helper", "", d)} \
+	${@bb.utils.contains_any("MACHINE", "vuuno4kse vuultimo4k vuduo4k", "vuplus-hdmi-in-helper", "", d)} \	
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	${MACHINE_FEATURE_RELATED_PLUGINS} \
