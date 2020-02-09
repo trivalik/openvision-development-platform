@@ -23,7 +23,6 @@ RDEPENDS_${PN} = "\
 
 RRECOMMENDS_${PN} = "\
 	glib-networking \
-	virtual/gstreamer${GST_VERSION}-dvbmediasink \
 	libeplayer3 \
 	"
 
