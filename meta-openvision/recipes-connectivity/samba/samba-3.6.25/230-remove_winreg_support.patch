@@ -1,37 +1,6 @@
-From a22a9ea014f60f71f1daee48412bde3e82caf4fe Mon Sep 17 00:00:00 2001
-From: Persian Prince <persianpros@yahoo.com>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-
----
- source3/librpc/rpc/rpc_common.c           |  2 ++
- source3/rpc_server/rpc_ep_setup.c         |  8 ++++++++
- source3/rpc_server/svcctl/srv_svcctl_nt.c |  2 ++
- source3/rpcclient/rpcclient.c             |  2 ++
- source3/services/svc_winreg_glue.c        | 12 ++++++++++++
- source3/smbd/server_exit.c                |  2 ++
- 6 files changed, 28 insertions(+)
-
-diff --git a/source3/librpc/rpc/rpc_common.c b/source3/librpc/rpc/rpc_common.c
-index a233055..987ebdf 100644
---- a/source3/librpc/rpc/rpc_common.c
-+++ b/source3/librpc/rpc/rpc_common.c
-@@ -112,9 +112,11 @@ static bool initialize_interfaces(void)
- 	if (!smb_register_ndr_interface(&ndr_table_wkssvc)) {
- 		return false;
- 	}
-+#ifdef WINREG_SUPPORT
- 	if (!smb_register_ndr_interface(&ndr_table_winreg)) {
- 		return false;
- 	}
-+#endif
- #ifdef PRINTER_SUPPORT
- 	if (!smb_register_ndr_interface(&ndr_table_spoolss)) {
- 		return false;
-diff --git a/source3/rpc_server/rpc_ep_setup.c b/source3/rpc_server/rpc_ep_setup.c
-index 22e4374..1d27349 100644
 --- a/source3/rpc_server/rpc_ep_setup.c
 +++ b/source3/rpc_server/rpc_ep_setup.c
-@@ -409,6 +409,7 @@ static bool epmapper_shutdown_cb(void *ptr)
+@@ -409,6 +409,7 @@ static bool epmapper_shutdown_cb(void *p
  	return true;
  }
  
@@ -73,7 +42,7 @@ index 22e4374..1d27349 100644
  
  	if (StrCaseCmp(rpcsrv_type, "embedded") == 0 ||
  	    StrCaseCmp(rpcsrv_type, "daemon") == 0) {
-@@ -1077,12 +1083,14 @@ bool dcesrv_ep_setup(struct tevent_context *ev_ctx,
+@@ -1077,12 +1083,14 @@ bool dcesrv_ep_setup(struct tevent_conte
  		}
  	}
  
@@ -88,8 +57,32 @@ index 22e4374..1d27349 100644
  
  	srvsvc_cb.init         = srvsvc_init_cb;
  	srvsvc_cb.shutdown     = NULL;
-diff --git a/source3/rpc_server/svcctl/srv_svcctl_nt.c b/source3/rpc_server/svcctl/srv_svcctl_nt.c
-index 9509c0d..9d51c89 100644
+--- a/source3/smbd/server_exit.c
++++ b/source3/smbd/server_exit.c
+@@ -150,7 +150,9 @@ static void exit_server_common(enum serv
+ #endif
+ 
+ 		rpc_srvsvc_shutdown();
++#ifdef WINREG_SUPPORT
+ 		rpc_winreg_shutdown();
++#endif
+ 
+ 		rpc_netlogon_shutdown();
+ 		rpc_samr_shutdown();
+--- a/source3/librpc/rpc/rpc_common.c
++++ b/source3/librpc/rpc/rpc_common.c
+@@ -112,9 +112,11 @@ static bool initialize_interfaces(void)
+ 	if (!smb_register_ndr_interface(&ndr_table_wkssvc)) {
+ 		return false;
+ 	}
++#ifdef WINREG_SUPPORT
+ 	if (!smb_register_ndr_interface(&ndr_table_winreg)) {
+ 		return false;
+ 	}
++#endif
+ #ifdef PRINTER_SUPPORT
+ 	if (!smb_register_ndr_interface(&ndr_table_spoolss)) {
+ 		return false;
 --- a/source3/rpc_server/svcctl/srv_svcctl_nt.c
 +++ b/source3/rpc_server/svcctl/srv_svcctl_nt.c
 @@ -95,9 +95,11 @@ bool init_service_op_table( void )
@@ -104,25 +97,9 @@ index 9509c0d..9d51c89 100644
  
  	svcctl_ops[i].name = talloc_strdup( svcctl_ops, "WINS" );
  	svcctl_ops[i].ops  = &wins_svc_ops;
-diff --git a/source3/rpcclient/rpcclient.c b/source3/rpcclient/rpcclient.c
-index 9c40629..8f6f5cc 100644
---- a/source3/rpcclient/rpcclient.c
-+++ b/source3/rpcclient/rpcclient.c
-@@ -642,7 +642,9 @@ static struct cmd_set *rpcclient_command_list[] = {
- 	drsuapi_commands,
- 	eventlog_commands,
- #endif
-+#ifdef WINREG_SUPPORT
- 	winreg_commands,
-+#endif
- 	NULL
- };
- 
-diff --git a/source3/services/svc_winreg_glue.c b/source3/services/svc_winreg_glue.c
-index 06f3f91..15abbce 100644
 --- a/source3/services/svc_winreg_glue.c
 +++ b/source3/services/svc_winreg_glue.c
-@@ -88,6 +88,10 @@ struct security_descriptor *svcctl_get_secdesc(TALLOC_CTX *mem_ctx,
+@@ -88,6 +88,10 @@ struct security_descriptor *svcctl_get_s
  	NTSTATUS status;
  	WERROR result = WERR_OK;
  
@@ -133,7 +110,7 @@ index 06f3f91..15abbce 100644
  	key = talloc_asprintf(mem_ctx,
  			      "%s\\%s\\Security",
  			      TOP_LEVEL_SERVICES_KEY, name);
-@@ -161,6 +165,10 @@ bool svcctl_set_secdesc(struct messaging_context *msg_ctx,
+@@ -161,6 +165,10 @@ bool svcctl_set_secdesc(struct messaging
  	NTSTATUS status;
  	WERROR result = WERR_OK;
  
@@ -144,7 +121,7 @@ index 06f3f91..15abbce 100644
  	tmp_ctx = talloc_stackframe();
  	if (tmp_ctx == NULL) {
  		return false;
-@@ -272,6 +280,10 @@ const char *svcctl_get_string_value(TALLOC_CTX *mem_ctx,
+@@ -272,6 +280,10 @@ const char *svcctl_get_string_value(TALL
  	NTSTATUS status;
  	WERROR result = WERR_OK;
  
@@ -155,17 +132,15 @@ index 06f3f91..15abbce 100644
  	tmp_ctx = talloc_stackframe();
  	if (tmp_ctx == NULL) {
  		return NULL;
-diff --git a/source3/smbd/server_exit.c b/source3/smbd/server_exit.c
-index 9cac60e..08cb1c7 100644
---- a/source3/smbd/server_exit.c
-+++ b/source3/smbd/server_exit.c
-@@ -150,7 +150,9 @@ static void exit_server_common(enum server_exit_reason how,
+--- a/source3/rpcclient/rpcclient.c
++++ b/source3/rpcclient/rpcclient.c
+@@ -642,7 +642,9 @@ static struct cmd_set *rpcclient_command
+ 	drsuapi_commands,
+ 	eventlog_commands,
  #endif
- 
- 		rpc_srvsvc_shutdown();
 +#ifdef WINREG_SUPPORT
- 		rpc_winreg_shutdown();
+ 	winreg_commands,
 +#endif
+ 	NULL
+ };
  
- 		rpc_netlogon_shutdown();
- 		rpc_samr_shutdown();

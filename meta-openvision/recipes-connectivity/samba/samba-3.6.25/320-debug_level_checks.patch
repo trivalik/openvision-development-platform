@@ -1,13 +1,14 @@
-From dae5ab678fa7e7ded9a266f4a975854c3b02c531 Mon Sep 17 00:00:00 2001
-From: Persian Prince <persianpros@yahoo.com>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-
----
- source3/nmbd/asyncdns.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/source3/nmbd/asyncdns.c b/source3/nmbd/asyncdns.c
-index 9e7707b..826fcbc 100644
+--- a/lib/util/debug.h
++++ b/lib/util/debug.h
+@@ -45,7 +45,7 @@ bool dbghdr( int level, const char *loca
+  * Redefine DEBUGLEVEL because so we don't have to change every source file
+  * that *unnecessarily* references it.
+  */
+-#define DEBUGLEVEL DEBUGLEVEL_CLASS[DBGC_ALL]
++#define DEBUGLEVEL 0
+ 
+ /*
+  * Define all new debug classes here. A class is represented by an entry in
 --- a/source3/nmbd/asyncdns.c
 +++ b/source3/nmbd/asyncdns.c
 @@ -85,7 +85,7 @@ static void asyncdns_process(void)

@@ -1,34 +1,6 @@
-From f2a3eb964d49961002caabc57ca4032a03a3ea13 Mon Sep 17 00:00:00 2001
-From: Persian Prince <persianpros@yahoo.com>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-
----
- source3/lib/netapi/serverinfo.c    | 5 ++++-
- source3/lib/smbconf/smbconf_init.c | 5 ++++-
- source3/smbd/server.c              | 2 ++
- 3 files changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/source3/lib/netapi/serverinfo.c b/source3/lib/netapi/serverinfo.c
-index 8f76b4a..69cf639 100644
---- a/source3/lib/netapi/serverinfo.c
-+++ b/source3/lib/netapi/serverinfo.c
-@@ -557,7 +557,10 @@ static WERROR NetServerSetInfo_l_1005(struct libnetapi_ctx *ctx,
- 		return WERR_INVALID_PARAM;
- 	}
- 
--	if (!lp_config_backend_is_registry()) {
-+#ifdef REGISTRY_BACKEND
-+	if (!lp_config_backend_is_registry())
-+#endif
-+	{
- 		libnetapi_set_error_string(ctx,
- 			"Configuration manipulation requested but not "
- 			"supported by backend");
-diff --git a/source3/lib/smbconf/smbconf_init.c b/source3/lib/smbconf/smbconf_init.c
-index 2587a4f..c8b075e 100644
 --- a/source3/lib/smbconf/smbconf_init.c
 +++ b/source3/lib/smbconf/smbconf_init.c
-@@ -68,9 +68,12 @@ sbcErr smbconf_init(TALLOC_CTX *mem_ctx, struct smbconf_ctx **conf_ctx,
+@@ -68,9 +68,12 @@ sbcErr smbconf_init(TALLOC_CTX *mem_ctx,
  		}
  	}
  
@@ -42,8 +14,20 @@ index 2587a4f..c8b075e 100644
  		err = smbconf_init_txt(mem_ctx, conf_ctx, path);
  	} else if (sep == NULL) {
  		/*
-diff --git a/source3/smbd/server.c b/source3/smbd/server.c
-index 55138cd..4565b0b 100644
+--- a/source3/lib/netapi/serverinfo.c
++++ b/source3/lib/netapi/serverinfo.c
+@@ -557,7 +557,10 @@ static WERROR NetServerSetInfo_l_1005(st
+ 		return WERR_INVALID_PARAM;
+ 	}
+ 
+-	if (!lp_config_backend_is_registry()) {
++#ifdef REGISTRY_BACKEND
++	if (!lp_config_backend_is_registry())
++#endif
++	{
+ 		libnetapi_set_error_string(ctx,
+ 			"Configuration manipulation requested but not "
+ 			"supported by backend");
 --- a/source3/smbd/server.c
 +++ b/source3/smbd/server.c
 @@ -1230,8 +1230,10 @@ extern void build_options(bool screen);

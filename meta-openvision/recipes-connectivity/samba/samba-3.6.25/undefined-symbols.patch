@@ -1,8 +1,3 @@
-From f498c9355cbe170f2cf9fb3b7bb164d8f4301353 Mon Sep 17 00:00:00 2001
-From: Steve Langasek <vorlon@debian.org>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-Subject: [PATCH] Update meta-blackbox submodule using submodule.sh
-
 Description: Fix missing symbols
  Fix missing symbols in libsmbclient (and libnss_wins), and add
  -Wl,-z,defs to the libsmbclient link options to prevent future
@@ -10,18 +5,15 @@ Description: Fix missing symbols
  .
  This should be forwarded upstream once there's a configure test
  for it.
+Author: Steve Langasek <vorlon@debian.org>
 Bug-Debian: http://bugs.debian.org/281181
 Forwarded: no
 
----
- source3/Makefile.in | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/source3/Makefile.in b/source3/Makefile.in
-index d562d17..816acf2 100644
---- a/source3/Makefile.in
-+++ b/source3/Makefile.in
-@@ -2616,7 +2616,7 @@ $(LIBSMBCLIENT_SYMS): $(LIBSMBCLIENT_HEADERS)
+Index: experimental/source3/Makefile.in
+===================================================================
+--- experimental.orig/source3/Makefile.in
++++ experimental/source3/Makefile.in
+@@ -2594,7 +2594,7 @@
  
  $(LIBSMBCLIENT_SHARED_TARGET_SONAME): $(BINARY_PREREQS) $(LIBSMBCLIENT_OBJ) $(LIBSMBCLIENT_THREAD_OBJ) $(LIBSMBCLIENT_SYMS) $(LIBTALLOC) $(LIBTEVENT) $(LIBTDB) $(LIBWBCLIENT)
  	@echo Linking shared library $@

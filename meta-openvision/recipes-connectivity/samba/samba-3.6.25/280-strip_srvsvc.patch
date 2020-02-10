@@ -1,54 +1,6 @@
-From f27d45be5176ccf6e0817528d2451ac660fd61dd Mon Sep 17 00:00:00 2001
-From: Persian Prince <persianpros@yahoo.com>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-
----
- source3/rpc_server/srvsvc/srv_srvsvc_nt.c | 12 ++++
- source3/smbd/lanman.c                     | 73 +++++------------------
- 2 files changed, 26 insertions(+), 59 deletions(-)
-
-diff --git a/source3/rpc_server/srvsvc/srv_srvsvc_nt.c b/source3/rpc_server/srvsvc/srv_srvsvc_nt.c
-index 71fd0e2..6de5a15 100644
---- a/source3/rpc_server/srvsvc/srv_srvsvc_nt.c
-+++ b/source3/rpc_server/srvsvc/srv_srvsvc_nt.c
-@@ -1533,6 +1533,10 @@ WERROR _srvsvc_NetShareSetInfo(struct pipes_struct *p,
- 	TALLOC_CTX *ctx = p->mem_ctx;
- 	union srvsvc_NetShareInfo *info = r->in.info;
- 
-+#ifndef FULL_SRVSVC
-+	return WERR_ACCESS_DENIED;
-+#endif
-+
- 	DEBUG(5,("_srvsvc_NetShareSetInfo: %d\n", __LINE__));
- 
- 	if (!r->in.share_name) {
-@@ -1763,6 +1767,10 @@ WERROR _srvsvc_NetShareAdd(struct pipes_struct *p,
- 	int max_connections = 0;
- 	TALLOC_CTX *ctx = p->mem_ctx;
- 
-+#ifndef FULL_SRVSVC
-+	return WERR_ACCESS_DENIED;
-+#endif
-+
- 	DEBUG(5,("_srvsvc_NetShareAdd: %d\n", __LINE__));
- 
- 	if (r->out.parm_error) {
-@@ -1945,6 +1953,10 @@ WERROR _srvsvc_NetShareDel(struct pipes_struct *p,
- 	struct share_params *params;
- 	TALLOC_CTX *ctx = p->mem_ctx;
- 
-+#ifndef FULL_SRVSVC
-+	return WERR_ACCESS_DENIED;
-+#endif
-+
- 	DEBUG(5,("_srvsvc_NetShareDel: %d\n", __LINE__));
- 
- 	if (!r->in.share_name) {
-diff --git a/source3/smbd/lanman.c b/source3/smbd/lanman.c
-index 4095db2..704a711 100644
 --- a/source3/smbd/lanman.c
 +++ b/source3/smbd/lanman.c
-@@ -2197,6 +2197,10 @@ static bool api_RNetShareAdd(struct smbd_server_connection *sconn,
+@@ -2197,6 +2197,10 @@ static bool api_RNetShareAdd(struct smbd
  	struct srvsvc_NetShareInfo2 info2;
  	struct dcerpc_binding_handle *b;
  
@@ -59,7 +11,7 @@ index 4095db2..704a711 100644
  	if (!str1 || !str2 || !p) {
  		return False;
  	}
-@@ -3589,10 +3593,7 @@ static bool api_RNetServerGetInfo(struct smbd_server_connection *sconn,
+@@ -3589,10 +3593,7 @@ static bool api_RNetServerGetInfo(struct
  	NTSTATUS status;
  	WERROR werr;
  	TALLOC_CTX *mem_ctx = talloc_tos();
@@ -70,7 +22,7 @@ index 4095db2..704a711 100644
  
  	if (!str1 || !str2 || !p) {
  		return False;
-@@ -3655,66 +3656,16 @@ static bool api_RNetServerGetInfo(struct smbd_server_connection *sconn,
+@@ -3655,66 +3656,16 @@ static bool api_RNetServerGetInfo(struct
  	p = *rdata;
  	p2 = p + struct_len;
  
@@ -143,7 +95,7 @@ index 4095db2..704a711 100644
  	}
  
  	if (uLevel > 1) {
-@@ -5405,6 +5356,10 @@ static bool api_RNetSessionEnum(struct smbd_server_connection *sconn,
+@@ -5405,6 +5356,10 @@ static bool api_RNetSessionEnum(struct s
  	uint32_t totalentries, resume_handle = 0;
  	uint32_t count = 0;
  
@@ -154,3 +106,38 @@ index 4095db2..704a711 100644
  	if (!str1 || !str2 || !p) {
  		return False;
  	}
+--- a/source3/rpc_server/srvsvc/srv_srvsvc_nt.c
++++ b/source3/rpc_server/srvsvc/srv_srvsvc_nt.c
+@@ -1533,6 +1533,10 @@ WERROR _srvsvc_NetShareSetInfo(struct pi
+ 	TALLOC_CTX *ctx = p->mem_ctx;
+ 	union srvsvc_NetShareInfo *info = r->in.info;
+ 
++#ifndef FULL_SRVSVC
++	return WERR_ACCESS_DENIED;
++#endif
++
+ 	DEBUG(5,("_srvsvc_NetShareSetInfo: %d\n", __LINE__));
+ 
+ 	if (!r->in.share_name) {
+@@ -1763,6 +1767,10 @@ WERROR _srvsvc_NetShareAdd(struct pipes_
+ 	int max_connections = 0;
+ 	TALLOC_CTX *ctx = p->mem_ctx;
+ 
++#ifndef FULL_SRVSVC
++	return WERR_ACCESS_DENIED;
++#endif
++
+ 	DEBUG(5,("_srvsvc_NetShareAdd: %d\n", __LINE__));
+ 
+ 	if (r->out.parm_error) {
+@@ -1945,6 +1953,10 @@ WERROR _srvsvc_NetShareDel(struct pipes_
+ 	struct share_params *params;
+ 	TALLOC_CTX *ctx = p->mem_ctx;
+ 
++#ifndef FULL_SRVSVC
++	return WERR_ACCESS_DENIED;
++#endif
++
+ 	DEBUG(5,("_srvsvc_NetShareDel: %d\n", __LINE__));
+ 
+ 	if (!r->in.share_name) {

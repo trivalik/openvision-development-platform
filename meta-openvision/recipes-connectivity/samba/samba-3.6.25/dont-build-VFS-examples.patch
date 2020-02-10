@@ -1,20 +1,12 @@
-From 913fd782cf3b6c02a6a96e1bd57dea69ae8b6df3 Mon Sep 17 00:00:00 2001
-From: Christian Perrier <bubulle@debian.org>
-Date: Sun, 19 Jan 2020 11:03:42 +0100
-Subject: [PATCH] Update meta-blackbox submodule using submodule.sh
-
 Description: Do not build VFS examples
+Author: Christian Perrier <bubulle@debian.org>
 Forwarded: not-needed
 
----
- source3/Makefile.in | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
-
-diff --git a/source3/Makefile.in b/source3/Makefile.in
-index 816acf2..ec29232 100644
---- a/source3/Makefile.in
-+++ b/source3/Makefile.in
-@@ -1640,8 +1640,7 @@ idl_full::
+Index: samba/source3/Makefile.in
+===================================================================
+--- samba.orig/source3/Makefile.in
++++ samba/source3/Makefile.in
+@@ -1616,8 +1616,7 @@
  
  
  everything:: all libtalloc libsmbclient libnetapi debug2html smbfilter talloctort replacetort smbconftort modules torture \
@@ -24,7 +16,7 @@ index 816acf2..ec29232 100644
  
  .SUFFIXES:
  .SUFFIXES: .c .o .lo
-@@ -3667,12 +3666,3 @@ bin/smbtorture4: $(BINARY_PREREQS)
+@@ -3552,12 +3551,3 @@
  bin/ndrdump4: $(BINARY_PREREQS)
  	$(MAKE) -f Makefile-smbtorture4 bin/ndrdump4
  
