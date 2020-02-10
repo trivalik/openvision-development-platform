@@ -20,11 +20,8 @@ DEPENDS = "gettext-native python"
 RDEPENDS_${PN} = " \
 	cmdwrapper \
 	duktape \
-	exteplayer3 \
 	f4mdump \
 	ffmpeg \
-	gst-ifdsrc \
-	gstplayer \
 	hlsdl \
 	iptvsubparser \
 	lsdir \
@@ -40,6 +37,7 @@ RDEPENDS_${PN} = " \
 	rtmpdump \
 	uchardet \
 	wget \
+${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3 gst-ifdsrc gstplayer", d)} \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
