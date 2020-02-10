@@ -1,6 +1,18 @@
+From 4f53d24ad3e638820f6736eac74aa5ecac1e49d3 Mon Sep 17 00:00:00 2001
+From: kueken <ohnemailadresse@arcor.de>
+Date: Fri, 7 Feb 2020 14:38:26 +0100
+
+---
+ source3/Makefile.in | 46 ++++++++++++++++++++++++++++++++++++++++-----
+ source3/multi.c     | 35 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 76 insertions(+), 5 deletions(-)
+ create mode 100644 source3/multi.c
+
+diff --git a/source3/Makefile.in b/source3/Makefile.in
+index f10291d..afba785 100644
 --- a/source3/Makefile.in
 +++ b/source3/Makefile.in
-@@ -73,22 +73,22 @@ LDAP_LIBS=@LDAP_LIBS@
+@@ -74,22 +74,22 @@ LDAP_LIBS=@LDAP_LIBS@
  NSCD_LIBS=@NSCD_LIBS@
  UUID_LIBS=@UUID_LIBS@
  LIBWBCLIENT=@LIBWBCLIENT_STATIC@ @LIBWBCLIENT_SHARED@
@@ -27,7 +39,7 @@
  LIBSMBCLIENT_LIBS=@LIBSMBCLIENT_LIBS@
  LIBSMBSHAREMODES_LIBS=@LIBSMBSHAREMODES_LIBS@
  
-@@ -216,7 +216,7 @@ PATH_FLAGS = -DSMB_PASSWD_FILE=\"$(SMB_P
+@@ -217,7 +217,7 @@ PATH_FLAGS = -DSMB_PASSWD_FILE=\"$(SMB_PASSWD_FILE)\" \
  
  # Note that all executable programs now provide for an optional executable suffix.
  
@@ -79,6 +91,9 @@
  bin/smbd@EXEEXT@: $(BINARY_PREREQS) $(SMBD_OBJ) $(LIBTALLOC) $(LIBTEVENT) $(LIBTDB) $(LIBWBCLIENT) @BUILD_POPT@
  	@echo Linking $@
  	@$(CC) -o $@ $(SMBD_OBJ) $(LDFLAGS) $(LDAP_LIBS) @SMBD_FAM_LIBS@ \
+diff --git a/source3/multi.c b/source3/multi.c
+new file mode 100644
+index 0000000..d12a3ef
 --- /dev/null
 +++ b/source3/multi.c
 @@ -0,0 +1,35 @@

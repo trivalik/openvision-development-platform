@@ -1,3 +1,8 @@
+From 49d80d40007d1b83765fac7a296649c8ff512084 Mon Sep 17 00:00:00 2001
+From: "Eloy A. Paris" <peloy@debian.org>
+Date: Sun, 19 Jan 2020 11:03:42 +0100
+Subject: [PATCH] Update meta-blackbox submodule using submodule.sh
+
 Description: Prepare the sources to better respect FHS
  This patch was historically very long but most parts have
  been integrated upstream.
@@ -8,16 +13,23 @@ Description: Prepare the sources to better respect FHS
  .
  We need to provide a migraiton path and go back to the "normal"
  file layout
-Author: Eloy A. Paris <peloy@debian.org>
 Bug-Debian: http://bugs.debian.org/49011
 Forwarded: not-needed
 
+---
+ source3/passdb/pdb_tdb.c       |  2 +-
+ source3/passdb/secrets.c       |  2 +-
+ source3/patches/config-h.patch | 12 ++++++++++++
+ source3/patches/series         |  1 +
+ 4 files changed, 15 insertions(+), 2 deletions(-)
+ create mode 100644 source3/patches/config-h.patch
+ create mode 100644 source3/patches/series
 
-Index: samba/source3/passdb/pdb_tdb.c
-===================================================================
---- samba.orig/source3/passdb/pdb_tdb.c
-+++ samba/source3/passdb/pdb_tdb.c
-@@ -1260,7 +1260,7 @@
+diff --git a/source3/passdb/pdb_tdb.c b/source3/passdb/pdb_tdb.c
+index 28461d0..5a47fd7 100644
+--- a/source3/passdb/pdb_tdb.c
++++ b/source3/passdb/pdb_tdb.c
+@@ -1260,7 +1260,7 @@ static NTSTATUS pdb_init_tdbsam(struct pdb_methods **pdb_method, const char *loc
  	/* save the path for later */
  
  	if (!location) {
@@ -26,11 +38,11 @@ Index: samba/source3/passdb/pdb_tdb.c
  			     PASSDB_FILE_NAME) < 0) {
  			return NT_STATUS_NO_MEMORY;
  		}
-Index: samba/source3/passdb/secrets.c
-===================================================================
---- samba.orig/source3/passdb/secrets.c
-+++ samba/source3/passdb/secrets.c
-@@ -64,7 +64,7 @@
+diff --git a/source3/passdb/secrets.c b/source3/passdb/secrets.c
+index 8d544f1..8b579e7 100644
+--- a/source3/passdb/secrets.c
++++ b/source3/passdb/secrets.c
+@@ -64,7 +64,7 @@ bool secrets_init(void)
  		return True;
  
  	fname = talloc_asprintf(talloc_tos(), "%s/secrets.tdb",
@@ -39,27 +51,28 @@ Index: samba/source3/passdb/secrets.c
  	if (fname == NULL) {
  		return false;
  	}
-Index: samba/docs/manpages/smb.conf.5
-===================================================================
---- samba.orig/docs/manpages/smb.conf.5
-+++ samba/docs/manpages/smb.conf.5
-@@ -7167,7 +7167,7 @@
- .\}
- tdbsam
- \- The TDB based password storage backend\&. Takes a path to the TDB as an optional argument (defaults to passdb\&.tdb in the
--\m[blue]\fBprivate dir\fR\m[]
-+\m[blue]\fBstate directory\fR\m[]
- directory\&.
- .RE
- .sp
-@@ -8038,9 +8038,7 @@
- .PP
- .RS 4
- This parameters defines the directory smbd will use for storing such files as
--smbpasswd
--and
--secrets\&.tdb\&.
-+smbpasswd\&. secrets\&.tdb is stored in state directory on Debian systems\&.
- .sp
- Default:
- \fI\fIprivate dir\fR\fR\fI = \fR\fI${prefix}/private\fR\fI \fR
+diff --git a/source3/patches/config-h.patch b/source3/patches/config-h.patch
+new file mode 100644
+index 0000000..eeb2268
+--- /dev/null
++++ b/source3/patches/config-h.patch
+@@ -0,0 +1,12 @@
++diff -urN source.old//include/config.h.in source//include/config.h.in
++--- source.old//include/config.h.in	2008-11-20 14:45:04.000000000 +0000
+++++ source//include/config.h.in	2008-11-30 21:04:17.990008933 +0000
++@@ -2672,7 +2672,7 @@
++ #undef USE_SETEUID
++ 
++ /* Whether setresuid() is available */
++-#undef USE_SETRESUID
+++#define USE_SETRESUID 1
++ 
++ /* Whether setreuid() is available */
++ #undef USE_SETREUID
+diff --git a/source3/patches/series b/source3/patches/series
+new file mode 100644
+index 0000000..ea0554d
+--- /dev/null
++++ b/source3/patches/series
+@@ -0,0 +1 @@
++config-h.patch,1

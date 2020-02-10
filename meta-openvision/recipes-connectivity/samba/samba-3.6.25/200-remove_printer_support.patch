@@ -1,292 +1,27 @@
---- a/source3/rpc_server/rpc_ep_setup.c
-+++ b/source3/rpc_server/rpc_ep_setup.c
-@@ -1110,6 +1110,10 @@ bool dcesrv_ep_setup(struct tevent_conte
- 					   "rpc_server",
- 					   "spoolss",
- 					   "embedded");
-+#ifndef PRINTER_SUPPORT
-+	if (1) {
-+	} else
-+#endif
- 	if (StrCaseCmp(rpcsrv_type, "embedded") == 0) {
- 		spoolss_cb.init         = spoolss_init_cb;
- 		spoolss_cb.shutdown     = spoolss_shutdown_cb;
---- a/source3/rpcclient/rpcclient.c
-+++ b/source3/rpcclient/rpcclient.c
-@@ -624,7 +624,9 @@ static struct cmd_set *rpcclient_command
- 	lsarpc_commands,
- 	ds_commands,
- 	samr_commands,
-+#ifdef PRINTER_SUPPORT
- 	spoolss_commands,
-+#endif
- 	netlogon_commands,
- 	srvsvc_commands,
- 	dfs_commands,
---- a/source3/printing/spoolssd.c
-+++ b/source3/printing/spoolssd.c
-@@ -165,6 +165,10 @@ void start_spoolssd(struct tevent_contex
- 	NTSTATUS status;
- 	int ret;
- 
-+#ifndef PRINTER_SUPPORT
-+	return;
-+#endif
-+
- 	DEBUG(1, ("Forking SPOOLSS Daemon\n"));
- 
- 	pid = sys_fork();
---- a/source3/utils/net_rpc.c
-+++ b/source3/utils/net_rpc.c
-@@ -7841,6 +7841,10 @@ int net_rpc_printer(struct net_context *
- 		{NULL, NULL, 0, NULL, NULL}
- 	};
- 
-+#ifndef PRINTER_SUPPORT
-+	return 0;
-+#endif
-+
- 	if (argc == 0) {
- 		if (c->display_usage) {
- 			d_printf(_("Usage:\n"));
---- a/source3/smbd/reply.c
-+++ b/source3/smbd/reply.c
-@@ -5208,7 +5208,11 @@ void reply_printopen(struct smb_request
- 		return;
- 	}
- 
--	if (!CAN_PRINT(conn)) {
-+
-+#ifdef PRINTER_SUPPORT
-+	if (!CAN_PRINT(conn))
-+#endif
-+	{
- 		reply_nterror(req, NT_STATUS_ACCESS_DENIED);
- 		END_PROFILE(SMBsplopen);
- 		return;
-@@ -5314,7 +5318,10 @@ void reply_printqueue(struct smb_request
- 	   is really quite gross and only worked when there was only
- 	   one printer - I think we should now only accept it if they
- 	   get it right (tridge) */
--	if (!CAN_PRINT(conn)) {
-+#ifdef PRINTER_SUPPORT
-+	if (!CAN_PRINT(conn))
-+#endif
-+	{
- 		reply_nterror(req, NT_STATUS_ACCESS_DENIED);
- 		END_PROFILE(SMBsplretq);
- 		return;
---- a/source3/smbd/lanman.c
-+++ b/source3/smbd/lanman.c
-@@ -784,6 +784,10 @@ static bool api_DosPrintQGetInfo(struct
- 	union spoolss_JobInfo *job_info = NULL;
- 	union spoolss_PrinterInfo printer_info;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -999,6 +1003,10 @@ static bool api_DosPrintQEnum(struct smb
- 	union spoolss_DriverInfo *driver_info;
- 	union spoolss_JobInfo **job_info;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!param_format || !output_format1 || !p) {
- 		return False;
- 	}
-@@ -3105,6 +3113,10 @@ static bool api_RDosPrintJobDel(struct s
- 	struct spoolss_DevmodeContainer devmode_ctr;
- 	enum spoolss_JobControl command;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -3238,6 +3250,10 @@ static bool api_WPrintQueueCtrl(struct s
- 	struct sec_desc_buf secdesc_ctr;
- 	enum spoolss_PrinterControl command;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !QueueName) {
- 		return False;
- 	}
-@@ -3404,6 +3420,10 @@ static bool api_PrintJobInfo(struct smbd
- 	union spoolss_JobInfo info;
- 	struct spoolss_SetJobInfo1 info1;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -4547,6 +4567,10 @@ static bool api_WPrintJobGetInfo(struct
- 	struct spoolss_DevmodeContainer devmode_ctr;
- 	union spoolss_JobInfo info;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -4685,6 +4709,10 @@ static bool api_WPrintJobEnumerate(struc
- 	uint32_t count = 0;
- 	union spoolss_JobInfo *info;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -4890,6 +4918,10 @@ static bool api_WPrintDestGetInfo(struct
- 	struct spoolss_DevmodeContainer devmode_ctr;
- 	union spoolss_PrinterInfo info;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -5026,6 +5058,10 @@ static bool api_WPrintDestEnum(struct sm
- 	union spoolss_PrinterInfo *info;
- 	uint32_t count;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -5129,6 +5165,10 @@ static bool api_WPrintDriverEnum(struct
- 	int succnt;
- 	struct pack_desc desc;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -5193,6 +5233,10 @@ static bool api_WPrintQProcEnum(struct s
- 	int succnt;
- 	struct pack_desc desc;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
-@@ -5257,6 +5301,10 @@ static bool api_WPrintPortEnum(struct sm
- 	int succnt;
- 	struct pack_desc desc;
- 
-+#ifndef PRINTER_SUPPORT
-+	return False;
-+#endif
-+
- 	if (!str1 || !str2 || !p) {
- 		return False;
- 	}
---- a/source3/smbd/server_exit.c
-+++ b/source3/smbd/server_exit.c
-@@ -141,7 +141,9 @@ static void exit_server_common(enum serv
- 		rpc_eventlog_shutdown();
- 		rpc_ntsvcs_shutdown();
- 		rpc_svcctl_shutdown();
-+#ifdef PRINTER_SUPPORT
- 		rpc_spoolss_shutdown();
-+#endif
- 
- 		rpc_srvsvc_shutdown();
- 		rpc_winreg_shutdown();
---- a/source3/smbd/open.c
-+++ b/source3/smbd/open.c
-@@ -1608,6 +1608,9 @@ static NTSTATUS open_file_ntcreate(conne
- 		 * Most of the passed parameters are ignored.
- 		 */
- 
-+#ifndef PRINTER_SUPPORT
-+		return NT_STATUS_ACCESS_DENIED;
-+#endif
- 		if (pinfo) {
- 			*pinfo = FILE_WAS_CREATED;
- 		}
---- a/source3/smbd/close.c
-+++ b/source3/smbd/close.c
-@@ -643,6 +643,9 @@ static NTSTATUS close_normal_file(struct
- 	status = ntstatus_keeperror(status, tmp);
- 
- 	if (fsp->print_file) {
-+#ifndef PRINTER_SUPPORT
-+		return NT_STATUS_OK;
-+#endif
- 		/* FIXME: return spool errors */
- 		print_spool_end(fsp, close_type);
- 		file_free(req, fsp);
---- a/source3/smbd/fileio.c
-+++ b/source3/smbd/fileio.c
-@@ -298,6 +298,10 @@ ssize_t write_file(struct smb_request *r
- 		uint32_t t;
- 		int ret;
- 
-+#ifndef PRINTER_SUPPORT
-+		return -1;
-+#endif
-+
- 		ret = print_spool_write(fsp, data, n, pos, &t);
- 		if (ret) {
- 			errno = ret;
---- a/source3/smbd/smb2_create.c
-+++ b/source3/smbd/smb2_create.c
-@@ -486,7 +486,10 @@ static struct tevent_req *smbd_smb2_crea
- 		info = FILE_WAS_OPENED;
- 	} else if (CAN_PRINT(smb1req->conn)) {
- 		status = file_new(smb1req, smb1req->conn, &result);
--		if(!NT_STATUS_IS_OK(status)) {
-+#ifdef PRINTER_SUPPORT
-+		if(!NT_STATUS_IS_OK(status))
-+#endif
-+		{
- 			tevent_req_nterror(req, status);
- 			return tevent_req_post(req, ev);
- 		}
---- a/source3/rpc_server/svcctl/srv_svcctl_nt.c
-+++ b/source3/rpc_server/svcctl/srv_svcctl_nt.c
-@@ -85,9 +85,11 @@ bool init_service_op_table( void )
- 
- 	/* add builtin services */
- 
-+#ifdef PRINTER_SUPPORT
- 	svcctl_ops[i].name = talloc_strdup( svcctl_ops, "Spooler" );
- 	svcctl_ops[i].ops  = &spoolss_svc_ops;
- 	i++;
-+#endif
- 
- 	svcctl_ops[i].name = talloc_strdup( svcctl_ops, "NETLOGON" );
- 	svcctl_ops[i].ops  = &netlogon_svc_ops;
+From 7e51df23a6b4efc1f5abee4d62fc33be437d0071 Mon Sep 17 00:00:00 2001
+From: Persian Prince <persianpros@yahoo.com>
+Date: Sun, 19 Jan 2020 11:03:42 +0100
+
+---
+ source3/librpc/rpc/rpc_common.c           |  2 +
+ source3/printing/spoolssd.c               |  4 ++
+ source3/rpc_server/rpc_ep_setup.c         |  4 ++
+ source3/rpc_server/svcctl/srv_svcctl_nt.c |  2 +
+ source3/rpcclient/rpcclient.c             |  2 +
+ source3/smbd/close.c                      |  3 ++
+ source3/smbd/fileio.c                     |  4 ++
+ source3/smbd/lanman.c                     | 48 +++++++++++++++++++++++
+ source3/smbd/open.c                       |  3 ++
+ source3/smbd/process.c                    |  2 +
+ source3/smbd/reply.c                      | 11 +++++-
+ source3/smbd/server.c                     |  7 +++-
+ source3/smbd/server_exit.c                |  2 +
+ source3/smbd/smb2_create.c                |  5 ++-
+ source3/utils/net_rpc.c                   |  4 ++
+ 15 files changed, 98 insertions(+), 5 deletions(-)
+
+diff --git a/source3/librpc/rpc/rpc_common.c b/source3/librpc/rpc/rpc_common.c
+index 7648725..bb79cb8 100644
 --- a/source3/librpc/rpc/rpc_common.c
 +++ b/source3/librpc/rpc/rpc_common.c
 @@ -113,9 +113,11 @@ static bool initialize_interfaces(void)
@@ -301,9 +36,250 @@
  	if (!smb_register_ndr_interface(&ndr_table_netdfs)) {
  		return false;
  	}
+diff --git a/source3/printing/spoolssd.c b/source3/printing/spoolssd.c
+index 83727df..6e2a36e 100644
+--- a/source3/printing/spoolssd.c
++++ b/source3/printing/spoolssd.c
+@@ -165,6 +165,10 @@ void start_spoolssd(struct tevent_context *ev_ctx,
+ 	NTSTATUS status;
+ 	int ret;
+ 
++#ifndef PRINTER_SUPPORT
++	return;
++#endif
++
+ 	DEBUG(1, ("Forking SPOOLSS Daemon\n"));
+ 
+ 	pid = sys_fork();
+diff --git a/source3/rpc_server/rpc_ep_setup.c b/source3/rpc_server/rpc_ep_setup.c
+index ee2aed0..2b27df6 100644
+--- a/source3/rpc_server/rpc_ep_setup.c
++++ b/source3/rpc_server/rpc_ep_setup.c
+@@ -1110,6 +1110,10 @@ bool dcesrv_ep_setup(struct tevent_context *ev_ctx,
+ 					   "rpc_server",
+ 					   "spoolss",
+ 					   "embedded");
++#ifndef PRINTER_SUPPORT
++	if (1) {
++	} else
++#endif
+ 	if (StrCaseCmp(rpcsrv_type, "embedded") == 0) {
+ 		spoolss_cb.init         = spoolss_init_cb;
+ 		spoolss_cb.shutdown     = spoolss_shutdown_cb;
+diff --git a/source3/rpc_server/svcctl/srv_svcctl_nt.c b/source3/rpc_server/svcctl/srv_svcctl_nt.c
+index 18fefad..9509c0d 100644
+--- a/source3/rpc_server/svcctl/srv_svcctl_nt.c
++++ b/source3/rpc_server/svcctl/srv_svcctl_nt.c
+@@ -85,9 +85,11 @@ bool init_service_op_table( void )
+ 
+ 	/* add builtin services */
+ 
++#ifdef PRINTER_SUPPORT
+ 	svcctl_ops[i].name = talloc_strdup( svcctl_ops, "Spooler" );
+ 	svcctl_ops[i].ops  = &spoolss_svc_ops;
+ 	i++;
++#endif
+ 
+ 	svcctl_ops[i].name = talloc_strdup( svcctl_ops, "NETLOGON" );
+ 	svcctl_ops[i].ops  = &netlogon_svc_ops;
+diff --git a/source3/rpcclient/rpcclient.c b/source3/rpcclient/rpcclient.c
+index 316dd7b..67203e0 100644
+--- a/source3/rpcclient/rpcclient.c
++++ b/source3/rpcclient/rpcclient.c
+@@ -624,7 +624,9 @@ static struct cmd_set *rpcclient_command_list[] = {
+ 	lsarpc_commands,
+ 	ds_commands,
+ 	samr_commands,
++#ifdef PRINTER_SUPPORT
+ 	spoolss_commands,
++#endif
+ 	netlogon_commands,
+ 	srvsvc_commands,
+ 	dfs_commands,
+diff --git a/source3/smbd/close.c b/source3/smbd/close.c
+index 36cec1a..2fb5e02 100644
+--- a/source3/smbd/close.c
++++ b/source3/smbd/close.c
+@@ -643,6 +643,9 @@ static NTSTATUS close_normal_file(struct smb_request *req, files_struct *fsp,
+ 	status = ntstatus_keeperror(status, tmp);
+ 
+ 	if (fsp->print_file) {
++#ifndef PRINTER_SUPPORT
++		return NT_STATUS_OK;
++#endif
+ 		/* FIXME: return spool errors */
+ 		print_spool_end(fsp, close_type);
+ 		file_free(req, fsp);
+diff --git a/source3/smbd/fileio.c b/source3/smbd/fileio.c
+index ea607d3..21f17a6 100644
+--- a/source3/smbd/fileio.c
++++ b/source3/smbd/fileio.c
+@@ -298,6 +298,10 @@ ssize_t write_file(struct smb_request *req,
+ 		uint32_t t;
+ 		int ret;
+ 
++#ifndef PRINTER_SUPPORT
++		return -1;
++#endif
++
+ 		ret = print_spool_write(fsp, data, n, pos, &t);
+ 		if (ret) {
+ 			errno = ret;
+diff --git a/source3/smbd/lanman.c b/source3/smbd/lanman.c
+index 0f5d6da..a0e4605 100644
+--- a/source3/smbd/lanman.c
++++ b/source3/smbd/lanman.c
+@@ -784,6 +784,10 @@ static bool api_DosPrintQGetInfo(struct smbd_server_connection *sconn,
+ 	union spoolss_JobInfo *job_info = NULL;
+ 	union spoolss_PrinterInfo printer_info;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -999,6 +1003,10 @@ static bool api_DosPrintQEnum(struct smbd_server_connection *sconn,
+ 	union spoolss_DriverInfo *driver_info;
+ 	union spoolss_JobInfo **job_info;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!param_format || !output_format1 || !p) {
+ 		return False;
+ 	}
+@@ -3105,6 +3113,10 @@ static bool api_RDosPrintJobDel(struct smbd_server_connection *sconn,
+ 	struct spoolss_DevmodeContainer devmode_ctr;
+ 	enum spoolss_JobControl command;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -3238,6 +3250,10 @@ static bool api_WPrintQueueCtrl(struct smbd_server_connection *sconn,
+ 	struct sec_desc_buf secdesc_ctr;
+ 	enum spoolss_PrinterControl command;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !QueueName) {
+ 		return False;
+ 	}
+@@ -3404,6 +3420,10 @@ static bool api_PrintJobInfo(struct smbd_server_connection *sconn,
+ 	union spoolss_JobInfo info;
+ 	struct spoolss_SetJobInfo1 info1;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -4547,6 +4567,10 @@ static bool api_WPrintJobGetInfo(struct smbd_server_connection *sconn,
+ 	struct spoolss_DevmodeContainer devmode_ctr;
+ 	union spoolss_JobInfo info;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -4685,6 +4709,10 @@ static bool api_WPrintJobEnumerate(struct smbd_server_connection *sconn,
+ 	uint32_t count = 0;
+ 	union spoolss_JobInfo *info;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -4890,6 +4918,10 @@ static bool api_WPrintDestGetInfo(struct smbd_server_connection *sconn,
+ 	struct spoolss_DevmodeContainer devmode_ctr;
+ 	union spoolss_PrinterInfo info;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -5026,6 +5058,10 @@ static bool api_WPrintDestEnum(struct smbd_server_connection *sconn,
+ 	union spoolss_PrinterInfo *info;
+ 	uint32_t count;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -5129,6 +5165,10 @@ static bool api_WPrintDriverEnum(struct smbd_server_connection *sconn,
+ 	int succnt;
+ 	struct pack_desc desc;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -5193,6 +5233,10 @@ static bool api_WPrintQProcEnum(struct smbd_server_connection *sconn,
+ 	int succnt;
+ 	struct pack_desc desc;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+@@ -5257,6 +5301,10 @@ static bool api_WPrintPortEnum(struct smbd_server_connection *sconn,
+ 	int succnt;
+ 	struct pack_desc desc;
+ 
++#ifndef PRINTER_SUPPORT
++	return False;
++#endif
++
+ 	if (!str1 || !str2 || !p) {
+ 		return False;
+ 	}
+diff --git a/source3/smbd/open.c b/source3/smbd/open.c
+index 441b8cd..c02f725 100644
+--- a/source3/smbd/open.c
++++ b/source3/smbd/open.c
+@@ -1608,6 +1608,9 @@ static NTSTATUS open_file_ntcreate(connection_struct *conn,
+ 		 * Most of the passed parameters are ignored.
+ 		 */
+ 
++#ifndef PRINTER_SUPPORT
++		return NT_STATUS_ACCESS_DENIED;
++#endif
+ 		if (pinfo) {
+ 			*pinfo = FILE_WAS_CREATED;
+ 		}
+diff --git a/source3/smbd/process.c b/source3/smbd/process.c
+index f43005d..67ad318 100644
 --- a/source3/smbd/process.c
 +++ b/source3/smbd/process.c
-@@ -2423,8 +2423,10 @@ static bool housekeeping_fn(const struct
+@@ -2423,8 +2423,10 @@ static bool housekeeping_fn(const struct timeval *now, void *private_data)
  
  	change_to_root_user();
  
@@ -314,9 +290,40 @@
  
  	/* check if we need to reload services */
  	check_reload(sconn, time_mono(NULL));
+diff --git a/source3/smbd/reply.c b/source3/smbd/reply.c
+index 0585a6e..e1b32d0 100644
+--- a/source3/smbd/reply.c
++++ b/source3/smbd/reply.c
+@@ -5208,7 +5208,11 @@ void reply_printopen(struct smb_request *req)
+ 		return;
+ 	}
+ 
+-	if (!CAN_PRINT(conn)) {
++
++#ifdef PRINTER_SUPPORT
++	if (!CAN_PRINT(conn))
++#endif
++	{
+ 		reply_nterror(req, NT_STATUS_ACCESS_DENIED);
+ 		END_PROFILE(SMBsplopen);
+ 		return;
+@@ -5314,7 +5318,10 @@ void reply_printqueue(struct smb_request *req)
+ 	   is really quite gross and only worked when there was only
+ 	   one printer - I think we should now only accept it if they
+ 	   get it right (tridge) */
+-	if (!CAN_PRINT(conn)) {
++#ifdef PRINTER_SUPPORT
++	if (!CAN_PRINT(conn))
++#endif
++	{
+ 		reply_nterror(req, NT_STATUS_ACCESS_DENIED);
+ 		END_PROFILE(SMBsplretq);
+ 		return;
+diff --git a/source3/smbd/server.c b/source3/smbd/server.c
+index a26dbc4..55138cd 100644
 --- a/source3/smbd/server.c
 +++ b/source3/smbd/server.c
-@@ -123,7 +123,9 @@ static void smb_pcap_updated(struct mess
+@@ -123,7 +123,9 @@ static void smb_pcap_updated(struct messaging_context *msg,
  {
  	struct tevent_context *ev_ctx =
  		talloc_get_type_abort(private_data, struct tevent_context);
@@ -344,3 +351,48 @@
  	if (!is_daemon) {
  		/* inetd mode */
  		TALLOC_FREE(frame);
+diff --git a/source3/smbd/server_exit.c b/source3/smbd/server_exit.c
+index fc77dee..df6fdb2 100644
+--- a/source3/smbd/server_exit.c
++++ b/source3/smbd/server_exit.c
+@@ -141,7 +141,9 @@ static void exit_server_common(enum server_exit_reason how,
+ 		rpc_eventlog_shutdown();
+ 		rpc_ntsvcs_shutdown();
+ 		rpc_svcctl_shutdown();
++#ifdef PRINTER_SUPPORT
+ 		rpc_spoolss_shutdown();
++#endif
+ 
+ 		rpc_srvsvc_shutdown();
+ 		rpc_winreg_shutdown();
+diff --git a/source3/smbd/smb2_create.c b/source3/smbd/smb2_create.c
+index 0862990..c5cd82c 100644
+--- a/source3/smbd/smb2_create.c
++++ b/source3/smbd/smb2_create.c
+@@ -486,7 +486,10 @@ static struct tevent_req *smbd_smb2_create_send(TALLOC_CTX *mem_ctx,
+ 		info = FILE_WAS_OPENED;
+ 	} else if (CAN_PRINT(smb1req->conn)) {
+ 		status = file_new(smb1req, smb1req->conn, &result);
+-		if(!NT_STATUS_IS_OK(status)) {
++#ifdef PRINTER_SUPPORT
++		if(!NT_STATUS_IS_OK(status))
++#endif
++		{
+ 			tevent_req_nterror(req, status);
+ 			return tevent_req_post(req, ev);
+ 		}
+diff --git a/source3/utils/net_rpc.c b/source3/utils/net_rpc.c
+index fb67060..bc1eb99 100644
+--- a/source3/utils/net_rpc.c
++++ b/source3/utils/net_rpc.c
+@@ -7841,6 +7841,10 @@ int net_rpc_printer(struct net_context *c, int argc, const char **argv)
+ 		{NULL, NULL, 0, NULL, NULL}
+ 	};
+ 
++#ifndef PRINTER_SUPPORT
++	return 0;
++#endif
++
+ 	if (argc == 0) {
+ 		if (c->display_usage) {
+ 			d_printf(_("Usage:\n"));

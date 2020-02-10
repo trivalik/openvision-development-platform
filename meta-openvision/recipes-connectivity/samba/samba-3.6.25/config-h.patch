@@ -1,7 +1,16 @@
-diff -urN source.old//include/config.h.in source//include/config.h.in
---- source.old//include/config.h.in	2008-11-20 14:45:04.000000000 +0000
-+++ source//include/config.h.in	2008-11-30 21:04:17.990008933 +0000
-@@ -2672,7 +2672,7 @@
+From 2c0054359d6cbf079e14f41b90ab169a3578f63e Mon Sep 17 00:00:00 2001
+From: Persian Prince <persianpros@yahoo.com>
+Date: Sun, 19 Jan 2020 11:03:42 +0100
+
+---
+ source3/include/config.h.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/source3/include/config.h.in b/source3/include/config.h.in
+index 63f0cf0..1f85235 100644
+--- a/source3/include/config.h.in
++++ b/source3/include/config.h.in
+@@ -3009,7 +3009,7 @@
  #undef USE_SETEUID
  
  /* Whether setresuid() is available */
