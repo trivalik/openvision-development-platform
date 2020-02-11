@@ -12,6 +12,13 @@ OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
 OPTIONAL_BSP_PACKAGES ?= ""
 
+# Get the kernel version, we need it to build conditionally on kernel version.
+# NB: this only works in the feed, as the kernel needs to be build before the headers are available.
+
+inherit linux-kernel-base
+
+KERNEL_VERSION = "${@ get_kernelversion_headers('${STAGING_KERNEL_BUILDDIR}')}"
+
 OPTIONAL_PACKAGES += "\
 	astra-sm \
 	autofs \
@@ -133,15 +140,15 @@ EXTRA_WIFI_DRIVERS += "\
 	firmware-rt8188fu \
 	firmware-rtl8192cufw \
 	firmware-rtl8192eu \
-	mt7601u \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 dm900 dm920 xpeedlx3 sezammarvel mbultra beyonwizt4 atemionemesis vuuno4kse vuzero4k vuduo2 vusolo2 vusolose vuzero", "", "mt7603u", d)} \
+	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
+	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 dm900 dm920 xpeedlx3 sezammarvel mbultra beyonwizt4 atemionemesis vuuno4kse vuzero4k vuduo2 vusolo2 vusolose vuzero force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus", "", "mt7603u", d)} \
 	rt3070 \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8723a", d)} \
-	rt8723bs \
+	${@ 'rt8723bs' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "rt8822bu", d)} \
-	rtl8188eu \
+	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520 x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
 	rtl8192cu \
 	${@bb.utils.contains_any("MACHINE", "osmio4k osmio4kplus osmini4k dm800", "", "rt8814au rtl8192eu", d)} \
