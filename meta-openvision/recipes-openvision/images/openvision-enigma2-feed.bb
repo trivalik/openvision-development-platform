@@ -192,9 +192,9 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-fontinfo \
 	enigma2-plugin-extensions-hdmitest \
 	enigma2-plugin-extensions-historyzapselector \
-	enigma2-plugin-extensions-install-exteplayer3 \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "enigma2-plugin-extensions-install-exteplayer3", d)} \
 	enigma2-plugin-extensions-install-ffmpeg \
-	enigma2-plugin-extensions-install-gstplayer \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "enigma2-plugin-extensions-install-gstplayer", d)} \
 	enigma2-plugin-extensions-keyadder \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "azbox", "enigma2-plugin-extensions-keymapconfig enigma2-plugin-extensions-rsiconfig enigma2-plugin-extensions-rsimediacenter enigma2-plugin-systemplugins-ofwlauncher enigma2-plugin-extensions-aziptv enigma2-plugin-extensions-azplay", "", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "colorlcd colorlcd220 colorlcd390 colorlcd400 colorlcd480 colorlcd720 colorlcd800 bwlcd140 bwlcd255", "enigma2-plugin-extensions-lcd4linux", "", d)} \
@@ -249,7 +249,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-systemplugins-netspeedtest \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \
 	enigma2-plugin-systemplugins-radiotimesemulator \
-	enigma2-plugin-systemplugins-serviceapp \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "enigma2-plugin-systemplugins-serviceapp", d)} \
 	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugin-systemplugins-quadpip \
 	enigma2-plugins \
