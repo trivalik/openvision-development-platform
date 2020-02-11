@@ -37,7 +37,7 @@ RDEPENDS_${PN} = " \
 	rtmpdump \
 	uchardet \
 	wget \
-${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3 gst-ifdsrc gstplayer", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3 gst-ifdsrc gstplayer", d)} \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
