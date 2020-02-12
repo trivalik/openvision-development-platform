@@ -8,8 +8,8 @@ HOMEPAGE = "http://www.rarlab.com"
 SRC_URI = "http://www.rarlab.com/rar/unrarsrc-${PV}.tar.gz \
         file://makefile-nostrip.patch"
 
-SRC_URI[md5sum] = "b1e3f57234288b18f5f9dbe8ef198c3b"
-SRC_URI[sha256sum] = "0eb1d1b8e02102fccae775a6d6b79336b69e2cf90e2045de92594dcfb58de100"
+SRC_URI[md5sum] = "1695c966688dd26f7ba34f6f9f279d0c"
+SRC_URI[sha256sum] = "d208abcceecfee0084bb8a93e9b756319d906a3ac6380ee5d10285fb0ffc4d65"
 
 S = "${WORKDIR}/unrar"
 
