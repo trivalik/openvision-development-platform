@@ -40,13 +40,13 @@ OPTIONAL_PACKAGES += "\
 	dvdfs \
 	evtest \
 	exfat-utils \
-	exteplayer3 \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3", d)} \
 	fuse-exfat \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "gdb", d)} \
 	google-dns \
 	grep \
-	gstplayer \
-	${@bb.utils.contains("MACHINE_FEATURES", "hisil", "", "gstreamer1.0-libav", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstplayer", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "hisil libeplayer", "", "gstreamer1.0-libav", d)} \
 	hddtemp \
 	inadyn-mt \
 	inetutils \
