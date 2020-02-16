@@ -144,13 +144,13 @@ then
 		if [ $LIBEPLAYER = "No" ]
 		then
 			sed -i '/libeplayer/s/^#*/#/g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-			sleep 1
+			sleep 0.1
 			echo -e "${YELLOW}Use GStreamer!${NC}"
 		fi
 		if [ $LIBEPLAYER = "Yes" ]
 		then
 			sed -i '/libeplayer/s/^#*//g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-			sleep 1
+			sleep 0.1
 			echo -e "${YELLOW}Use libeplayer!${NC}"
 		fi
 	fi
@@ -470,14 +470,14 @@ then
 	if [ $LIBEPLAYER = "No" ]
 	then
 		sed -i '/libeplayer/s/^#*/#/g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-		sleep 1
+		sleep 0.1
 		echo -e "${YELLOW}Use GStreamer!${NC}"
 		echo -e ""
 	fi
 	if [ $LIBEPLAYER = "Yes" ]
 	then
 		sed -i '/libeplayer/s/^#*//g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-		sleep 1
+		sleep 0.1
 		echo -e "${YELLOW}Use libeplayer!${NC}"
 		echo -e ""
 	fi
