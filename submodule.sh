@@ -9,7 +9,7 @@ echo "This is only for Open Vision Developers with push access"
 echo ""
 echo -e "First choose what kind of submodule update do you want?"
 echo -e "Answers are in ${GREEN}green:${NC}"
-echo -e "${GREEN}All ${NC}- ${GREEN}Specific ${NC}- ${RED}BitBake ${NC}- ${RED}OpenEmbedded ${NC}- ${RED}Core  ${NC}- ${RED}Python2"
+echo -e "${GREEN}All ${NC}- ${GREEN}Specific ${NC}- ${RED}BitBake ${NC}- ${RED}OpenEmbedded ${NC}- ${RED}Core ${NC}- ${RED}Python2"
 echo -e ""
 echo -e "${NC}Enter submodule type:${GREEN}"
 echo -e ""
@@ -25,7 +25,7 @@ echo "Stage 1: git pull for new changes"
 echo ""
 if [ $SUBMODULETYPE = "Specific" ]
 then
-	echo -e "${NC}Specific mode does not support BitBake, OpenEmbedded and Core"
+	echo -e "${NC}Specific mode does not support BitBake, OpenEmbedded, Core and Python2"
 	echo -e ""
 	echo -e "Enter submodule name without meta-:${GREEN}"
 	echo -e ""
@@ -151,7 +151,7 @@ then
 fi
 if [ $SUBMODULETYPE = "All" ]
 then
-	echo -e "All mode does not support BitBake, OpenEmbedded and Core"
+	echo -e "All mode does not support BitBake, OpenEmbedded, Core and Python2"
 	echo -e ""
 	cd meta-amiko
 	echo "Checking out meta-amiko develop branch:"
