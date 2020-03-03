@@ -84,6 +84,7 @@ echo ""
 echo "sysroots-components cleaned!"
 echo ""
 rm -rf build/tmp/work/$MACHINE-oe-linu*
+rm -rf build/tmp/work/$MACHINE-oemllib32*
 echo ""
 echo "work cleaned!"
 echo ""
