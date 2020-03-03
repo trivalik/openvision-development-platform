@@ -4,6 +4,8 @@ PACKAGE_ARCH := "${MACHINE_ARCH}"
 
 EXTRA_ALSA ?= "normal"
 
+EXTRA_ALSA_dreamone = "dreamone"
+
 EXTRA_ALSA_vuduo4k = "vuplus"
 EXTRA_ALSA_vusolo4k = "vuplus"
 EXTRA_ALSA_vuultimo4k = "vuplus"
