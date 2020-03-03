@@ -72,6 +72,7 @@ echo ""
 echo "sstate-control cleaned!"
 echo ""
 rm -rf build/tmp/stamps/$MACHINE-oe-linu*
+rm -rf build/tmp/stamps/$MACHINE-oemllib32*
 echo ""
 echo "stamps cleaned!"
 echo ""
