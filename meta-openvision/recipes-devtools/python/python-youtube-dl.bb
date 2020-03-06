@@ -52,3 +52,5 @@ FILES_${PN}-src = " \
     "
 
 FILES_${PN} += "${sysconfdir}"
+
+do_configure[nostamp] = "1"
