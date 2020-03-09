@@ -70,8 +70,6 @@ Recommended to delete the build directory after each openembedded-core submodule
 # Hints for multiple architectures
 
 * Removing the "build" directory solves most of the errors. For a fast remove use "cleanup.sh".
-* If you want to compile images for old machines like dm800/cube/su980, first build for them.
-* If you want to compile images for x64 machines like alienx/kxpx series, first build for them.
 * If you want to compile images for 4K machines with ARM architecture and you get error each time, try compile for a Mipsel machine like dm7020hd first then compile your ARM images.
 
 # Blacklisted companies/teams/persons

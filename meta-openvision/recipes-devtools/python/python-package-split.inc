@@ -11,6 +11,10 @@ FILES_${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*.py \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*.py \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*.py \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*.py \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.c \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.c \
@@ -49,6 +53,13 @@ FILES_${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/*.txt \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.txt \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*.txt \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*/*.txt \
     ${PYTHON_SITEPACKAGES_DIR}/doc \
     ${PYTHON_SITEPACKAGES_DIR}/*/doc \
     ${PYTHON_SITEPACKAGES_DIR}/LICENSE \
@@ -56,9 +67,24 @@ FILES_${PN}-doc += " \
     "
 
 FILES_${PN}-dbg += " \
-    ${PYTHON_SITEPACKAGES_DIR}/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*.debug \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*/*.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*/*/*/*/*/*.egg-info \
     "

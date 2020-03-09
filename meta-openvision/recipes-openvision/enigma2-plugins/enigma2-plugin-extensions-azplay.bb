@@ -6,7 +6,7 @@ RDEPENDS_${PN} = "curl fuse libupnp djmount libjpeg-turbo libpng"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit gitpkgv pkgconfig
+inherit gitpkgv pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -14,10 +14,6 @@ PKGV = "git${GITPKGV}"
 SRC_URI = "git://github.com/OpenAZBox/AZPlay.git;protocol=git"
 
 S = "${WORKDIR}/git"
-
-do_compile() {
-	python2 -O -m compileall ${S}
-}
 
 python populate_packages_prepend () {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)

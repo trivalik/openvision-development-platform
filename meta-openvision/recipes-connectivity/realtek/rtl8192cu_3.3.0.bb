@@ -27,13 +27,8 @@ export TM="${MACHINE}"
 do_install() {
     install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
     install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    if [ "$TM" = "dm800" ]
-    then
-         echo "Not autoloading!"
-    else
-         install -d ${D}${sysconfdir}/modules-load.d
-         echo "8192cu" > ${D}${sysconfdir}/modules-load.d/wlan8192cu.conf
-    fi
+    install -d ${D}${sysconfdir}/modules-load.d
+    echo "8192cu" > ${D}${sysconfdir}/modules-load.d/wlan8192cu.conf
 }
 
 FILES_${PN}_append = " \

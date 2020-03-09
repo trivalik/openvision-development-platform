@@ -22,7 +22,7 @@ RRECOMMENDS_${PN} = "unrar"
 
 PV = "0.4.9"
 
-inherit update-rc.d
+inherit update-rc.d compile_python_pyo
 
 SRC_URI = "http://sources.openelec.tv/mirror/pyload/pyload-src-v${PV}.zip \
   file://pyload.init \
@@ -36,10 +36,6 @@ FILES_${PN} = "/usr/pyload/* ${sysconfdir}/*"
 
 INITSCRIPT_NAME = "${PN}"
 INITSCRIPT_PARAMS = "defaults 60 "
-
-do_compile() {
-	python2 -m compileall ${S}
-}
 
 do_install() {
 	install -d ${D}${sysconfdir}/init.d

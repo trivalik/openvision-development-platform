@@ -5,7 +5,7 @@ LICENSE = "GPLv3+"
 HOMEPAGE = "www.gisclub.tv"
 LIC_FILES_CHKSUM = "file://python/Plugins/Extensions/WeatherMSN/plugin.py;beginline=3;endline=19;md5=10bdcaaaec8041e55835067db0506e8d"
 
-inherit gitpkgv allarch
+inherit gitpkgv allarch rm_python_pyc compile_python_pyo no_python_src
 
 PV = "0.7+git${SRCPV}"
 PKGV = "0.7+git${GITPKGV}"
@@ -16,9 +16,6 @@ SRCREV = "ab75d3dd2ac6c26d91b52b237d3b5b55a360d93b"
 FILES_${PN} = "${libdir}/enigma2/"
 
 S = "${WORKDIR}/git"
-
-do_compile() {
-}
 
 do_install() {
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions

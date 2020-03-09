@@ -8,12 +8,10 @@ SRC_URI = "git://github.com/persianpros/e2iplayer.git;protocol=http"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv allarch distutils-openplugins gettext
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
-
-inherit allarch distutils-openplugins gettext
 
 DEPENDS = "gettext-native python"
 
@@ -41,16 +39,6 @@ RDEPENDS_${PN} = " \
 	"
 
 RDEPENDS_{PN}-src = "${PN}"
-
-FILES_${PN}-src = " \
-	${libdir}/enigma2/python/Plugins/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*-py2.7.egg-info/* \
-	${libdir}/enigma2/python/Plugins/*/locale/*/LC_MESSAGES/*.po \
-	"
 
 deltask package_qa
 

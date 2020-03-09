@@ -29,13 +29,9 @@ RDEPENDS_${PN}-src = "python"
 FILES_${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
 FILES_${PN} = "${INSTALLDIR} ${sysconfdir}/init.d/sabnzbd ${sysconfdir}/init.d/init-functions ${sysconfdir}/enigma2/sabnzbd.conf"
 
-inherit update-rc.d
+inherit update-rc.d compile_python_pyo
 INITSCRIPT_NAME = "sabnzbd"
 INITSCRIPT_PARAMS = "defaults"
-
-do_compile() {
-	python2 -O -m compileall .
-}
 
 do_install() {
 	install -d ${D}${INSTALLDIR}

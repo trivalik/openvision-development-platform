@@ -52,13 +52,14 @@ OPTIONAL_PACKAGES += "\
 	inetutils \
 	iperf3 \
 	iproute2 \
-	${@bb.utils.contains("MACHINE", "dm800", "", "iptraf lirc satipclient", d)} \
+	iptraf \
 	iputils \
 	joe \
 	less \
 	libbluray \
 	libsdl2 \
 	libudfread \
+	lirc \
 	mc \
 	mediainfo \
 	minisatip \
@@ -98,6 +99,7 @@ OPTIONAL_PACKAGES += "\
 	rtorrent \
 	sabnzbd \
 	samba \
+	satipclient \
 	screen \
 	sed \
 	shellinabox \
@@ -140,33 +142,15 @@ EXTRA_WIFI_DRIVERS += "\
 	firmware-rtl8192eu \
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
 	rt3070 \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8723a", d)} \
+	rt8188fu \
+	rt8723a \
 	${@ 'rt8723bs' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
+	${@bb.utils.contains_any("MACHINE", "dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "rt8822bu", d)} \
 	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520 x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
+	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520", "", "rtl8189es", d)} \
 	rtl8192cu \
-	${@bb.utils.contains_any("MACHINE", "osmio4k osmio4kplus osmini4k dm800", "", "rt8814au rtl8192eu", d)} \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_cube += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_dm800 += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_su980 += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
+	${@bb.utils.contains_any("MACHINE", "osmio4k osmio4kplus osmini4k", "", "rt8814au rtl8192eu", d)} \
 	"
 
 EXTRA_WIFI_DRIVERS_remove_sh4 += "\

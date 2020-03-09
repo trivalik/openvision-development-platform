@@ -90,7 +90,7 @@ SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "git://github.com
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig
+inherit autotools gitpkgv pythonnative pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -104,16 +104,11 @@ EXTRA_OECONF = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "--with-boxtype=${MACHINE} --with-boxbrand=${BOX_BRAND} --with-amlogic" , "", d)} \
 	"
 
-do_install_append() {
-	rm ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyc
-}
-
 FILES_${PN} = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.so"
 
 FILES_${PN}-dev = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.py \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.la"
 
 CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "

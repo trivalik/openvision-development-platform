@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc
+inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -48,7 +48,7 @@ PROVIDES = "\
     enigma2-plugin-systemplugins-multitranscodingsetup \
     enigma2-plugin-systemplugins-odinm7vfdcontrol \
     enigma2-plugin-systemplugins-remotecontrolcode \
-    ${@bb.utils.contains("MACHINE", "dm800", "", "enigma2-plugin-systemplugins-satipclient", d)} \
+    enigma2-plugin-systemplugins-satipclient \
     enigma2-plugin-systemplugins-sf8vfdcontrol \
     enigma2-plugin-systemplugins-simplefancontrol \
     enigma2-plugin-systemplugins-terrestrialscan \
@@ -79,7 +79,7 @@ DEPENDS = "\
     minidlna \
     neon \
     python-beautifulsoup4 python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
-    ${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
+    satipclient \
     ${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "${TRANSCODING_CHECK}", "", d)} \
     "
 
@@ -130,10 +130,6 @@ DESCRIPTION_enigma2-plugin-systemplugins-transcodingsetup = "Setup transcoding"
 DESCRIPTION_enigma2-plugin-systemplugins-wirelessaccesspoint = "Using a Wireless module as AP."
 RDEPENDS_enigma2-plugin-systemplugins-wirelessaccesspoint = "bridge-utils hostapd"
 
-do_compile_append() {
-    python2 -O -m compileall ${S}
-}
-
 ALLOW_EMPTY_${PN} = "1"
 PACKAGES += "${PN}-meta"
 FILES_${PN}-meta = "${datadir}/meta"
@@ -147,13 +143,6 @@ EXTRA_OECONF = "\
     --with-boxbrand=${BOX_BRAND} \
     --with-arch=${TARGET_ARCH} \
     "
-
-do_install_append() {
-    if [ "${MACHINE}" == "dm800" ]
-    then
-        rm -Rf ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/SatipClient
-    fi
-}
 
 do_package_qa() {
 }
