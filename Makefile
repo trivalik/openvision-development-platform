@@ -52,6 +52,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-tiviar \
 	$(CURDIR)/meta-tripledot \
 	$(CURDIR)/meta-uclan \
+	$(CURDIR)/meta-ultramini \
 	$(CURDIR)/meta-vuplus \
 	$(CURDIR)/meta-xcore \
 	$(CURDIR)/meta-xp \
