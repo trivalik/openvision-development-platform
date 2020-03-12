@@ -35,7 +35,9 @@ echo -e "${BLUE}Done!${NC}"
 echo ""
 METAS="$( ls | grep meta- | tr '\n' ' ' | sed 's/ $//g' )"
 git pull
-# rm -rf build/env.source
+# rm -f ${BUILDDIR}/env.source
+rm -f ${BUILDDIR}/conf/local.conf
+rm -f ${BUILDDIR}/conf/openvision.conf
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
 echo ""
 echo -e "${BLUE}Done.${NC}"
