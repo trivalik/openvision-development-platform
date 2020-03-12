@@ -36,6 +36,7 @@ SRC_URI = "\
 	file://06-allow_to_choose_rtmp_impl_at_runtime.patch \
 	file://07-fix-edit-list-parsing.patch \
 	file://08-hls-replace-key-uri.patch \
+	file://09-Define-soft-mips-variables.patch \
 	"
 
 S = "${WORKDIR}/git"
