@@ -45,11 +45,9 @@ TRANSCODING_CHECK = "${@bb.utils.contains_any("MACHINE_FEATURES", "vuplus gigabl
 
 ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-audiosync \
-	enigma2-plugin-extensions-autobackup \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "${BACKUPSUITE_CHECK}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "enigma2-plugin-extensions-e2iplayer", d)} \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
@@ -63,12 +61,9 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "ci", "enigma2-plugin-systemplugins-commoninterfaceassignment", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "${BLINDSCAN_CHECK}" , "", d)} \
-	enigma2-plugin-systemplugins-fastscan \
-	${@bb.utils.contains_any("MACHINE", "dm900 dm920", "enigma2-plugin-systemplugins-fsblupdater", "", d)} \
 	enigma2-plugin-systemplugins-hdmicec \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
-	enigma2-plugin-systemplugins-osd3dsetup \
 	enigma2-plugin-systemplugins-osdpositionsetup \
 	enigma2-plugin-systemplugins-positionersetup \
 	enigma2-plugin-systemplugins-satfinder \
@@ -80,20 +75,21 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-videotune \
 	enigma2-plugin-systemplugins-wirelesslan \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
+	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
-	enigma2-plugin-extensions-filecommander \
-	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-reconstructapsc \
+	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-mountmanager \
+	enigma2-plugin-systemplugins-osd3dsetup \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
+	enigma2-plugin-extensions-e2iplayer \
+	enigma2-plugin-extensions-filecommander \
+	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
-	enigma2-plugin-extensions-xmodem \
-	enigma2-plugin-skins-octetfhd \
-	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-systemplugins-autobouquetsmaker", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash libeplayer", "", "enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
@@ -148,15 +144,9 @@ IMAGE_INSTALL += "\
 	ntp", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
-	fuse-exfat \
-	minidlna \
 	nfs-utils \
-	ntfs-3g \
 	openssh-sftp-server \
-	samba-base \
-	usb-modeswitch \
-	usb-modeswitch-data \
-	ushare", d)} \
+	samba-base", d)} \
 	"
 
 export IMAGE_BASENAME = "openvision-enigma2"

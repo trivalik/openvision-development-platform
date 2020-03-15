@@ -37,7 +37,7 @@ read META
 echo -e "${NC}"
 if [ $META != "Amiko" -a $META != "AX" -a $META != "AZBox" -a $META != "Beyonwiz" -a $META != "BlackBox" -a $META != "BroadMedia" -a $META != "Ceryon" -a $META != "Clap" -a $META != "DAGS" -a $META != "Dinobot" -a $META != "Dreambox" -a $META != "EBox" -a $META != "Edision" -a $META != "Entwopia" -a $META != "Formuler" -a $META != "GFutures" -a $META != "GigaBlue" -a $META != "INI" -a $META != "IXUSS" -a $META != "MaxyTec" -a $META != "Octagon" -a $META != "Odin" -a $META != "Protek" -a $META != "SH4" -a $META != "Tiviar" -a $META != "Tripledot" -a $META != "Uclan" -a $META != "UltraMini" -a $META != "VuPlus" -a $META != "XCore" -a $META != "XP" -a $META != "Xtrend" -a $META != "Zgemma" -a $META != "Specific" ]
 then
-	echo -e "${BLUE}Not a valid answer!${NC}"
+	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
 	exit 0
 fi
@@ -52,7 +52,7 @@ read IMAGETYPE
 echo -e "${NC}"
 if [ $IMAGETYPE != "Vision" -a $IMAGETYPE != "Feed" -a $IMAGETYPE != "Kernel-Clean" -a $IMAGETYPE != "Version-Clean" ]
 then
-	echo -e "${BLUE}Not a valid answer!${NC}"
+	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
 	exit 0
 fi
@@ -89,7 +89,7 @@ then
 	    echo -e "${NC}"
 	    if [ $OWNFEED != "Yes" -a $OWNFEED != "No" ]
 	    then
-		echo -e "${BLUE}Not a valid answer!${NC}"
+		echo -e "${RED}Not a valid answer!${NC}"
 		echo -e ""
 		exit 0
 	    fi
@@ -139,7 +139,7 @@ then
 		echo -e "${NC}"
 		if [ $LIBEPLAYER != "Yes" -a $LIBEPLAYER != "No" ]
 		then
-			echo -e "${BLUE}Not a valid answer!${NC}"
+			echo -e "${RED}Not a valid answer!${NC}"
 			echo -e ""
 			exit 0
 		fi
@@ -465,7 +465,7 @@ then
 	echo -e "${NC}"
 	if [ $LIBEPLAYER != "Yes" -a $LIBEPLAYER != "No" ]
 	then
-		echo -e "${BLUE}Not a valid answer!${NC}"
+		echo -e "${RED}Not a valid answer!${NC}"
 		echo -e ""
 		exit 0
 	fi
@@ -617,4 +617,4 @@ then
 fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
-echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-multilanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-english|multilanguage|extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
