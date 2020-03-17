@@ -44,6 +44,9 @@
 [submodule "meta-dinobot"]
 	path = meta-dinobot
 	url = https://github.com/OpenVisionE2/meta-dinobot.git
+[submodule "meta-dreambox"]
+	path = meta-dreambox
+	url = https://github.com/OpenVisionE2/meta-dreambox.git
 [submodule "meta-ebox"]
 	path = meta-ebox
 	url = https://github.com/OpenVisionE2/meta-ebox.git
@@ -110,6 +113,3 @@
 [submodule "meta-zgemma"]
 	path = meta-zgemma
 	url = https://github.com/OpenVisionE2/meta-zgemma.git
-[submodule "meta-dreambox"]
-	path = meta-dreambox
-	url = https://github.com/OpenVisionE2/meta-dreambox.git
