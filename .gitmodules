@@ -110,3 +110,6 @@
 [submodule "meta-zgemma"]
 	path = meta-zgemma
 	url = https://github.com/OpenVisionE2/meta-zgemma.git
+[submodule "meta-dreambox"]
+	path = meta-dreambox
+	url = https://github.com/OpenVisionE2/meta-dreambox.git

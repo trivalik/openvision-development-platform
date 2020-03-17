@@ -213,8 +213,8 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-dream
-	echo "Checking out meta-dream develop branch:"
+	cd meta-dreambox
+	echo "Checking out meta-dreambox develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"

@@ -35,7 +35,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-clap \
 	$(CURDIR)/meta-dags \
 	$(CURDIR)/meta-dinobot \
-	$(CURDIR)/meta-dream \
+	$(CURDIR)/meta-dreambox \
 	$(CURDIR)/meta-ebox \
 	$(CURDIR)/meta-edision \
 	$(CURDIR)/meta-entwopia \
