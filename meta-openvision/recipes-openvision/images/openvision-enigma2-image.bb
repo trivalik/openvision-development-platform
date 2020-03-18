@@ -131,7 +131,7 @@ IMAGE_INSTALL += "\
 	enigma2 \
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
-	${@bb.utils.contains("DEVELOPER_NAME", "persianpros", "enigma2-plugin-extensions-persianpalace", "", d)} \
+	${@bb.utils.contains("DEVELOPER_NAME", "persianprince", "enigma2-plugin-extensions-persianpalace", "", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
