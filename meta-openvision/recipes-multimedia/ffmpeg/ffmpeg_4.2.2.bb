@@ -37,6 +37,8 @@ SRC_URI = "\
 	file://07-fix-edit-list-parsing.patch \
 	file://08-hls-replace-key-uri.patch \
 	file://09-Define-soft-mips-variables.patch \
+	file://10_rtsp_patch \
+	file://11_dxva2_patch \
 	"
 
 S = "${WORKDIR}/git"
@@ -71,7 +73,9 @@ PACKAGECONFIG[postproc]	= "--enable-postproc,--disable-postproc"
 PACKAGECONFIG[avresample] = "--enable-avresample,--disable-avresample"
 
 # features to support
+PACKAGECONFIG[alsa] = "--enable-alsa,--disable-alsa,alsa-lib"
 PACKAGECONFIG[bzlib] = "--enable-bzlib,--disable-bzlib,bzip2"
+PACKAGECONFIG[fdk-aac] = "--enable-libfdk-aac --enable-nonfree,--disable-libfdk-aac,fdk-aac"
 PACKAGECONFIG[gpl] = "--enable-gpl,--disable-gpl"
 PACKAGECONFIG[gsm] = "--enable-libgsm,--disable-libgsm,libgsm"
 PACKAGECONFIG[jack] = "--enable-indev=jack,--disable-indev=jack,jack"
@@ -81,16 +85,21 @@ PACKAGECONFIG[libfreetype] = "--enable-libfreetype,--disable-libfreetype,freetyp
 PACKAGECONFIG[librtmp] = "--enable-librtmp,--disable-librtmp,rtmpdump"
 PACKAGECONFIG[libvorbis] = "--enable-libvorbis,--disable-libvorbis,libvorbis"
 PACKAGECONFIG[lzma] = "--enable-lzma,--disable-lzma,xz"
+PACKAGECONFIG[mfx] = "--enable-libmfx,--disable-libmfx,intel-mediasdk"
 PACKAGECONFIG[mp3lame] = "--enable-libmp3lame,--disable-libmp3lame,lame"
 PACKAGECONFIG[openssl] = "--enable-openssl,--disable-openssl,openssl"
+PACKAGECONFIG[sdl2] = "--enable-sdl2,--disable-sdl2,virtual/libsdl2"
 PACKAGECONFIG[speex] = "--enable-libspeex,--disable-libspeex,speex"
-PACKAGECONFIG[theora] = "--enable-libtheora,--disable-libtheora,libtheora"
+PACKAGECONFIG[theora] = "--enable-libtheora,--disable-libtheora,libtheora libogg"
 PACKAGECONFIG[vaapi] = "--enable-vaapi,--disable-vaapi,libva"
 PACKAGECONFIG[vdpau] = "--enable-vdpau,--disable-vdpau,libvdpau"
 PACKAGECONFIG[vpx] = "--enable-libvpx,--disable-libvpx,libvpx"
 PACKAGECONFIG[x11] = "--enable-x11grab"
 PACKAGECONFIG[x264] = "--enable-libx264,--disable-libx264,x264"
+PACKAGECONFIG[x265] = "--enable-libx265,--disable-libx265,x265"
+PACKAGECONFIG[xcb] = "--enable-libxcb,--disable-libxcb,libxcb"
 PACKAGECONFIG[xv] = "--enable-outdev=xv,--disable-outdev=xv,libxv"
+PACKAGECONFIG[zlib] = "--enable-zlib,--disable-zlib,zlib"
 
 # Check codecs that require --enable-nonfree
 USE_NONFREE = "${@bb.utils.contains_any('PACKAGECONFIG', [ 'openssl' ], 'yes', '', d)}"
@@ -158,6 +167,7 @@ FILES_libswscale = "${libdir}/libswscale${SOLIBS}"
 
 EXTRA_FFCONF = " \
 	--disable-static \
+	--enable-small \
 	--disable-runtime-cpudetect \
 	--enable-ffprobe \
 	--disable-altivec \
@@ -191,6 +201,8 @@ EXTRA_FFCONF = " \
 	--enable-outdevs \
 	--enable-filters \
 	--disable-doc \
+	--enable-libfdk-aac \
+	--enable-encoder=libfdk_aac \
 	--disable-htmlpages \
 	--disable-manpages \
 	--disable-podpages \
