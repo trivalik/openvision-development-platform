@@ -301,7 +301,7 @@ Add missing keys events for IR remote controls
      /* 206 */   SDL_SCANCODE_UNKNOWN,   /* XF86Close */
 -    /* 207 */   SDL_SCANCODE_AUDIOPLAY,
 +    /* 207 */   SDL_SCANCODE_PLAY,
-     /* 208 */   SDL_SCANCODE_AUDIONEXT,
+     /* 208 */   SDL_SCANCODE_AUDIOFASTFORWARD,
      /* 209 */   SDL_SCANCODE_UNKNOWN,
      /* 210 */   SDL_SCANCODE_PRINTSCREEN,
 
@@ -374,7 +374,7 @@ Add missing keys events for IR remote controls
 +    SDLK_RESTART = SDL_SCANCODE_TO_KEYCODE(SDL_SCANCODE_RESTART),
 +    SDLK_CONTEXTMENU = SDL_SCANCODE_TO_KEYCODE(SDL_SCANCODE_CONTEXTMENU)
 +
- };
+ } SDL_KeyCode;
  
  /**
 
