@@ -95,6 +95,7 @@ OPTIONAL_PACKAGES += "\
 	python-requests \
 	python-singledispatch \
 	python-websocket \
+	python-youtube-dl \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
 	rpi-firmwares \
 	rsync \
