@@ -2,7 +2,7 @@ SUMMARY = "Firmware files for RPi"
 LICENSE = "CLOSED"
 require conf/license/license-close.inc
 
-PACKAGE_ARCH = "all"
+inherit allarch
 INSANE_SKIP_${PN} = "arch"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rpi-firmwares.tar.xz"
