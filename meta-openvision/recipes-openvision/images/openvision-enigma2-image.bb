@@ -3,38 +3,6 @@ require ../../recipes-core/package-index/package-index.bb
 
 BB_HASH_IGNORE_MISMATCH = "1"
 
-KERNEL_WIFI_DRIVERS += "\
-	firmware-carl9170 \
-	firmware-htc7010 \
-	firmware-htc9271 \
-	firmware-rt2870 \
-	firmware-rt73 \
-	firmware-rtl8712u \
-	firmware-zd1211 \
-	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
-    "
-
-KERNEL_WIFI_DRIVERS_remove_sh4 += "\
-	kernel-module-ath9k-htc \
-	kernel-module-carl9170 \
-	kernel-module-r8712u \
-	kernel-module-rtl8187 \
-	kernel-module-zd1211rw \
-	"
-
-EXTRA_KERNEL_WIFI_DRIVERS += "\
-	firmware-rtl8188eu \
-	firmware-rtl8192cu \
-	${@bb.utils.contains_any("MACHINE", "ventonhdx beyonwizt3 mbtwin sezam5000hd dm500hdv2 dm800sev2 dm7020hd dm7020hdv2 dm8000 dm7080 dm520 dm820 azboxme azboxminime ebox5000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1plus optimussos1 optimussos2 worldvisionf1plus worldvisionf1 tmtwin tmsingle tmnano tmnano3t tmnano2t tmnano2super tm2t optimussos3plus optimussos2plus ebox5100 ebox7358 eboxlumi ixusszero ixussone maram9 vusolo vuduo vuuno vuultimo dreamone gb800se et5x00 et6x00 et9x00 gb800solo gb800ue", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "ixussone ixusszero maram9 et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8192cu", d)} \
-	"
-
-EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "\
-	kernel-module-r8188eu \
-	kernel-module-rtl8192cu \
-	"
-
 MACHINE_SPECIFIC_VFD = "${@bb.utils.contains_any("MACHINE", "gbquad4k gbue4k gbx34k gb800se gb800seplus gb800solo gb800ue gb800ueplus gbipbox gbip4k gbquad gbquadplus gbultrase gbultraue gbultraueh gbx1 gbx2 gbx3 gbx3h sezam1000hd xpeedlx mbmini atemio5x00 bwidowx atemio6000 atemio6100 atemio6200 mbminiplus mbhybrid bwidowx2 beyonwizt2 opticumtt evoslim sf128 sf138 bre2zet2c bre2ze4k et1x000 g100 g101 hd51 hd1100 hd1200 hd1265 hd1500 hd500c hd530c formuler3 formuler4 formuler4turbo tiviarmin xcombo enibox mago x1plus sf108 t2cable 9910lx 9911lx 9920lx e4hdcombo odin2hybrid odinplus sh1 h3 h5 h7 lc vs1000 enfinity marvel1 bre2ze xp1000 classm axodin axodinc starsatlx genius evo galaxym6 9900lx sf8008 sf8008m spycat spycatmini spycatminiplus bcm7358 vp7358ci osnino osninoplus gbtrio4k", "", "enigma2-plugin-systemplugins-vfdcontrol", d)}"
 
 BACKUPSUITE_CHECK = "${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma rpi-vision", "", "enigma2-plugin-extensions-backupsuite", d)}"
@@ -106,8 +74,6 @@ DEPENDS += "\
 
 # These machine feature related plugins should not be enabled for smallflash STBs as there isn't enough space for them!
 MACHINE_FEATURE_RELATED_PLUGINS += "\
-	${EXTRA_KERNEL_WIFI_DRIVERS} \
-	${KERNEL_WIFI_DRIVERS} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bluetooth", "enigma2-plugin-extensions-btdevicesmanager", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvd", "enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "grautec", "enigma2-plugin-extensions-grautec", "", d)} \

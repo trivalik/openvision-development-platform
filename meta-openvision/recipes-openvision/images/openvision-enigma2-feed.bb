@@ -10,7 +10,6 @@ DEPENDS = "openvision-enigma2-image"
 
 OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
-OPTIONAL_BSP_PACKAGES ?= ""
 
 # Get the kernel version, we need it to build conditionally on kernel version.
 # NB: this only works in the feed, as the kernel needs to be build before the headers are available.
@@ -35,7 +34,6 @@ OPTIONAL_PACKAGES += "\
 	djmount \
 	dosfstools \
 	dreamci \
-	dvb-firmwares \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
@@ -97,7 +95,6 @@ OPTIONAL_PACKAGES += "\
 	python-websocket \
 	python-youtube-dl \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
-	rpi-firmwares \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -128,7 +125,6 @@ OPTIONAL_PACKAGES += "\
 	zeroconf \
 	zip \
 	zsh \
-	${OPTIONAL_BSP_PACKAGES} \
 	"
 
 OPTIONAL_PACKAGES_remove_sh4 += "\
@@ -137,12 +133,49 @@ OPTIONAL_PACKAGES_remove_sh4 += "\
 	rclone \
 	"
 
-EXTRA_WIFI_DRIVERS += "\
+FIRMWARE_PACKAGES += "\
+	dvb-firmwares \
+	firmware-carl9170 \
+	firmware-htc7010 \
+	firmware-htc9271 \
 	firmware-mt7601u \
+	firmware-rt2870 \
 	firmware-rt3070 \
+	firmware-rt73 \
 	firmware-rt8188fu \
+	firmware-rtl8188eu \
+	firmware-rtl8192cu \
 	firmware-rtl8192cufw \
 	firmware-rtl8192eu \
+	firmware-rtl8712u \
+	firmware-zd1211 \
+	rpi-firmwares \
+	"
+
+KERNEL_WIFI_DRIVERS += "\
+	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
+	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+    "
+
+KERNEL_WIFI_DRIVERS_remove_sh4 += "\
+	kernel-module-ath9k-htc \
+	kernel-module-carl9170 \
+	kernel-module-r8712u \
+	kernel-module-rtl8187 \
+	kernel-module-zd1211rw \
+	"
+
+EXTRA_KERNEL_WIFI_DRIVERS += "\
+	${@bb.utils.contains_any("MACHINE", "ventonhdx beyonwizt3 mbtwin sezam5000hd dm500hdv2 dm800sev2 dm7020hd dm7020hdv2 dm8000 dm7080 dm520 dm820 azboxme azboxminime ebox5000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1plus optimussos1 optimussos2 worldvisionf1plus worldvisionf1 tmtwin tmsingle tmnano tmnano3t tmnano2t tmnano2super tm2t optimussos3plus optimussos2plus ebox5100 ebox7358 eboxlumi ixusszero ixussone maram9 vusolo vuduo vuuno vuultimo dreamone gb800se et5x00 et6x00 et9x00 gb800solo gb800ue", "", "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "ixussone ixusszero maram9 et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8192cu", d)} \
+	"
+
+EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "\
+	kernel-module-r8188eu \
+	kernel-module-rtl8192cu \
+	"
+
+EXTRA_WIFI_DRIVERS += "\
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
 	rt3070 \
 	rt8188fu \
@@ -161,8 +194,6 @@ EXTRA_WIFI_DRIVERS_remove_sh4 += "\
 	rt8814au \
 	rtl8189es \
 	"
-
-OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 
 ENIGMA2_OPTIONAL += "\
 	channelsettings-enigma2-meta \
@@ -250,7 +281,6 @@ ENIGMA2_OPTIONAL += "\
 	packagegroup-openplugins \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
-	${OPTIONAL_BSP_ENIGMA2_PACKAGES} \
 	"
 
-DEPENDS += "${OPTIONAL_PACKAGES} ${ENIGMA2_OPTIONAL} ${EXTRA_WIFI_DRIVERS} enigma2-2boom-plugins"	
+DEPENDS += "${ENIGMA2_OPTIONAL} ${EXTRA_KERNEL_WIFI_DRIVERS} ${EXTRA_WIFI_DRIVERS} ${FIRMWARE_PACKAGES} ${KERNEL_WIFI_DRIVERS} ${OPTIONAL_PACKAGES} enigma2-2boom-plugins"		
