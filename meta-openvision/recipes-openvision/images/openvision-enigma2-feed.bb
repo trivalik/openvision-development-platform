@@ -134,7 +134,6 @@ OPTIONAL_PACKAGES_remove_sh4 += "\
 	"
 
 FIRMWARE_PACKAGES += "\
-	dvb-firmwares \
 	firmware-carl9170 \
 	firmware-htc7010 \
 	firmware-htc9271 \
@@ -149,7 +148,6 @@ FIRMWARE_PACKAGES += "\
 	firmware-rtl8192eu \
 	firmware-rtl8712u \
 	firmware-zd1211 \
-	rpi-firmwares \
 	"
 
 KERNEL_WIFI_DRIVERS += "\
