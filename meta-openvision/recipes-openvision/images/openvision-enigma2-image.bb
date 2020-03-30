@@ -99,6 +99,10 @@ IMAGE_INSTALL += "\
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
 	${@bb.utils.contains("DEVELOPER_NAME", "persianprince", "enigma2-plugin-extensions-persianpalace", "", d)} \
+	frequency-xml-list-atsc \
+	frequency-xml-list-cables \
+	frequency-xml-list-satellites \
+	frequency-xml-list-terrestrial \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
