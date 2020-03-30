@@ -1,17 +1,10 @@
-DESCRIPTION = "Frequency lists"
-MAINTAINER = "PLi team"
+DESCRIPTION = "Tuxbox common"
 
 require conf/license/openvision-gplv2.inc
-inherit allarch gitpkgv
 
-PV = "2+git${SRCPV}"
-PKGV = "2+git${GITPKGV}"
+inherit allarch
 
-SRC_URI = "git://github.com/OpenPLi/tuxbox-xml.git;protocol=git"
-
-S = "${WORKDIR}/git/xml"
-
-FILES_${PN} = "${sysconfdir}/tuxbox/* /usr/* /var/*"
+FILES_${PN} = "/"
 
 do_compile() {
 	true
@@ -24,8 +17,6 @@ do_install() {
 	install -m 0755 -d "${D}/usr/keys"
 	install -m 0755 -d "${D}${bindir}"
 	install -m 0755 -d "${D}/var"
-
-	install -m 0644 "${S}"/*.xml "${D}${sysconfdir}/tuxbox"
 
 	ln -s "${sysconfdir}/tuxbox/scce"	"${D}/var/"
 	ln -s "/usr/keys"			"${D}/var/"
