@@ -19,6 +19,7 @@ rm -rf meta-minix
 rm -rf meta-odroid
 rm -rf meta-raspberrypi
 rm -rf meta-wetek
+find meta-python2/conf/ -type f -name "layer.conf" | xargs -L1 sed -i 's|LAYERSERIES_COMPAT_meta-python2 = "dunfell"|LAYERSERIES_COMPAT_meta-python2 = "thud warrior zeus"|g'
 echo "Open Vision by"
 echo "https://github.com/orgs/OpenVisionE2/people"
 echo ""
