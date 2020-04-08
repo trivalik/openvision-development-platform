@@ -1,28 +1,18 @@
-DESCRIPTION = "OpenVision skin tools Mod by RAED"
+DESCRIPTION = "OpenVision skin tools by RAED"
 MAINTAINER = "Open Vision Developers"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit gitpkgv distutils-openplugins gettext
 
-PV = "1.0+git${SRCPV}"
-PKGV = "1.0+git${GITPKGV}"
+PV = "git${SRCPV}"
+PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/OpenVisionSkinTools.git;protocol=git"
 
 FILES_${PN} = "${libdir}"
 
 S = "${WORKDIR}/git"
-
-do_compile() {
-	python2 -O -m compileall ${S}/usr/lib/
-}
-
-do_install() {
-	install -d ${D}${libdir}
-	cp -r ${S}/usr/lib/* ${D}${libdir}/
-}
-
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
