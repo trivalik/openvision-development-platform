@@ -117,7 +117,8 @@ IMAGE_INSTALL += "\
 	curl \
 	nfs-utils \
 	openssh-sftp-server \
-	samba-base", d)} \
+	samba-base \
+	v4l-utils", d)} \
 	"
 
 export IMAGE_BASENAME = "openvision-enigma2"
