@@ -49,8 +49,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
 	enigma2-plugin-extensions-reconstructapsc \
-	enigma2-plugin-skins-octetfhd \
-	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-osd3dsetup \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
@@ -59,6 +57,8 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
+	enigma2-plugin-skins-octetfhd \
+	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-autobouquetsmaker", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash libeplayer", "", "enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
