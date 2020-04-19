@@ -8,5 +8,5 @@ EXTRA_OECONF = "--disable-tests \
 				--disable-doxygen-docs \
 				--disable-libaudit \
 				--enable-largefile \
-				--with-system-socket=/var/run/dbus/system_bus_socket \
+				--with-system-socket=${localstatedir}/run/dbus/system_bus_socket \
 "

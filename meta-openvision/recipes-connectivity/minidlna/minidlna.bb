@@ -33,5 +33,5 @@ do_install_append() {
 	install -m 644 ${S}/minidlna.conf ${D}/${sysconfdir}/
 	install -m 755 -d ${D}/${sysconfdir}/init.d/
 	install -m 755 ${S}/minidlna.sh ${D}/${sysconfdir}/init.d/
-	install -m 755 -d ${D}/var/lib/minidlna/
+	install -m 755 -d ${D}${localstatedir}/lib/minidlna/
 }
