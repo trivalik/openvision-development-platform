@@ -174,6 +174,7 @@ EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "\
 	"
 
 EXTRA_WIFI_DRIVERS += "\
+	${@ 'wireguard-tools' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.14') >= 0) else '' } \
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
 	rt3070 \
 	rt8188fu \
