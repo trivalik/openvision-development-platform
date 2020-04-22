@@ -11,14 +11,6 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-rm -rf meta-cube
-rm -rf meta-dream
-rm -rf meta-hypercube
-rm -rf meta-linkdroid
-rm -rf meta-minix
-rm -rf meta-odroid
-rm -rf meta-raspberrypi
-rm -rf meta-wetek
 echo "Open Vision by"
 echo "https://github.com/orgs/OpenVisionE2/people"
 echo ""
