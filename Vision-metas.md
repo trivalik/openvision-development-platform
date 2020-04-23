@@ -269,6 +269,7 @@
 
 # SH4
 * adb_box
+* adb_2850
 * arivalink200
 * atemio520
 * atemio530
