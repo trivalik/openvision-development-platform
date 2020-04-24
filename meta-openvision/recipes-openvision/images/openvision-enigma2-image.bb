@@ -113,6 +113,7 @@ IMAGE_INSTALL += "\
 	ntp", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
+	libbluray \
 	nfs-utils \
 	openssh-sftp-server \
 	samba-base \
