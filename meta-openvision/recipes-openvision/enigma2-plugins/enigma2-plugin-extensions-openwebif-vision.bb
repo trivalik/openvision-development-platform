@@ -133,7 +133,6 @@ python do_cleanup () {
         ('hd60', 'hd60.png', 'hd60.png', 'hd60.html'),
         ('hd61', 'hd61.png', 'ax4.png', 'ax4.html'),
         ('multibox', 'multibox.png', 'maxytec1.png', 'maxytec1.html'),
-        ('v8plus', 'v8plus.png', 'maxytec1.png', 'maxytec1.html'),
         ('spycat', 'spycat.png', 'xcore1.png', 'xcore1.html'),
         ('spycatmini', 'spycatmini.png', 'xcore1.png', 'xcore1.html'),
         ('spycatminiplus', 'spycatminiplus.png', 'xcore1.png', 'xcore1.html'),
