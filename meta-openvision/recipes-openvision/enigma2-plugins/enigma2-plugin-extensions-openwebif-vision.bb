@@ -139,8 +139,6 @@ python do_cleanup () {
         ('spycat4kmini', 'spycat4kmini.png', 'xcore1.png', 'xcore1.html'),
         ('spycat4k', 'spycat4k.png', 'xcore1.png', 'xcore1.html'),
         ('spycat4kcombo', 'spycat4kcombo.png', 'xcore1.png', 'xcore1.html'),
-        ('bcm7358', 'spycat.png', 'xcore2.png', 'xcore2.html'),
-        ('vp7358ci', 'spycat.png', 'xcore2.png', 'xcore2.html'),
         ('osmini', 'osmini.png', 'xcore3.png', 'xcore3.html'),
         ('osminiplus', 'osminiplus.png', 'xcore3.png', 'xcore3.html'),
         ('osmega', 'osmega.png', 'xcore3.png', 'xcore3.html'),
