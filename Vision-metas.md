@@ -239,7 +239,6 @@
 
 # MaxyTec
 * multibox
-* v8plus
 
 # Octagon
 * sf4008
@@ -350,14 +349,12 @@
 * vuzero4k
 
 # XCore
-* bcm7358
 * spycat
 * spycat4k
 * spycat4kcombo
 * spycat4kmini
 * spycatmini
 * spycatminiplus
-* vp7358ci
 
 # XP
 * xp1000

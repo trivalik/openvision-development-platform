@@ -195,12 +195,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-clap
-	echo "Checking out meta-clap develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-dags
 	echo "Checking out meta-dags develop branch:"
 	git checkout develop

@@ -434,7 +434,6 @@ fi
 if [ $META = "MaxyTec" ]
 then
 	MACHINE=multibox $IMAGECMD
-	MACHINE=v8plus $IMAGECMD
 fi
 if [ $META = "Octagon" ]
 then
@@ -585,14 +584,12 @@ then
 fi
 if [ $META = "XCore" ]
 then
-	MACHINE=bcm7358 $IMAGECMD
 	MACHINE=spycat $IMAGECMD
 	MACHINE=spycat4k $IMAGECMD
 	MACHINE=spycat4kcombo $IMAGECMD
 	MACHINE=spycat4kmini $IMAGECMD
 	MACHINE=spycatmini $IMAGECMD
 	MACHINE=spycatminiplus $IMAGECMD
-	MACHINE=vp7358ci $IMAGECMD
 fi
 if [ $META = "XP" ]
 then
