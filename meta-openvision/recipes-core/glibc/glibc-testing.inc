@@ -69,8 +69,8 @@ fi
 
 # g++ uses flag -nostdinc, so the locations of system include headers must be explicitly specified
 # If the locations are not already specified in config.make, then we provide the following locations:
-#    <sysroot>/usr/include/c++/<g++ version>
-#    <sysroot>/usr/include/c++/<g++ version>/<machine>
+#    <sysroot>${incdir}/c++/<g++ version>
+#    <sysroot>${incdir}/c++/<g++ version>/<machine>
 
 cxxincludes=\`cat ${B}/config.make | gawk '\$1 == "c++-sysincludes"' | gawk -F"=" '{print \$2}' | sed "s/[ \t]\?//g"\`
 
@@ -81,7 +81,7 @@ if [ -z "\$cxxincludes" ]; then
   cxxversion=\`\$cxx -dumpversion\`
   # pass the new value of c++-sysincludes via configparms
   echo "# c++-sysincludes added:" >> ${B}/configparms
-  echo "c++-sysincludes = -isystem \$sysroot/usr/include/c++/\$cxxversion -isystem \$sysroot/usr/include/c++/\$cxxversion/\$cxxmachine" >> ${B}/configparms
+  echo "c++-sysincludes = -isystem \$sysroot${incdir}/c++/\$cxxversion -isystem \$sysroot${incdir}/c++/\$cxxversion/\$cxxmachine" >> ${B}/configparms
 fi
 
 wrapper="${S}/scripts/cross-test-ssh.sh \$target"
