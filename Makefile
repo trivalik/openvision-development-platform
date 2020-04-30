@@ -32,7 +32,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-blackbox \
 	$(CURDIR)/meta-broadmedia \
 	$(CURDIR)/meta-ceryon \
-	$(CURDIR)/meta-clap \
 	$(CURDIR)/meta-dags \
 	$(CURDIR)/meta-dinobot \
 	$(CURDIR)/meta-dreambox \
