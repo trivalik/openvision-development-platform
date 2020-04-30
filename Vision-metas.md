@@ -51,9 +51,6 @@
 * twinboxlcd
 * twinboxlcdci5
 
-# Clap
-* cc1
-
 # DAGS
 * force1
 * force1plus

@@ -283,7 +283,6 @@ python do_cleanup () {
         ('maram9', 'maram9.png', 'odinm9.png', 'odinm9.html'),
         ('ustym4kpro', 'ustym4kpro.png', 'uclan.png', 'uclan.html'),
         ('valalinux', 'valalinux.png', 'vala.png', 'vala.html'),
-        ('cc1', 'cc1.png', 'cc1.png', 'cc1.html'),
         ('force4', 'force4.png', 'iqon1.png', 'iqon1.html'),
         ('iqonios100hd', 'iqonios100hd.png', 'iqon1.png', 'iqon1.html'),
         ('iqonios200hd', 'iqonios200hd.png', 'iqon1.png', 'iqon1.html'),
