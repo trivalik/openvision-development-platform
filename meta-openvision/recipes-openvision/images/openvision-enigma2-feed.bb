@@ -13,10 +13,7 @@ OPTIONAL_PACKAGES ?= ""
 
 # Get the kernel version, we need it to build conditionally on kernel version.
 # NB: this only works in the feed, as the kernel needs to be build before the headers are available.
-
-inherit linux-kernel-base
-
-KERNEL_VERSION = "${@ get_kernelversion_headers('${STAGING_KERNEL_BUILDDIR}')}"
+export KERNEL_VERSION = "${@oe.utils.read_file('${STAGING_KERNEL_BUILDDIR}/kernel-abiversion')}"
 
 OPTIONAL_PACKAGES += "\
 	astra-sm \
@@ -119,7 +116,7 @@ OPTIONAL_PACKAGES += "\
 	ushare \
 	v4l-utils \
 	vim \
-	${@ 'wireguard-tools' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.14') >= 0) else '' } \
+	${@ 'wireguard-tools' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.14') >= 0) else '' } \
 	wireless-tools \
 	wscan \
 	yafc \
@@ -175,14 +172,14 @@ EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "\
 	"
 
 EXTRA_WIFI_DRIVERS += "\
-	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
+	${@ 'mt7601u' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.2') < 0) else '' } \
 	rt3070 \
 	rt8188fu \
 	rt8723a \
-	${@ 'rt8723bs' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.12') < 0) else '' } \
+	${@ 'rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "rt8822bu", d)} \
-	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
+	${@ 'rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520", "", "rtl8189es", d)} \
 	rtl8192cu \
 	${@bb.utils.contains_any("MACHINE", "osmio4k osmio4kplus osmini4k", "", "rt8814au rtl8192eu", d)} \
@@ -287,4 +284,4 @@ ENIGMA2_OPTIONAL += "\
 	softcams-enigma2-meta \
 	"
 
-DEPENDS += "${ENIGMA2_OPTIONAL} ${EXTRA_WIFI_DRIVERS} ${FIRMWARE_PACKAGES} ${OPTIONAL_PACKAGES} enigma2-2boom-plugins"		
+DEPENDS += "${ENIGMA2_OPTIONAL} ${EXTRA_WIFI_DRIVERS} ${FIRMWARE_PACKAGES} ${OPTIONAL_PACKAGES} enigma2-2boom-plugins"
