@@ -22,7 +22,6 @@ SRC_URI += "\
 			file://0001-Prevent-telnet-connections-from-the-internet-to-the-stb.patch \
 			file://0002-Extended-network-interfaces-support.patch \
 			file://0001-Revert-ip-fix-ip-oneline-a.patch \
-			${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://old_kernel.patch", "", d)} \
 			"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
