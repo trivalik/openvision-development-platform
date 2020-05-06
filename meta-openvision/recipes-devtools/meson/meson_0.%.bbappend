@@ -1,3 +1,3 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append_sh4 += "file://0001-mesonbuild-Recognise-sh4-architecture.patch"
+SRC_URI_append += "file://0001-mesonbuild-Recognise-sh4-architecture.patch"
