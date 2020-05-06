@@ -1,6 +1,3 @@
-# version
-PR = "r3"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 # Remove acl, cups etc. support.
