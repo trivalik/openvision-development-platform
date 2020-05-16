@@ -55,8 +55,6 @@ SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
            file://fix-x64-abi.patch \
 "
 
-SRC_URI_append_sh4 += "file://110-sh-fix-gcc6.patch"
-
 NATIVESDKFIXES ?= ""
 NATIVESDKFIXES_class-nativesdk = "\
            file://0001-nativesdk-glibc-Look-for-host-system-ld.so.cache-as-.patch \
