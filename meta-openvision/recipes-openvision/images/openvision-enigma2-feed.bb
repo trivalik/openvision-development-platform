@@ -116,7 +116,6 @@ OPTIONAL_PACKAGES += "\
 	ushare \
 	v4l-utils \
 	vim \
-	${@ 'wireguard-tools' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.14') >= 0) else '' } \
 	wireless-tools \
 	wscan \
 	yafc \
