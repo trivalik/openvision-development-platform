@@ -32,6 +32,7 @@ PROVIDES = "\
     enigma2-plugin-extensions-curlytx \
     enigma2-plugin-extensions-dreamexplorer \
     enigma2-plugin-extensions-dreamirc \
+    enigma2-plugin-extensions-dreammediathek \
     enigma2-plugin-extensions-dvdbackup \
     enigma2-plugin-extensions-dyndns \
     enigma2-plugin-extensions-easyinfo \
@@ -140,9 +141,11 @@ PROVIDES = "\
     enigma2-plugin-systemplugins-setpasswd \
     enigma2-plugin-systemplugins-startupservice \
     enigma2-plugin-systemplugins-systemtime \
+    enigma2-plugin-systemplugins-toolkit \
     enigma2-plugin-systemplugins-vfdcontrol \
     enigma2-plugin-systemplugins-videocolorspace \
     enigma2-plugin-systemplugins-vps \
+    enigma2-plugin-systemplugins-weathercomponenthandler \
     "
 
 DEPENDS = "\
