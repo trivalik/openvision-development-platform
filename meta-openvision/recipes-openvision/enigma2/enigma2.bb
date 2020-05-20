@@ -273,6 +273,4 @@ python populate_packages_prepend() {
     do_split_packages(d, enigma2_podir, '^(\w+)/[a-zA-Z0-9_/]+.*$', 'enigma2-locale-%s', '%s', recursive=True, match_path=True, prepend=True, extra_depends="enigma2")
 }
 
-CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "
-CXXFLAGS_append_su980 += " -std=c++11 -fPIC -fno-strict-aliasing "
 CXXFLAGS_append_sh4 += " -std=c++11 -fPIC -fno-strict-aliasing "

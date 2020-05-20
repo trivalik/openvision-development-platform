@@ -223,7 +223,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-openvisionskintools \
 	enigma2-plugin-extensions-raedquicksignal \
 	enigma2-plugin-extensions-refreshbouquet \
-	${@bb.utils.contains_any("MACHINE", "cube su980", "", "enigma2-plugin-extensions-sdgradio", d)} \
+	enigma2-plugin-extensions-sdgradio \
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-vcs \
 	enigma2-plugin-extensions-weathermsn \
