@@ -148,8 +148,8 @@ FIRMWARE_PACKAGES += "\
 	"
 
 KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 et1x000", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
+	${@bb.utils.contains_any("MACHINE", "et13000 sf5008 beyonwizu4 et1x000", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
     "
 
 KERNEL_WIFI_DRIVERS_remove_sh4 += "\
@@ -161,8 +161,8 @@ KERNEL_WIFI_DRIVERS_remove_sh4 += "\
 	"
 
 EXTRA_KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "ventonhdx beyonwizt3 mbtwin sezam5000hd dm500hdv2 dm800sev2 dm7020hd dm7020hdv2 dm8000 dm7080 dm520 dm820 azboxme azboxminime ebox5000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1plus optimussos1 optimussos2 worldvisionf1plus worldvisionf1 tmtwin tmsingle tmnano tmnano3t tmnano2t tmnano2super tm2t optimussos3plus optimussos2plus ebox5100 ebox7358 eboxlumi ixusszero ixussone maram9 vusolo vuduo vuuno vuultimo dreamone gb800se et5x00 et6x00 et9x00 gb800solo gb800ue", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "ixussone ixusszero maram9 et13000 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8192cu", d)} \
+	${@bb.utils.contains_any("MACHINE", "ventonhdx beyonwizt3 mbtwin sezam5000hd dm500hdv2 dm800sev2 dm7020hd dm7020hdv2 dm8000 dm7080 dm520 dm820 azboxme azboxminime ebox5000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1plus optimussos1 optimussos2 worldvisionf1plus worldvisionf1 tmtwin tmsingle tmnano tmnano3t tmnano2t tmnano2super tm2t optimussos3plus optimussos2plus ebox5100 ebox7358 eboxlumi ixusszero ixussone maram9 vusolo vuduo vuuno vuultimo gb800se et5x00 et6x00 et9x00 gb800solo gb800ue", "", "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "ixussone ixusszero maram9 et13000 sf5008 beyonwizu4 et1x000", "", "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "\

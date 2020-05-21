@@ -136,7 +136,6 @@
 * dm820
 * dm900
 * dm920
-* dreamone
 
 # EBox
 * ebox5000
