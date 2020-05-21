@@ -4,10 +4,12 @@ SECTION = "devel/python"
 PRIORITY = "optional"
 LICENSE = "MIT"
 RDEPENDS_${PN} = "python-simplejson"
-PV = "0.7+hg${SRCREV}"
 
-SRC_URI = "hg://bitbucket.org/blueluna;protocol=http;module=transmissionrpc;rev=${SRCREV}"
+PV = "git${SRCPV}"
+PKGV = "git${GITPKGV}"
 
-S = "${WORKDIR}/transmissionrpc"
+SRC_URI = "git://github.com/OpenVisionE2/transmissionrpc.git"
 
-inherit setuptools
+S = "${WORKDIR}/git"
+
+inherit setuptools gitpkgv
