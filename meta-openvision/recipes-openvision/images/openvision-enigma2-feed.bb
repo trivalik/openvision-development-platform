@@ -26,7 +26,6 @@ OPTIONAL_PACKAGES += "\
 	ctorrent \
 	cups \
 	davfs2 \
-	dhrystone \
 	diffutils \
 	djmount \
 	dosfstools \
