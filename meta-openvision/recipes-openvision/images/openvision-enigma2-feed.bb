@@ -88,7 +88,7 @@ OPTIONAL_PACKAGES += "\
 	python-pyexecjs \
 	python-requests \
 	python-singledispatch \
-	python-websocket \
+	python-websocket-client \
 	python-youtube-dl \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
 	rsync \

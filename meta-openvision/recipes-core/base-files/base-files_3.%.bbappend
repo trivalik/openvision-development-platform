@@ -10,6 +10,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 hostname = "${MACHINE}"
 
 SRC_URI += "file://utf8.sh"
+SRC_URI += "file://filesystems"
 SRC_URI += "file://mount-helper.sh"
 
 do_install_append() {
@@ -25,6 +26,7 @@ do_install_append() {
     install -m 0755 ${WORKDIR}/mount-helper.sh       ${D}${sysconfdir}/udev
     install -d ${D}${sysconfdir}/profile.d
     install -m 0644 ${WORKDIR}/utf8.sh   ${D}${sysconfdir}/profile.d/utf8.sh
+    install -m 0644 ${WORKDIR}/filesystems ${D}${sysconfdir}/filesystems
 
     # Inject machine specific blacklists into mount-helper:
     perl -i -pe 's:(\@BLACKLISTED\@):${MTD_BLACK}:s' ${D}${sysconfdir}/udev/mount-helper.sh
