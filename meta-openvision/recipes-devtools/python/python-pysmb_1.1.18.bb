@@ -10,7 +10,7 @@ SRC_URI = "https://pypi.python.org/packages/source/p/${SRCNAME}/${SRCNAME}-${PV}
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-SRC_URI[md5sum] = "eda1770d77888b85dabf4336efcc2452"
-SRC_URI[sha256sum] = "58e4cae8057282968fbe47ae9a2c321d7e779df82fe2436d1f32304008f68474"
+SRC_URI[md5sum] = "7768bb10d3f9469a9714e9dbad01d207"
+SRC_URI[sha256sum] = "91f5fc7c7f2da9370c3b7646c82d33afb42444e26ce211f12e4202d3d24e0787"
 
 include python-package-split.inc
