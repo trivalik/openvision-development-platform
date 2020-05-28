@@ -37,7 +37,7 @@ OPTIONAL_PACKAGES += "\
 	exfat-utils \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3", d)} \
 	fuse-exfat \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "gdb", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "gdb", d)} \
 	google-dns \
 	grep \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstplayer", d)} \
@@ -55,7 +55,7 @@ OPTIONAL_PACKAGES += "\
 	libnss-mdns \
 	libsdl2 \
 	libudfread \
-	lirc \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "lirc", d)} \
 	mc \
 	mediainfo \
 	minisatip \
@@ -125,8 +125,6 @@ OPTIONAL_PACKAGES += "\
 	"
 
 OPTIONAL_PACKAGES_remove_sh4 += "\
-	lirc \
-	nodejs \
 	rclone \
 	"
 
@@ -177,7 +175,7 @@ EXTRA_WIFI_DRIVERS += "\
 	rt8723a \
 	${@ 'rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "rt8822bu", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "rt8822bu", d)} \
 	${@ 'rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
 	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520", "", "rtl8189es", d)} \
 	rtl8192cu \
@@ -185,7 +183,6 @@ EXTRA_WIFI_DRIVERS += "\
 	"
 
 EXTRA_WIFI_DRIVERS_remove_sh4 += "\
-	mt7603u \
 	rt8814au \
 	rtl8189es \
 	"

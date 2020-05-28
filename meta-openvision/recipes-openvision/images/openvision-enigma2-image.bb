@@ -11,7 +11,7 @@ TRANSCODING_CHECK = "${@bb.utils.contains_any("MACHINE_FEATURES", "vuplus gigabl
 
 ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-audiosync \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "${BACKUPSUITE_CHECK}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "${BACKUPSUITE_CHECK}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \
@@ -108,7 +108,7 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-cables \
 	frequency-xml-list-satellites \
 	frequency-xml-list-terrestrial \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
 	settings-autorestore \
