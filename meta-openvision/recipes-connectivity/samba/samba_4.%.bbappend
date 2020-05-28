@@ -126,7 +126,7 @@ grep -v "pam_smbpass.so" /etc/pam.d/common-password > /tmp/common-password
 mv /tmp/common-password /etc/pam.d/common-password
 }
 
-inherit update-rc.d
+inherit update-rc.d upx_compress
 INITSCRIPT_PACKAGES = "${PN}-base"
 INITSCRIPT_NAME_${PN}-base = "samba.sh"
 INITSCRIPT_PARAMS_${PN}-base = "defaults"
