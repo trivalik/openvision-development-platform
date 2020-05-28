@@ -52,6 +52,7 @@ OPTIONAL_PACKAGES += "\
 	joe \
 	less \
 	libbluray \
+	libnss-mdns \
 	libsdl2 \
 	libudfread \
 	lirc \

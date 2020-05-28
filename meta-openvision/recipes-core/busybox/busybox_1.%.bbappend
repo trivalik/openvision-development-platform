@@ -11,6 +11,7 @@ SRC_URI_IGNORED = "\
 			file://0002-Create-and-use-our-own-copy-of-linux-ext2_fs.h.patch \
 			file://0003-Drop-include-bb_linux_ext2_fs.h-use-existing-e2fspro.patch \
 			file://0001-nandwrite-add-OOB-support.patch \
+			file://0001-Revert-ip-fix-ip-oneline-a.patch \
 			"
 
 SRC_URI += "\
@@ -21,15 +22,12 @@ SRC_URI += "\
 			file://inetd.conf \
 			file://0001-Prevent-telnet-connections-from-the-internet-to-the-stb.patch \
 			file://0002-Extended-network-interfaces-support.patch \
-			file://0001-Revert-ip-fix-ip-oneline-a.patch \
 			file://ntp.script \
 			"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
 # include/mtd/* we cannot build in parallel with mtd-utils
 DEPENDS += "mtd-utils"
-
-INITSCRIPT_PARAMS_${PN}-mdev = "start 04 S ."
 
 RDEPENDS_${PN} += "odhcp6c"
 
@@ -42,23 +40,13 @@ RDEPENDS_${PN}-inetd += "${PN}"
 PROVIDES += "virtual/inetd"
 RPROVIDES_${PN}-inetd += "virtual/inetd"
 RCONFLICTS_${PN}-inetd += "xinetd"
-
 RRECOMMENDS_${PN} += "${PN}-inetd"
-
-# Some packages recommend udev-hwdb to be installed. To prevent them actually
-# installing, just claim we already provide it and conflict with its default
-# provider.
-RPROVIDES_${PN}-mdev += "udev udev-hwdb"
-RCONFLICTS_${PN}-mdev += "eudev eudev-hwdb"
 
 pkg_postinst_${PN}_append () {
 	update-alternatives --install /bin/sh sh /bin/busybox.nosuid 50
 }
 
 do_install_append() {
-	if grep -q "CONFIG_CRONTAB=y" ${WORKDIR}/defconfig; then
-		install -d ${D}${sysconfdir}/cron/crontabs
-	fi
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
