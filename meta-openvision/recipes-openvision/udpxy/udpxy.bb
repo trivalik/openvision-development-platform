@@ -11,7 +11,7 @@ PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/pcherenkov/udpxy.git file://udpxy.sh"
-CFLAGS_append = " -Wno-format-truncation -Wno-error=stringop-truncation "
+CFLAGS_append = " -Wno-format-truncation ${@bb.utils.contains("TARGET_ARCH", "sh4", "", "-Wno-error=stringop-truncation", d)} "
 
 S = "${WORKDIR}/git/chipmunk"
 
