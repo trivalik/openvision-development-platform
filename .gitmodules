@@ -110,3 +110,6 @@
 [submodule "meta-zgemma"]
 	path = meta-zgemma
 	url = https://github.com/OpenVisionE2/meta-zgemma.git
+[submodule "meta-qt5"]
+	path = meta-qt5
+	url = https://github.com/meta-qt5/meta-qt5.git
