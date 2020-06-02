@@ -3,6 +3,8 @@ SECTION = "base"
 LICENSE = "BSD-3-Clause | GPLv2"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=58383ec8217e551da24db177e27a6ff2"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 SRC_URI = "http://snapshots.madwifi-project.org/madwifi-trunk/${BP}.tar.gz"
 
 S = "${WORKDIR}/${BP}"
