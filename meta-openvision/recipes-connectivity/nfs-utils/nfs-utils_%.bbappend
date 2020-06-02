@@ -9,3 +9,5 @@ RDEPENDS_${PN}-client_remove = "bash"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 CFLAGS_remove_sh4 = "-Wno-error=format-overflow"
+
+RDEPENDS_${PN} += "kernel-module-nfsd"

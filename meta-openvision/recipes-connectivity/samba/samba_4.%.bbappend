@@ -26,6 +26,8 @@ EXTRA_OECONF_remove = " \
                        --with-sockets-dir=/run/samba \
                       "
 
+RDEPENDS_${PN} += "kernel-module-cifs"
+
 SRC_URI += " \
            file://smb.conf \
            file://smb-secure.conf \
