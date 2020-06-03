@@ -148,7 +148,7 @@ KERNEL_WIFI_DRIVERS += "\
 	kernel-module-r8712u \
 	kernel-module-rtl8187 \
 	kernel-module-zd1211rw \
-    "
+	"
 
 EXTRA_KERNEL_WIFI_DRIVERS += "\
 	kernel-module-r8188eu \
