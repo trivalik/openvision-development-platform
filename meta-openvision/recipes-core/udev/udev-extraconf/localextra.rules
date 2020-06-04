@@ -21,7 +21,6 @@ KERNEL=="oled0", SYMLINK+="dbox/oled0"
 KERNEL=="fp0", SYMLINK+="dbox/fp0"
 
 # The first framebuffer is symlinked to /dev/fb
-KERNEL=="fb0", SYMLINK+="fb"
 KERNEL=="fb0", SYMLINK+="fb/0"
 
 # Make all input devices read-write to the input group
