@@ -17,7 +17,6 @@ SRC_URI_IGNORED = "\
 SRC_URI += "\
 			file://mount_single_uuid.patch \
 			file://use_ipv6_when_ipv4_unroutable.patch \
-			file://mdev-mount.sh \
 			file://inetd \
 			file://inetd.conf \
 			file://0001-Prevent-telnet-connections-from-the-internet-to-the-stb.patch \
@@ -47,8 +46,6 @@ pkg_postinst_${PN}_append () {
 }
 
 do_install_append() {
-	install -d ${D}${sysconfdir}/mdev
-	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
 	install -d ${D}${sysconfdir}/udhcpc.d
 	install -m 0755 ${WORKDIR}/ntp.script ${D}${sysconfdir}/udhcpc.d/55ntp
