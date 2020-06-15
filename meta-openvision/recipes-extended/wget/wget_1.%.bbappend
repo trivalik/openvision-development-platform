@@ -1,6 +1,4 @@
 inherit upx_compress
 
-DEPENDS_remove = "gnutls"
-DEPENDS_append = " openssl"
-EXTRA_OECONF_remove = "--with-ssl=gnutls"
-EXTRA_OECONF_append = " --with-ssl=openssl"
+PACKAGECONFIG = "openssl pcre zlib \
+                ${@bb.utils.filter('DISTRO_FEATURES', 'ipv6', d)}"
