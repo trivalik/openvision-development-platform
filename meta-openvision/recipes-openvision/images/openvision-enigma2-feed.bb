@@ -22,9 +22,9 @@ OPTIONAL_PACKAGES += "\
 	ccextractor \
 	ccid \
 	cdtextinfo \
-	cloudflare-dns \
 	ctorrent \
 	cups \
+	curl \
 	davfs2 \
 	diffutils \
 	djmount \
@@ -64,19 +64,26 @@ OPTIONAL_PACKAGES += "\
 	nano \
 	nbench-byte \
 	net-tools \
+	nfs-utils \
 	ntfs-3g \
 	ntp \
+	ntpdate \
 	ofgwrite \
 	openmultiboot \
 	openresolv \
 	openssh \
+	openssh-sftp-server \
 	openvpn \
 	picocom \
 	ppp \
 	procps \
 	pv \
 	pyload \
+	python-attr \
+	python-attrs \
 	python-beautifulsoup4 \
+	python-bluetool \
+	python-future \
 	python-futures \
 	python-iso3166 \
 	python-iso639 \
@@ -85,10 +92,14 @@ OPTIONAL_PACKAGES += "\
 	python-lxml \
 	python-mechanize \
 	python-ntplib \
+	python-pexpect \
 	python-pip \
+	python-pyasn1-modules \
 	python-pyexecjs \
 	python-requests \
+	python-soco \
 	python-singledispatch \
+	python-ujson \
 	python-websocket-client \
 	python-youtube-dl \
 	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "rclone", d)} \
@@ -96,6 +107,7 @@ OPTIONAL_PACKAGES += "\
 	rtorrent \
 	sabnzbd \
 	samba \
+	samba-base \
 	satipclient \
 	screen \
 	sed \
