@@ -67,12 +67,10 @@ OPTIONAL_PACKAGES += "\
 	nfs-utils \
 	ntfs-3g \
 	ntp \
-	ntpdate \
 	ofgwrite \
 	openmultiboot \
 	openresolv \
 	openssh \
-	openssh-sftp-server \
 	openvpn \
 	picocom \
 	ppp \
@@ -107,7 +105,6 @@ OPTIONAL_PACKAGES += "\
 	rtorrent \
 	sabnzbd \
 	samba \
-	samba-base \
 	satipclient \
 	screen \
 	sed \
