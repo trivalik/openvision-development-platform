@@ -9,12 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=eb723b61539feef013de476e68b5c50a"
 INITSCRIPT_NAME = "djmount"
 INITSCRIPT_PARAMS = "defaults"
 
-CFLAGS_append_sh4 += "-std=gnu11"
-
 SRC_URI = "git://github.com/mbarbon/djmount.git;protocol=http;branch=fixes"
-
-SRCREV = "02d7d47c4f04054a8a1c174b75839ee38682af86"
-PR="1"
 
 SRC_URI_append +=" \
 	file://init \
@@ -37,3 +32,5 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/init ${D}${sysconfdir}/init.d/djmount
 }
+
+CFLAGS_append_sh4 += "-std=gnu11"
