@@ -8,7 +8,6 @@ DEPENDS = "directfb sh4-dvb-modules"
 inherit module autotools pkgconfig
 
 SRC_URI = "git://github.com/OpenVisionE2/stgfx2.git"
-SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
