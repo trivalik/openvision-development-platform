@@ -198,6 +198,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-dlnaserver \
 	enigma2-plugin-extensions-dreamplex \
 	enigma2-plugin-extensions-e2iplayer \
+	enigma2-plugin-extensions-enhancedmoviecenter \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-fontinfo \
 	enigma2-plugin-extensions-hdmitest \
@@ -221,6 +222,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-vcs \
 	enigma2-plugin-extensions-weathermsn \
 	enigma2-plugin-extensions-xmodem \
+	enigma2-plugin-extensions-xstreamity \
 	enigma2-plugin-extensions-yahooweather \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
