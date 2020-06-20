@@ -37,7 +37,7 @@ OPTIONAL_PACKAGES += "\
 	exfat-utils \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3", d)} \
 	fuse-exfat \
-	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "gdb", d)} \
+	gdb \
 	google-dns \
 	grep \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstplayer", d)} \
@@ -55,7 +55,7 @@ OPTIONAL_PACKAGES += "\
 	libnss-mdns \
 	libsdl2 \
 	libudfread \
-	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "lirc", d)} \
+	lirc \
 	mc \
 	mediainfo \
 	minisatip \
@@ -100,7 +100,7 @@ OPTIONAL_PACKAGES += "\
 	python-ujson \
 	python-websocket-client \
 	python-youtube-dl \
-	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "rclone", d)} \
+	rclone \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -131,6 +131,12 @@ OPTIONAL_PACKAGES += "\
 	zeroconf \
 	zip \
 	zsh \
+	"
+
+OPTIONAL_PACKAGES_remove_sh4 += "\
+	gdb \
+	lirc \
+	rclone \
 	"
 
 FIRMWARE_PACKAGES += "\
@@ -175,16 +181,18 @@ EXTRA_WIFI_DRIVERS += "\
 	${@ 'kernel-module-extrawlan-rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
 	${@ 'kernel-module-extrawlan-rt8723bu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.6') < 0) else '' } \
 	${@ 'kernel-module-extrawlan-rt8812au' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') < 0) else '' } \
-	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "kernel-module-extrawlan-rt8822bu", d)} \
-	${@ 'kernel-module-extrawlan-rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
-	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "kernel-module-extrawlan-rtl8189es", d)} \
-	kernel-module-extrawlan-rtl8192cu \
 	${@ 'kernel-module-extrawlan-rt8814au' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') < 0) else '' } \
+	kernel-module-extrawlan-rt8822bu \
+	${@ 'kernel-module-extrawlan-rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
+	kernel-module-extrawlan-rtl8189es \
+	kernel-module-extrawlan-rtl8192cu \
 	${@ 'kernel-module-extrawlan-rtl8192eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.7') < 0) else '' } \
 	"
 
 EXTRA_WIFI_DRIVERS_remove_sh4 += "\
 	kernel-module-extrawlan-rt8814au \
+	kernel-module-extrawlan-rt8822bu \
+	kernel-module-extrawlan-rtl8189es \
 	"
 
 ENIGMA2_OPTIONAL += "\
