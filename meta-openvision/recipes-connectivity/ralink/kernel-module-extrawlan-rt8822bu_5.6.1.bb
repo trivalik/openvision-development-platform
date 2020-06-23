@@ -4,9 +4,6 @@ SECTION = "kernel/modules"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://README.md;md5=feae8f8e0b09f7b911830b066c727a35"
 
-# backward compatibility
-RPROVIDES_${PN} = "rtl8822bu"
-
 inherit module machine_kernel_pr
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

@@ -4,9 +4,6 @@ SECTION = "kernel/modules"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ffa10f40b98be2c2bc9608f56827ed23"
 
-# backward compatibility
-RPROVIDES_${PN} = "rtl8822bu"
-
 inherit module machine_kernel_pr
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -22,7 +19,7 @@ EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 do_compile () {
     unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS CC LD CPP
-    oe_runmake 'M={D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless' \
+    oe_runmake 'M={D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless' \
         'KERNEL_SOURCE=${STAGING_KERNEL_DIR}' \
         'LINUX_SRC=${STAGING_KERNEL_DIR}' \
         'KDIR=${STAGING_KERNEL_DIR}' \
