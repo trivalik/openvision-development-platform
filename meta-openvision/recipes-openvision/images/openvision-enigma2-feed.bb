@@ -191,6 +191,8 @@ EXTRA_WIFI_DRIVERS += "\
 	"
 
 EXTRA_WIFI_DRIVERS_remove_sh4 += "\
+	kernel-module-extrawlan-mt7610u \
+	kernel-module-extrawlan-rt8723bu \
 	kernel-module-extrawlan-rt8814au \
 	kernel-module-extrawlan-rt8822bu \
 	kernel-module-extrawlan-rtl8189es \
