@@ -5,7 +5,6 @@ LIC_FILES_CHKSUM = "file://README;md5=a1f8725511fa113a2b2a282860d4fc19"
 
 SRC_URI = "git://github.com/Dima73/enigma2-plugin-extensions-tmbd.git \
 	file://set-english-language-as-default.patch \
-	file://YouTube.key \
 "
 
 S = "${WORKDIR}/git"
@@ -24,11 +23,5 @@ RDEPENDS_${PN} = " \
 	python-subprocess \
 	python-unixadmin \
 	python-lxml \
+	youtube-key \
 	"
-
-CONFFILES = "${sysconfdir}/enigma2/YouTube.key"
-
-do_install_append() {
-	install -d ${D}${sysconfdir}/enigma2
-	install -m 0644 ${WORKDIR}/YouTube.key ${D}${sysconfdir}/enigma2/YouTube.key
-}
