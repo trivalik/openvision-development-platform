@@ -1,6 +1,6 @@
-diff -Naur OpenWebif-master/plugin/controllers/models/grab.py OpenWebif-PersianPrince/plugin/controllers/models/grab.py
---- OpenWebif-master/plugin/controllers/models/grab.py	2020-07-01 20:38:16.414142163 +0430
-+++ OpenWebif-PersianPrince/plugin/controllers/models/grab.py	2020-07-01 20:49:49.436103547 +0430
+diff -ruN a/plugin/controllers/models/grab.py b/plugin/controllers/models/grab.py
+--- a/plugin/controllers/models/grab.py	2020-07-01 23:01:52.189207205 +0300
++++ b/plugin/controllers/models/grab.py	2020-07-01 23:44:50.988829582 +0300
 @@ -23,29 +23,33 @@
  ##########################################################################
  
@@ -18,20 +18,20 @@ diff -Naur OpenWebif-master/plugin/controllers/models/grab.py OpenWebif-PersianP
  
 -class GrabRequest(object):
 -	def __init__(self, request, session):
--		self.request = request
 +class grabScreenshot(resource.Resource):
 +	def __init__(self,session, path = ""):
 +		resource.Resource.__init__(self)
 +		self.session = session
 +		self.container = eConsoleAppContainer()
 +		self.container.appClosed.append(self.grabFinished)
++
++	def render(self, request):
+ 		self.request = request
++		graboptions = [GRAB_PATH]
  
 -		mode = None
 -		graboptions = [GRAB_PATH, '-q', '-s']
-+	def render(self, request):
-+		self.request = request
-+		graboptions = [GRAB_PATH]
- 
+-		
  		fileformat = getUrlArg(request, "format", "jpg")
 -		if fileformat == "jpg":
 +		if self.fileformat == "jpg":
@@ -47,7 +47,7 @@ diff -Naur OpenWebif-master/plugin/controllers/models/grab.py OpenWebif-PersianP
  
  		size = getUrlArg(request, "f")
  		if size != None:
-@@ -58,66 +62,49 @@
+@@ -58,66 +62,48 @@
  				graboptions.append("-o")
  			elif mode == "video":
  				graboptions.append("-v")
@@ -59,6 +59,10 @@ diff -Naur OpenWebif-master/plugin/controllers/models/grab.py OpenWebif-PersianP
 -				eDBoxLCD.getInstance().dumpLCD()
 -				fileformat = "png"
 -				command = "cat /tmp/lcdshot.%s" % fileformat
++		try:
++			ref = self.session.nav.getCurrentlyPlayingServiceReference().toString()
++		except:
++			ref = None 
  
 -		self.filepath = "/tmp/screenshot." + fileformat
 -		self.container = eConsoleAppContainer()
@@ -69,11 +73,6 @@ diff -Naur OpenWebif-master/plugin/controllers/models/grab.py OpenWebif-PersianP
 -			if self.container.execute(command):
 -				raise Exception("failed to execute: ", command)
 -			sref = 'lcdshot'
-+		try:
-+			ref = self.session.nav.getCurrentlyPlayingServiceReference().toString()
-+		except:
-+			ref = None 
-+
 +		if ref is not None:
 +			self.sref = '_'.join(ref.split(':', 10)[:10])
  		else:
