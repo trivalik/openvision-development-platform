@@ -120,9 +120,6 @@ IMAGE_INSTALL += "\
 	ntpdate", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
-	kernel-module-hid \
-	kernel-module-ipv6 \
-	kernel-module-usbhid \
 	nfs-utils \
 	ntfs-3g \
 	openssh-sftp-server \
