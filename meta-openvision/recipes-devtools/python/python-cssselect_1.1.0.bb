@@ -4,10 +4,10 @@ SECTION = "devel/python"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=952026b3fd2f625f2a3c0aa21da2493d"
 
-SRC_URI = "https://files.pythonhosted.org/packages/52/ea/f31e1d2e9eb130fda2a631e22eac369dc644e8807345fbed5113f2d6f92b/cssselect-${PV}.tar.gz"
+SRC_URI = "https://files.pythonhosted.org/packages/70/54/37630f6eb2c214cdee2ae56b7287394c8aa2f3bafb8b4eb8c3791aae7a14/cssselect-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "50422c9ec04b74cd60c571f74ddc1a80"
-SRC_URI[sha256sum] = "066d8bc5229af09617e24b3ca4d52f1f9092d9e061931f4184cd572885c23204"
+SRC_URI[md5sum] = "fa57704c1cb66cc8e537b782bd6b227e"
+SRC_URI[sha256sum] = "f95f8dedd925fd8f54edb3d2dfb44c190d9d18512377d3c1e2388d16126879bc"
 
 S = "${WORKDIR}/cssselect-${PV}"
 

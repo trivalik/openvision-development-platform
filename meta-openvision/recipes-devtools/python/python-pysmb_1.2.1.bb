@@ -6,11 +6,11 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=f696da4bf6c34ef3b926285a84dfa60c"
 inherit setuptools
 
 SRCNAME = "pysmb"
-SRC_URI = "https://pypi.python.org/packages/source/p/${SRCNAME}/${SRCNAME}-${PV}.zip"
+SRC_URI = "https://files.pythonhosted.org/packages/7a/90/7afb3db088a171f7e425855fab65a182503d205b234eb6bf2e36fd6aa5a5/pysmb-${PV}.zip"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
-SRC_URI[md5sum] = "7768bb10d3f9469a9714e9dbad01d207"
-SRC_URI[sha256sum] = "91f5fc7c7f2da9370c3b7646c82d33afb42444e26ce211f12e4202d3d24e0787"
+SRC_URI[md5sum] = "27fc12a0f95ea7543f72c8eec4e1b811"
+SRC_URI[sha256sum] = "ab721bbdcf27a4a8a77e2f82dfc6d5e33b4db88f5075160a8bc065722a1270be"
 
 include python-package-split.inc
