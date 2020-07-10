@@ -122,6 +122,7 @@
 * dinobotu55
 * iziboxx3
 * protek4kx1
+* turing
 
 # Dreambox
 * dm500hd

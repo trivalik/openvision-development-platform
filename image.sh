@@ -303,6 +303,7 @@ then
 	MACHINE=dinobotu55 $IMAGECMD
 	MACHINE=iziboxx3 $IMAGECMD
 	MACHINE=protek4kx1 $IMAGECMD
+	MACHINE=turing $IMAGECMD
 fi
 if [ $META = "Dreambox" ]
 then
