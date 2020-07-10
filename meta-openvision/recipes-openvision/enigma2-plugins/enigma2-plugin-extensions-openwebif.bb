@@ -213,6 +213,8 @@ python do_cleanup () {
         ('dinobot4kse', 'dinobot4kse.png', 'dinobot.png', 'dinobot.html'),
         ('dinobot4kl', 'dinobot4kl.png', 'dinobot.png', 'dinobot.html'),
         ('dinobot4kpro', 'dinobot4kpro.png', 'dinobot.png', 'dinobot.html'),
+        ('dinobotu43', 'turing.png', 'turing.png', 'turing.html'),
+        ('turing', 'turing.png', 'turing.png', 'turing.html'),
         ('dinobotu55', 'dinobotu55.png', 'dinobot.png', 'dinobot.html'),
         ('dinoboth265', 'dinoboth265.png', 'dinobot.png', 'dinobot.html'),
         ('axashis4kcombo', 'axashis4kcombo.png', 'axas1.png', 'axas1.html'),
