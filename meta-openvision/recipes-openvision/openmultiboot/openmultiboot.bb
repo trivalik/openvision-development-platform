@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/OpenVisionE2/openmultiboot.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE = " \
+EXTRA_OEMAKE = "\
     'CFLAGS=${CFLAGS} \
     -I=${includedir}/freetype2 \
     -DOMB_DEFAULT_TIMER=10 \
