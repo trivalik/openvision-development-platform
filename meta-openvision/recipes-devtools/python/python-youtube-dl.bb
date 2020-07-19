@@ -11,7 +11,6 @@ DEPENDS = "libxml2 bash-completion"
 
 inherit gitpkgv
 
-SRCREV = "${AUTOREV}"
 PV = "git${SRCPV}"
 PKGV = "${GITPKGVTAG}"
 
