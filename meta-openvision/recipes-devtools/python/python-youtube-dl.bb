@@ -11,8 +11,9 @@ DEPENDS = "libxml2 bash-completion"
 
 inherit gitpkgv
 
-PV = "2020.06.16+git${SRCPV}"
-PKGV = "2020.06.16+git${GITPKGV}"
+SRCREV = "${AUTOREV}"
+PV = "git${SRCPV}"
+PKGV = "${GITPKGVTAG}"
 
 SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=git;branch=master"
 
@@ -34,6 +35,7 @@ do_install_append() {
 
 RDEPENDS_${PN} = " \
     python-email \
+    python-gdata \
     python-subprocess \
     python-unixadmin \
     python-ctypes \
