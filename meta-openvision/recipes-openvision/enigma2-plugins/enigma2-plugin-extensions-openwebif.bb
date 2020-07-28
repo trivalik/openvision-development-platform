@@ -27,7 +27,9 @@ PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/OpenWebif.git;protocol=git"
 
-S="${WORKDIR}/git"
+SRC_URI_append_sh4 += " file://revert_grab_for_sh4.patch "
+
+S = "${WORKDIR}/git"
 
 do_compile() {
 	cheetah-compile -R --nobackup ${S}/plugin
