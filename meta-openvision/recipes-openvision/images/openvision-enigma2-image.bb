@@ -56,7 +56,8 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-extensions-openwebif-terminal \
 	enigma2-plugin-softcams-oscam \
-	enigma2-plugin-systemplugins-autobouquetsmaker", d)} \
+	enigma2-plugin-systemplugins-autobouquetsmaker \
+	openvision-core-plugin", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash libeplayer", "", "enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
 
