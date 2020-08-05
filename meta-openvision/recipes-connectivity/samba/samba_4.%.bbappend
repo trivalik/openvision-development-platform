@@ -3,7 +3,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 # Remove acl, cups etc. support.
 PACKAGECONFIG_remove = "acl cups"
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
                  --without-cluster-support \
                  --without-profiling-data \
                  --with-sockets-dir=${localstatedir}/run \
@@ -28,7 +28,7 @@ EXTRA_OECONF_remove = " \
 
 RDEPENDS_${PN} += "kernel-module-cifs"
 
-SRC_URI += " \
+SRC_URI += "\
 	file://smb.conf \
 	file://smb-secure.conf \
 	file://smb-user.conf \
@@ -42,7 +42,7 @@ SRC_URI += " \
 	file://0019-dynamically-create-a-samba-account-if-needed.patch \
 	"
 
-FILES_${PN}-base += " \
+FILES_${PN}-base += "\
 	${sysconfdir}/samba/smb.conf \
 	${sysconfdir}/samba/smb-secure.conf \
 	${sysconfdir}/samba/shares/share.template \
@@ -52,19 +52,19 @@ FILES_${PN}-base += " \
 	${bindir}/smbstatus \
 	"
 
-CONFFILES_${PN}-base += " \
+CONFFILES_${PN}-base += "\
 	${sysconfdir}/samba/smb-user.conf \
 	${sysconfdir}/samba/shares/share.template \
 	"
 
 # move smbpass config files to samba-common
-FILES_${BPN}-common += " \
+FILES_${BPN}-common += "\
 	${sysconfdir}/pam.d/samba \
 	${sysconfdir}/samba/private/users.map \
 	${sysconfdir}/samba/private/smbpasswd \
 	"
 
-CONFFILES_${BPN}-common += " \
+CONFFILES_${BPN}-common += "\
 	${sysconfdir}/pam.d/samba \
 	${sysconfdir}/samba/private/users.map \
 	${sysconfdir}/samba/private/smbpasswd \

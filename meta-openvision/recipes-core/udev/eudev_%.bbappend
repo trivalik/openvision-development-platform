@@ -4,8 +4,8 @@ SRC_URI += "\
 	file://init \
 	"
 
-DEPENDS += " udev-extraconf"
-RDEPENDS_${PN} += " udev-extraconf"
+DEPENDS += "udev-extraconf"
+RDEPENDS_${PN} += "udev-extraconf"
 
 SRC_URI_append_sh4 += "\
 	file://add-sh4.patch \

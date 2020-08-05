@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "  \
+SRC_URI += "\
 	file://smbnetfs.common.conf \
 	file://smbnetfs.user.conf \
 	file://init \

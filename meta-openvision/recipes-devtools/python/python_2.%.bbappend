@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 PACKAGE_DEBUG_SPLIT_STYLE := "debug-with-srcpkg"
 
-SRC_URI += " \
+SRC_URI += "\
 	file://04-default-is-optimized.patch \
 	file://99-ignore-optimization-flag.patch \
 	file://no-ldconfig.patch \
@@ -10,7 +10,7 @@ SRC_URI += " \
 	file://pgettext.patch \
 	"
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
     ac_cv_file__dev_ptmx=yes \
     ac_cv_file__dev_ptc=no \
     ac_cv_no_strict_aliasing_ok=yes \
