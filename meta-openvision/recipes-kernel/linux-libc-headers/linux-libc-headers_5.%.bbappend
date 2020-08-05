@@ -9,7 +9,7 @@ SRC_URI_append = " \
 # to the driver package in several packages (just for a couple of generic headers) we add them here.
 # In this way, we also avoid unnecessary rebuilds of several stuff when drivers are updated.
 
-SRC_URI_append_sh4 += "\
+SRC_URI_append_sh4 = " \
 	file://stmfb.h \
 	file://stm_ioctls.h \
 	file://bpamem.h \

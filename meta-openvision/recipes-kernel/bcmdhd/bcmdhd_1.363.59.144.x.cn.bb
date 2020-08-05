@@ -1,6 +1,6 @@
 SUMMARY = "Broadcom DHD driver"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${M}/dhd_linux.c;endline=29;md5=8a24c5318b99277c9cc40f18dbf7731c"
+require conf/license/license-gplv2.inc
 
 DEPENDS = "virtual/kernel"
 RDEPENDS_${PN} = "bcmdhd-firmware"
