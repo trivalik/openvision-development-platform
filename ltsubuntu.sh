@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-echo -e "${BLUE}Ubuntu 18.04.x LTS setup by Open Vision"
+echo -e "${BLUE}Ubuntu 20.04.x LTS setup by Open Vision"
 echo -e ""
 echo -e "First answer ${RED}No${BLUE} to dash"
 echo -e ""
@@ -25,7 +25,7 @@ sudo apt-get upgrade -y
 echo -e ""
 echo -e "Get latest LTS changes ..."
 echo -e ""
-sudo apt-get install -y --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+sudo apt-get install -y --install-recommends linux-generic-hwe-20.04 xserver-xorg-hwe-20.04
 echo -e ""
 echo -e "Now install what we need, answer yes and wait for complete download"
 echo -e ""

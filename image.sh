@@ -20,7 +20,7 @@ echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISIO
 echo -e ""
 echo -e "${RED}Notice: this script is case sensitive!${NC}"
 echo -e ""
-echo -e "First we need to check your Ubuntu 18.04.x"
+echo -e "First we need to check your Ubuntu 20.04.x"
 echo -e ""
 if [ -f user.ovstep ]; then
 	echo -e "Seems you run ltsubuntu.sh before but keep in mind it's better to run it each month to get latest updates."
