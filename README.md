@@ -42,7 +42,7 @@ If you see your model in https://github.com/OpenVisionE2/openvision-development-
 You could compile Open Vision for so many brands/models:
 * Vision-metas: https://github.com/OpenVisionE2/openvision-development-platform/blob/develop/Vision-metas.md
 
-# How to build an Open Vision image (on native Ubuntu Desktop 18.04.x LTS x64)
+# How to build an Open Vision image (on native Ubuntu Desktop 20.04.x LTS x64)
 
 1. Clone openvision-development-platform:
 ```
