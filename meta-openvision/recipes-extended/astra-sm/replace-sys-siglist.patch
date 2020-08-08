@@ -21,7 +21,7 @@ index b7ff9ba..85a421e 100644
      const char *msg = "Unknown error";
 -    if (errno < sys_nerr && sys_errlist[errno] != NULL)
 -        msg = sys_errlist[errno];
-+    if (strerror(errno) != NULL)
++    if (strerrordesc_np(errno) != NULL)
 +        msg = strerror(errno);
  
      size_t slen;
