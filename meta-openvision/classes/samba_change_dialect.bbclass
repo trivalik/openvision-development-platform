@@ -27,7 +27,7 @@ addtask openvision_samba_change_dialect before do_configure after do_unpack
 # With -fcommon such definitions are silently merged during linking.
 
 do_openvision_fix_build_with_fnocommon(){
-    find ${S}/ -type f -name "dtc-parser.tab.c*" | xargs -L1 sed -i '0,/YYLTYPE yylloc/! {0,/YYLTYPE yylloc/ s/YYLTYPE yylloc/extern YYLTYPE yylloc/}'
+    find ${S}/ -type f -name "dtc-parser.tab.c*" | xargs -L1 sed -i '0,/YYLTYPE yylloc/! {0,/YYLTYPE yylloc/ s/YYLTYPE yylloc/extern YYLTYPE yylloc/}' && find ${S}/ -type f -name "dtc-parser.tab.c*" | xargs -L1 sed -i 's|extern extern|extern|g'
 }
 
 addtask openvision_fix_build_with_fnocommon before do_configure after do_unpack
