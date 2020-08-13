@@ -14,8 +14,8 @@ PKGV = "1.0+git${GITPKGV}"
 FILES_${PN} = "/usr/"
 
 do_install() {
-	install -d ${D}/usr
-	cp -r ${S}/usr/* ${D}/usr/
+	install -d ${D}${prefix}
+	cp -r ${S}/usr/* ${D}${prefix}/
 }
 
 python populate_packages_prepend() {

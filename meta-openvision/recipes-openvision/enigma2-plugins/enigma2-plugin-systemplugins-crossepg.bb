@@ -27,7 +27,7 @@ do_compile() {
 
 do_install() {
     oe_runmake 'D=${D}' install
-    mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
+    mv ${D}${prefix}/crossepg/libcrossepg.so ${D}${libdir}/
 
     find ${S}/po -type f -name \*.po -execdir sh -c 'msgfmt "$0" -o `basename $0 .po`.mo' '{}' \;
 

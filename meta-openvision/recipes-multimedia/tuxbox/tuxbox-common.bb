@@ -12,7 +12,7 @@ do_install() {
 	install -m 0755 -d "${D}${sysconfdir}"
 	install -m 0755 -d "${D}${sysconfdir}/tuxbox"
 	install -m 0755 -d "${D}${sysconfdir}/tuxbox/scce"
-	install -m 0755 -d "${D}/usr/keys"
+	install -m 0755 -d "${D}${prefix}/keys"
 	install -m 0755 -d "${D}${bindir}"
 	install -m 0755 -d "${D}${localstatedir}"
 
