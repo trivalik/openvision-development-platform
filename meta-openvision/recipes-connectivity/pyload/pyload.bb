@@ -32,7 +32,7 @@ SRC_URI[sha256sum] = "f937631d376216bc830d6ffcd5b4ecb1806afd4012a184849da1a333a7
 
 S = "${WORKDIR}/pyload"
 
-FILES_${PN} = "/usr/pyload/* ${sysconfdir}/*"
+FILES_${PN} = "${prefix}/pyload/* ${sysconfdir}/*"
 
 INITSCRIPT_NAME = "${PN}"
 INITSCRIPT_PARAMS = "defaults 60 "

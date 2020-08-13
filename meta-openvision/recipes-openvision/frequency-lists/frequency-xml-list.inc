@@ -18,12 +18,12 @@ do_install() {
     install -d ${D}${sysconfdir}/tuxbox/
     install -d ${D}${prefix}/share/tuxbox
 
-    ln -sf /usr/share ${D}/share
+    ln -sf ${datadir} ${D}/share
 
     for i in ${FREQUENCY_LIST}; do
         install -m 0644 ${S}/src/$i ${D}${sysconfdir}/tuxbox/$i
-        ln -sf /etc/tuxbox/$i ${D}${sysconfdir}/;
-        ln -sf /etc/tuxbox/$i ${D}${prefix}/share/;
-        ln -sf /etc/tuxbox/$i ${D}${prefix}/share/tuxbox/;
+        ln -sf ${sysconfdir}/tuxbox/$i ${D}${sysconfdir}/;
+        ln -sf ${sysconfdir}/tuxbox/$i ${D}${prefix}/share/;
+        ln -sf ${sysconfdir}/tuxbox/$i ${D}${prefix}/share/tuxbox/;
     done;
 }

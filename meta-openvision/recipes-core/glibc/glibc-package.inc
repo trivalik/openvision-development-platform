@@ -77,7 +77,7 @@ inherit multilib_header
 
 do_install() {
 	oe_runmake install_root=${D} install
-	install -Dm 0644 ${WORKDIR}/etc/ld.so.conf ${D}${sysconfdir}/ld.so.conf
+	install -Dm 0644 ${WORKDIR}${sysconfdir}/ld.so.conf ${D}${sysconfdir}/ld.so.conf
 	install -d ${D}${localedir}
 	make -f ${WORKDIR}/generate-supported.mk IN="${S}/localedata/SUPPORTED" OUT="${WORKDIR}/SUPPORTED"
 	# get rid of some broken files...

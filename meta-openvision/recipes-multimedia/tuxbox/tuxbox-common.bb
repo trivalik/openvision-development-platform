@@ -17,7 +17,7 @@ do_install() {
 	install -m 0755 -d "${D}${localstatedir}"
 
 	ln -s "${sysconfdir}/tuxbox/scce"	"${D}${localstatedir}/"
-	ln -s "/usr/keys"			"${D}${localstatedir}/"
+	ln -s "${prefix}/keys"			"${D}${localstatedir}/"
 	ln -s "${bindir}"			"${D}${localstatedir}/"
 	ln -s "${sysconfdir}"			"${D}${localstatedir}/"
 }

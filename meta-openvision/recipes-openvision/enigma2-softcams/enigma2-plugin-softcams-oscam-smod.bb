@@ -73,7 +73,7 @@ do_install() {
     install -d ${D}${sysconfdir}/tuxbox/config/${BINFILE}
 }
 
-FILES_${PN} = "/usr ${sysconfdir}/init.d ${sysconfdir}/tuxbox"
+FILES_${PN} = "${prefix} ${sysconfdir}/init.d ${sysconfdir}/tuxbox"
 CONFFILES_${PN} = "${sysconfdir}/tuxbox/config/${BINFILE}"
 
 pkg_prerm_${PN} () {

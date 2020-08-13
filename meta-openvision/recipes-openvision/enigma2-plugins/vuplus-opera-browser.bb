@@ -54,4 +54,4 @@ libidirectfbimageprovider_jpeg.so \
 libicoreresourcemanager_test.so \
 libdirectfb_vuplus.so"
 
-FILES_${PN} = "${libdir} /usr/local"
+FILES_${PN} = "${libdir} ${prefix}/local"
