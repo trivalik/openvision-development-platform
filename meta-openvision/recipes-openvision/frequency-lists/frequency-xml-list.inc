@@ -15,14 +15,14 @@ FILES_${PN} = "/"
 S = "${WORKDIR}/git"
 
 do_install() {
-    install -d ${D}/etc/tuxbox/
+    install -d ${D}${sysconfdir}/tuxbox/
     install -d ${D}${prefix}/share/tuxbox
 
     ln -sf /usr/share ${D}/share
 
     for i in ${FREQUENCY_LIST}; do
-        install -m 0644 ${S}/src/$i ${D}/etc/tuxbox/$i
-        ln -sf /etc/tuxbox/$i ${D}/etc/;
+        install -m 0644 ${S}/src/$i ${D}${sysconfdir}/tuxbox/$i
+        ln -sf /etc/tuxbox/$i ${D}${sysconfdir}/;
         ln -sf /etc/tuxbox/$i ${D}${prefix}/share/;
         ln -sf /etc/tuxbox/$i ${D}${prefix}/share/tuxbox/;
     done;

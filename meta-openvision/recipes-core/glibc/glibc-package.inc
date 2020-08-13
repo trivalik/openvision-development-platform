@@ -206,7 +206,7 @@ do_poststash_install_cleanup () {
         rm -f ${D}${bindir}/localedef
         rm -rf ${D}${datadir}/i18n
         rm -rf ${D}${libdir}/gconv
-        rm -rf ${D}/${localedir}
+        rm -rf ${D}${localedir}
         rm -rf ${D}${datadir}/locale
         if [ "${libdir}" != "${exec_prefix}/lib" ]; then
                 if [ -d ${D}${exec_prefix}/lib/locale ] ; then
