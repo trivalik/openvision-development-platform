@@ -367,12 +367,14 @@
 * et9x00
 
 # Zgemma
+* h0
 * h10
 * h3
 * h4
 * h5
 * h6
 * h7
+* h8
 * h9
 * h9combo
 * i55
