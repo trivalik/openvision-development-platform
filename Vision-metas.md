@@ -380,4 +380,7 @@
 * i55
 * i55plus
 * lc
+* novacombo
+* novaip
+* novatwin
 * sh1
