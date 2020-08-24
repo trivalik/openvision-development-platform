@@ -21,14 +21,6 @@ DEPENDS_append_sh4 = " \
 	libmme-image \
 	"
 
-DEPENDS_append_rpi += "\
-	e2-rpihddevice \
-	ffmpeg \
-	libdvbcsa \
-	libnl \
-	userland \
-	"
-
 RDEPENDS_${PN} = "\
 	alsa-conf \
 	enigma2-fonts \
@@ -48,14 +40,8 @@ RDEPENDS_${PN}_append_sh4 = " \
 	libmme-host \
 	"
 
-RDEPENDS_${PN}_append_rpi += "\
-	e2-rpihddevice \
-	libdvbcsa \
-	"
-
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
-	glibc-gconv-utf-16 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "ofgwrite", d)} \
 	python-sendfile \
 	virtual/enigma2-mediaservice \
