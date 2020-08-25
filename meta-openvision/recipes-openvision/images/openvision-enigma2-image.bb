@@ -108,7 +108,6 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	dvbfetool \
 	openssh-sftp-server \
-	openvision-core-plugin \
 	shellinabox", d)} \
 	"
 
