@@ -101,7 +101,6 @@ OPTIONAL_PACKAGES += "\
 	python-ujson \
 	python-websocket-client \
 	python-youtube-dl \
-	rclone \
 	rsync \
 	rtorrent \
 	sabnzbd \
