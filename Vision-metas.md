@@ -330,6 +330,7 @@
 * vuduo
 * vuduo2
 * vuduo4k
+* vuduo4kse
 * vusolo
 * vusolo2
 * vusolo4k
