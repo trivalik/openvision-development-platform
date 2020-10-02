@@ -11,10 +11,10 @@ PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
 RRECOMMENDS_${PN} += "\
-  enigma2-plugin-extensions-weatherplugin \
-  enigma2-plugin-systemplugins-weathercomponenthandler \
-  enigma2-plugin-skincomponents-weathercomponent \
-  "
+	enigma2-plugin-extensions-weatherplugin \
+	enigma2-plugin-systemplugins-weathercomponenthandler \
+	enigma2-plugin-skincomponents-weathercomponent \
+	"
 
 SRC_URI = "git://github.com/audi06/CinoGriPLi.git;protocol=git"
 
