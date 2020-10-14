@@ -12,7 +12,7 @@ PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/hlsdl.git;protocol=git"
 
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
 SOURCE_FILES = "src/main.c"
 SOURCE_FILES =+ "src/aes_openssl.c"

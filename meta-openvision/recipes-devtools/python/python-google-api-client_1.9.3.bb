@@ -10,7 +10,7 @@ SRC_URI = "https://files.pythonhosted.org/packages/31/8d/06ee9dd2f50eb111d2fc19a
 SRC_URI[md5sum] = "eb5fa1e3f83b659ff978df1346a55576"
 SRC_URI[sha256sum] = "220349ce189a85229fc46875d467101318495a4a735c0ff2f165b9bdbc7511a0"
 
-S = "${WORKDIR}/google-api-python-client-${PV}/"
+S = "${WORKDIR}/google-api-python-client-${PV}"
 
 inherit setuptools
 include python-package-split.inc

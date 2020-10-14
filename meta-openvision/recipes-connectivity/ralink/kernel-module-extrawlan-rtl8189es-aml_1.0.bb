@@ -15,7 +15,7 @@ SRC_URI[sha256sum] = "a87d891e3a42d70429b39f01216775dee95b0dc9093f9576ca7417e74f
 
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR} KSRC=${STAGING_KERNEL_DIR}"
 
-S = "${WORKDIR}/android_hardware_wifi_realtek_drivers_8189es-f971e4bcbfb5a6109fe2e65dab375f5c63712093/rtl8189ES/"
+S = "${WORKDIR}/android_hardware_wifi_realtek_drivers_8189es-f971e4bcbfb5a6109fe2e65dab375f5c63712093/rtl8189ES"
 
 do_configure_prepend(){
 	sed -i 's/-DCONFIG_CONCURRENT_MODE//g; s/^CONFIG_POWER_SAVING.*$/CONFIG_POWER_SAVING = n/g; s/^CONFIG_RTW_DEBUG.*/CONFIG_RTW_DEBUG = n/g' ${S}/Makefile

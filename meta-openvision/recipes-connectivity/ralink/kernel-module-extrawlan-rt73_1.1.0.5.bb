@@ -15,7 +15,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit module machine_kernel_pr
  
-S = "${WORKDIR}/RT73/Module/"
+S = "${WORKDIR}/RT73/Module"
  
 EXTRA_OEMAKE = "KERNDIR=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
