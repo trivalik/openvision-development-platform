@@ -85,13 +85,19 @@ IMAGE_INSTALL += "\
 	cronie \
 	dhrystone \
 	enigma2 \
+	enigma2-data-iso-639-3 \
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
 	${@bb.utils.contains("DEVELOPER_NAME", "persianprince", "enigma2-plugin-extensions-persianpalace", "", d)} \
 	frequency-xml-list-atsc \
 	frequency-xml-list-cables \
 	frequency-xml-list-satellites \
+	frequency-xml-list-satellites-america \
+	frequency-xml-list-satellites-asia \
+	frequency-xml-list-satellites-atlantic \
+	frequency-xml-list-satellites-europe \
 	frequency-xml-list-terrestrial \
+	frequency-xml-list-unicable \
 	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "kernel-module-block2mtd libcrypto", "", d)} \
 	kernel-module-fuse \
 	libavahi-client \
