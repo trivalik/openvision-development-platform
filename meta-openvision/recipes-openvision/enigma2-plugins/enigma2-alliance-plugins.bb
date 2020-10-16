@@ -82,6 +82,7 @@ DEPENDS = "\
 	minidlna \
 	neon \
 	python-beautifulsoup4 python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
+	python-six-native \
 	satipclient \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "${TRANSCODING_CHECK}", "", d)} \
 	"

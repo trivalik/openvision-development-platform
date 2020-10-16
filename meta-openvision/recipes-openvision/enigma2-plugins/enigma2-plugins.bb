@@ -170,6 +170,7 @@ DEPENDS = "\
 	python-pyopenssl \
 	python-transmissionrpc \
 	python-twisted \
+	python-six-native \
 	smartmontools \
 	streamripper \
 	transmission \
