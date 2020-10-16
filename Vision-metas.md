@@ -299,8 +299,9 @@
 * ufs912
 * ufs913
 * ufs922
+* vip1_v1
 * vip1_v2
-* vip2_v1
+* vip2
 * vitamin_hd5000
 
 # Tiviar

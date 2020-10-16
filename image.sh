@@ -177,7 +177,7 @@ then
 	echo -e "${BLUE}Enter your specific machine name exactly like what you see in ${NC}Vision-metas.md"
 	echo -e "${GREEN}"
 	read MACHINESPECIFIC
-	if [ $MACHINESPECIFIC = "adb_box" -o $MACHINESPECIFIC = "adb_2850" -o $MACHINESPECIFIC = "arivalink200" -o $MACHINESPECIFIC = "atemio520" -o $MACHINESPECIFIC = "atemio530" -o $MACHINESPECIFIC = "atevio7500" -o $MACHINESPECIFIC = "cuberevo" -o $MACHINESPECIFIC = "cuberevo_2000hd" -o $MACHINESPECIFIC = "cuberevo_250hd" -o $MACHINESPECIFIC = "cuberevo_3000hd" -o $MACHINESPECIFIC = "cuberevo_9500hd" -o $MACHINESPECIFIC = "cuberevo_mini" -o $MACHINESPECIFIC = "cuberevo_mini2" -o $MACHINESPECIFIC = "forever_2424hd" -o $MACHINESPECIFIC = "forever_3434hd" -o $MACHINESPECIFIC = "forever_9898hd" -o $MACHINESPECIFIC = "forever_nanosmart" -o $MACHINESPECIFIC = "fortis_hdbox" -o $MACHINESPECIFIC = "hl101" -o $MACHINESPECIFIC = "hs7110" -o $MACHINESPECIFIC = "hs7119" -o $MACHINESPECIFIC = "hs7420" -o $MACHINESPECIFIC = "hs7429" -o $MACHINESPECIFIC = "hs7810a" -o $MACHINESPECIFIC = "hs7819" -o $MACHINESPECIFIC = "ipbox55" -o $MACHINESPECIFIC = "ipbox99" -o $MACHINESPECIFIC = "ipbox9900" -o $MACHINESPECIFIC = "octagon1008" -o $MACHINESPECIFIC = "pace7241" -o $MACHINESPECIFIC = "qboxhd" -o $MACHINESPECIFIC = "qboxhd_mini" -o $MACHINESPECIFIC = "sagemcom88" -o $MACHINESPECIFIC = "spark" -o $MACHINESPECIFIC = "spark7162" -o $MACHINESPECIFIC = "tf7700" -o $MACHINESPECIFIC = "ufc960" -o $MACHINESPECIFIC = "ufs910" -o $MACHINESPECIFIC = "ufs912" -o $MACHINESPECIFIC = "ufs913" -o $MACHINESPECIFIC = "ufs922" -o $MACHINESPECIFIC = "vip1_v2" -o $MACHINESPECIFIC = "vip2_v1" -o $MACHINESPECIFIC = "vitamin_hd5000" ]
+	if [ $MACHINESPECIFIC = "adb_box" -o $MACHINESPECIFIC = "adb_2850" -o $MACHINESPECIFIC = "arivalink200" -o $MACHINESPECIFIC = "atemio520" -o $MACHINESPECIFIC = "atemio530" -o $MACHINESPECIFIC = "atevio7500" -o $MACHINESPECIFIC = "cuberevo" -o $MACHINESPECIFIC = "cuberevo_2000hd" -o $MACHINESPECIFIC = "cuberevo_250hd" -o $MACHINESPECIFIC = "cuberevo_3000hd" -o $MACHINESPECIFIC = "cuberevo_9500hd" -o $MACHINESPECIFIC = "cuberevo_mini" -o $MACHINESPECIFIC = "cuberevo_mini2" -o $MACHINESPECIFIC = "forever_2424hd" -o $MACHINESPECIFIC = "forever_3434hd" -o $MACHINESPECIFIC = "forever_9898hd" -o $MACHINESPECIFIC = "forever_nanosmart" -o $MACHINESPECIFIC = "fortis_hdbox" -o $MACHINESPECIFIC = "hl101" -o $MACHINESPECIFIC = "hs7110" -o $MACHINESPECIFIC = "hs7119" -o $MACHINESPECIFIC = "hs7420" -o $MACHINESPECIFIC = "hs7429" -o $MACHINESPECIFIC = "hs7810a" -o $MACHINESPECIFIC = "hs7819" -o $MACHINESPECIFIC = "ipbox55" -o $MACHINESPECIFIC = "ipbox99" -o $MACHINESPECIFIC = "ipbox9900" -o $MACHINESPECIFIC = "octagon1008" -o $MACHINESPECIFIC = "pace7241" -o $MACHINESPECIFIC = "qboxhd" -o $MACHINESPECIFIC = "qboxhd_mini" -o $MACHINESPECIFIC = "sagemcom88" -o $MACHINESPECIFIC = "spark" -o $MACHINESPECIFIC = "spark7162" -o $MACHINESPECIFIC = "tf7700" -o $MACHINESPECIFIC = "ufc960" -o $MACHINESPECIFIC = "ufs910" -o $MACHINESPECIFIC = "ufs912" -o $MACHINESPECIFIC = "ufs913" -o $MACHINESPECIFIC = "ufs922" -o $MACHINESPECIFIC = "vip1_v1" -o $MACHINESPECIFIC = "vip1_v2" -o $MACHINESPECIFIC = "vip2" -o $MACHINESPECIFIC = "vitamin_hd5000" ]
 	then
 		echo -e ""
 		echo -e "${BLUE}Do you want to use libeplayer instead of GStreamer?"
@@ -566,8 +566,9 @@ then
 	MACHINE=ufs912 $IMAGECMD
 	MACHINE=ufs913 $IMAGECMD
 	MACHINE=ufs922 $IMAGECMD
+	MACHINE=vip1_v1 $IMAGECMD
 	MACHINE=vip1_v2 $IMAGECMD
-	MACHINE=vip2_v1 $IMAGECMD
+	MACHINE=vip2 $IMAGECMD
 	MACHINE=vitamin_hd5000 $IMAGECMD
 fi
 if [ $META = "Tiviar" ]
