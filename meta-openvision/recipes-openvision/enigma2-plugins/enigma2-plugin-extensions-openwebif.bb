@@ -66,9 +66,6 @@ do_install_append() {
 	elif [ "${MACHINE}" = "et6x00" ]; then
 		install -m 0644 ${S}/plugin/public/images/remotes/et6500.png ${D}${PLUGINPATH}/public/images/remotes/
 		install -m 0644 ${S}/plugin/public/static/remotes/et6500.html ${D}${PLUGINPATH}/public/static/remotes/
-	elif [ "${MACHINE}" = "azboxhd" ]; then
-		install -m 0644 ${S}/plugin/public/images/remotes/azboxelite.png ${D}${PLUGINPATH}/public/images/remotes/
-		install -m 0644 ${S}/plugin/public/static/remotes/azboxelite.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "ventonhdx" ]; then
 		install -m 0644 ${S}/plugin/public/images/remotes/ini1.png ${D}${PLUGINPATH}/public/images/remotes/
 		install -m 0644 ${S}/plugin/public/static/remotes/ini1.html ${D}${PLUGINPATH}/public/static/remotes/

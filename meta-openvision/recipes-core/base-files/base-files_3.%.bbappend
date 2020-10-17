@@ -36,9 +36,6 @@ do_install_append() {
         export BOOTFS_BLOCK=$(echo -e ${MTD_BOOTFS} | perl -pe 's:(mtd)(\d):${1}block$2:') ; perl -i -pe 's:(\@rootfs\@):/dev/'${BOOTFS_BLOCK}'\t\t/boot\t\tauto\t\tdefaults\t\t\t\t1  1\n${1}:s' ${D}${sysconfdir}/fstab
     fi
 
-    if [ "${MACHINE}" = "azboxhd" ]; then
-        printf "/dev/hda3\t\tswap\t\tswap\t\tdefaults\t\t\t\t0  0\n" >> ${D}${sysconfdir}/fstab
-    fi
     if [ "${MACHINE}" = "sf4008" -o "${MACHINE}" = "sf5008" ]; then
         printf "/dev/mmcblk0p5\t\tnone\t\tswap\t\tsw\t\t\t\t\t0  0\n" >> ${D}${sysconfdir}/fstab
     fi

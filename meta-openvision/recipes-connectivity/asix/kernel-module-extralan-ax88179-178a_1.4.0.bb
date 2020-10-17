@@ -10,7 +10,7 @@ inherit module machine_kernel_pr
 LIC_FILES_CHKSUM = "file://readme;endline=19;md5=f87a675da5e11ab9def922704bdda58b"
 
 SRC_URI = "http://source.mynonpublic.com/ini/AX88179_178A_LINUX_DRIVER_v1.4.1_SOURCE.tar.gz \
-	${@bb.utils.contains_any("MACHINE", "dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm8000", "file://dreambox.patch", "", d)} \
+	${@bb.utils.contains_any("MACHINE", "dm500hdv2 dm800sev2 dm7020hd dm8000", "file://dreambox.patch", "", d)} \
 	"
 
 S = "${WORKDIR}/AX88179_178A_LINUX_DRIVER_v1.4.1_SOURCE"

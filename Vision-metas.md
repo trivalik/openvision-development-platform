@@ -12,7 +12,6 @@
 * ultrabox
 
 # AZBox
-* azboxhd
 * azboxme
 * azboxminime
 
@@ -127,14 +126,12 @@
 * vipers
 
 # Dreambox
-* dm500hd
 * dm500hdv2
 * dm520
 * dm7020hd
 * dm7020hdv2
 * dm7080
 * dm8000
-* dm800se
 * dm800sev2
 * dm820
 * dm900
@@ -189,10 +186,8 @@
 * vs1500
 
 # GigaBlue
-* gb800se
 * gb800seplus
 * gb800solo
-* gb800ue
 * gb800ueplus
 * gbip4k
 * gbipbox
