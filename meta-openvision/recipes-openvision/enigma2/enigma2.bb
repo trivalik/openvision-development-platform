@@ -12,6 +12,7 @@ DEPENDS = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	openssl libudfread \
 	python-imaging python-twisted python-wifi \
+	python-six-native \
 	swig-native \
 	tuxtxt-enigma2 \
 	"
@@ -134,7 +135,7 @@ PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-fonts"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PKGV_enigma2-fonts = "2018.08.15"
+PKGV_enigma2-fonts = "2020.10.17"
 
 def get_crashaddr(d):
     if d.getVar('CRASHADDR', True):
