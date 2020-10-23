@@ -12,6 +12,7 @@ CXXFLAGS_append_sh4 = " -std=c++11 -fPIC -fno-strict-aliasing"
 DEPENDS = "\
 	enigma2 \
 	libeplayer3 \
+	python \
 	"
 
 RDEPENDS_${PN} = "\

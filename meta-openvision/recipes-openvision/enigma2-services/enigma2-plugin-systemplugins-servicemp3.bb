@@ -70,6 +70,7 @@ GST_UGLY_RDEPS = "\
 DEPENDS = "\
 	enigma2 \
 	gstreamer1.0-plugins-base gstreamer1.0 \
+	python \
 	"
 
 RDEPENDS_${PN} = "\
