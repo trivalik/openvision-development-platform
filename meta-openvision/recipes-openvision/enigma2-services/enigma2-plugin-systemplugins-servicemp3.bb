@@ -70,7 +70,7 @@ GST_UGLY_RDEPS = "\
 DEPENDS = "\
 	enigma2 \
 	gstreamer1.0-plugins-base gstreamer1.0 \
-	python \
+	${PYTHONNAMEONLY} \
 	"
 
 RDEPENDS_${PN} = "\
@@ -91,7 +91,7 @@ SRC_URI = "git://github.com/OpenVisionE2/servicemp3.git"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig rm_python_pyc compile_python_pyo no_python_src
+inherit autotools gitpkgv ${PYTHONNAMEONLY}native pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -105,7 +105,7 @@ EXTRA_OECONF = "\
 	"
 
 FILES_${PN} = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.${PYTHONEXTENSION} \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.so"
 
 FILES_${PN}-dev = "\

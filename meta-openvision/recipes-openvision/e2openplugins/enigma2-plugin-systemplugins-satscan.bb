@@ -1,7 +1,7 @@
 MODULE = "Satscan"
 DESCRIPTION = "Blind scan on DVB-S"
 RDEPENDS_${PN} = "virtual/blindscan-dvbs"
-RDEPENDS_${PN} += "python-subprocess"
+RDEPENDS_${PN} += "${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)}"
 
 inherit gitpkgv
 

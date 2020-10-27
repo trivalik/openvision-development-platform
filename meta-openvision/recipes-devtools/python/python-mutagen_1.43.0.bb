@@ -3,8 +3,8 @@ SECTION = "devel/python"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS = "python"
-RDEPENDS_${PN} = "python-shell"
+DEPENDS = "${PYTHONNAMEONLY}"
+RDEPENDS_${PN} = "${PYTHONNAMEONLY}-shell"
 
 SRC_URI = "https://files.pythonhosted.org/packages/aa/fd/ed738775442e3614849fefdf41417d7bff3ccb010d49c8f729432cc3c1e5/mutagen-${PV}.tar.gz"
 
@@ -13,6 +13,6 @@ SRC_URI[sha256sum] = "3a982d39f1b800520a32afdebe3543f972e83a6ddd0c0198739a161ee7
 
 S = "${WORKDIR}/mutagen-${PV}"
 
-inherit distutils setuptools
+inherit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "distutils3 setuptools3", "distutils setuptools", d)}
 
 include python-package-split.inc

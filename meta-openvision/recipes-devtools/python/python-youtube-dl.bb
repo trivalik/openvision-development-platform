@@ -19,7 +19,7 @@ SRC_URI[sha256sum] = "ac1a799cf968345bf29089ed2e5c5d4f4a32031625d808369e61b6362d
 
 S = "${WORKDIR}/youtube-dl"
 
-inherit setuptools
+inherit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "setuptools3", "setuptools", d)}
 
 EXTRA_OEMAKE = "PYTHON=${PYTHON}"
 
@@ -34,14 +34,15 @@ do_install_append() {
 }
 
 RDEPENDS_${PN} = " \
-    python-email \
-    python-gdata \
-    python-subprocess \
-    python-unixadmin \
-    python-ctypes \
-    python-argparse \
-    python-html \
-    "
+	${PYTHONNAMEONLY}-email \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
+	python-gdata \
+	python-subprocess", d)} \
+	${PYTHONNAMEONLY}-unixadmin \
+	${PYTHONNAMEONLY}-ctypes \
+	${PYTHONNAMEONLY}-argparse \
+	${PYTHONNAMEONLY}-html \
+	"
 
 RDEPENDS_{PN}-src = "${PN}"
 FILES_${PN}-src = " \

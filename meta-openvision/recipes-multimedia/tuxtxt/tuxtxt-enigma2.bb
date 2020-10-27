@@ -7,7 +7,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "freetype libtuxtxt"
 
-inherit gitpkgv autotools pkgconfig
+inherit gitpkgv autotools pkgconfig ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3native", "rm_python_pyc", d)}
 
 SRC_URI = "git://github.com/OpenVisionE2/tuxtxt.git;protocol=git"
 
@@ -19,11 +19,6 @@ PKGV = "2.0.1+git${GITPKGV}"
 EXTRA_OECONF = "--with-configdir=${sysconfdir} \
 	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	"
-
-do_install_append() {
-	# remove unused .pyc files
-	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
-}
 
 PACKAGES = "${PN}-src ${PN}-dbg ${PN}-dev ${PN}"
 FILES_${PN}-src = "${prefix}/src ${libdir}/enigma2/python/Plugins/Extensions/Tuxtxt/*.py"
