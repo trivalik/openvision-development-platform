@@ -374,8 +374,11 @@
 * h8
 * h9
 * h9combo
+* h9combose
+* h9se
 * i55
 * i55plus
+* i55plusse
 * lc
 * novacombo
 * novaip
