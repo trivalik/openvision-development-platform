@@ -233,7 +233,9 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-raedquicksignal \
 	enigma2-plugin-extensions-refreshbouquet \
 	enigma2-plugin-extensions-sdgradio \
+	enigma2-plugin-extensions-sundtekcontrolcenter \
 	enigma2-plugin-extensions-tmbd \
+	enigma2-plugin-extensions-ts-sateditor \
 	enigma2-plugin-extensions-vcs \
 	enigma2-plugin-extensions-weathermsn \
 	enigma2-plugin-extensions-xmodem \
@@ -273,6 +275,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-whitetransfhd-raed \
 	enigma2-plugin-skins-wowcataclysmfhd-raed \
 	enigma2-plugin-systemplugins-crossepg \
+	enigma2-plugin-systemplugins-devicemanager \
 	enigma2-plugin-systemplugins-extnumberzap \
 	enigma2-plugin-systemplugins-extrafancontrol \
 	enigma2-plugin-systemplugins-hrtunerproxy \
