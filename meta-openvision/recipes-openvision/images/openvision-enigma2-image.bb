@@ -98,13 +98,13 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
+	ntpdate \
 	settings-autorestore \
 	tuxbox-links \
 	${@bb.utils.contains_any("MACHINE", "vuuno4kse vuultimo4k vuduo4k vuduo4kse", "vuplus-hdmi-in-helper", "", d)} \
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
-	${MACHINE_FEATURE_RELATED_PLUGINS} \
-	ntpdate", d)} \
+	${MACHINE_FEATURE_RELATED_PLUGINS}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	dvbfetool \
 	openssh-sftp-server \
