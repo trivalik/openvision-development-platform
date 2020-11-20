@@ -7,3 +7,5 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=mast
 	file://001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-caps.patch \
 	file://002-subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 "
+
+CFLAGS_append_sh4 = " -std=gnu99"

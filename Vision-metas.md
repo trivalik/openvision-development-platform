@@ -282,6 +282,7 @@
 * ipbox99
 * ipbox9900
 * octagon1008
+* opt9600
 * pace7241
 * qboxhd
 * qboxhd_mini
