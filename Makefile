@@ -48,6 +48,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-octagon \
 	$(CURDIR)/meta-odin \
 	$(CURDIR)/meta-protek \
+	$(CURDIR)/meta-rpi \
 	$(CURDIR)/meta-sh4 \
 	$(CURDIR)/meta-tiviar \
 	$(CURDIR)/meta-tripledot \

@@ -252,6 +252,13 @@
 # Protek
 * 9900lx
 
+# RPi
+* raspberrypi
+* raspberrypi0
+* raspberrypi2
+* raspberrypi3
+* raspberrypi4
+
 # SH4
 * adb_box
 * adb_2850

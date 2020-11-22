@@ -81,8 +81,8 @@ echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
 echo -e "${GREEN}Amiko ${NC}- ${GREEN}AX ${NC}- ${GREEN}AZBox  ${NC}- ${GREEN}Beyonwiz ${NC}- ${GREEN}BlackBox ${NC}- ${GREEN}BroadMedia ${NC}- ${GREEN}Ceryon"
 echo -e "DAGS ${NC}- ${GREEN}Dinobot ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}EBox ${NC}- ${GREEN}Edision ${NC}- ${GREEN}Entwopia ${NC}- ${GREEN}Formuler"
-echo -e "GFutures ${NC}- ${GREEN}GigaBlue ${NC}- ${GREEN}INI ${NC}- ${GREEN}IXUSS ${NC}- ${GREEN}MaxyTec"
-echo -e "Octagon ${NC}- ${GREEN}Odin ${NC}- ${GREEN}Protek ${NC}- ${GREEN}SH4 ${NC}- ${GREEN}Tiviar ${NC}- ${GREEN}Tripledot"
+echo -e "GFutures ${NC}- ${GREEN}GigaBlue ${NC}- ${GREEN}INI ${NC}- ${GREEN}IXUSS ${NC}- ${GREEN}MaxyTec ${NC}- ${GREEN}Octagon"
+echo -e "Odin ${NC}- ${GREEN}Protek ${NC}- ${GREEN}RPi ${NC}- ${GREEN}SH4 ${NC}- ${GREEN}Tiviar ${NC}- ${GREEN}Tripledot"
 echo -e "Uclan ${NC}- ${GREEN}UltraMini ${NC}- ${GREEN}VuPlus ${NC}- ${GREEN}XCore ${NC}- ${GREEN}XP"
 echo -e "Xtrend ${NC}- ${GREEN}Zgemma ${NC}- ${GREEN}Specific"
 echo -e ""
@@ -92,7 +92,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "Amiko" -a $META != "AX" -a $META != "AZBox" -a $META != "Beyonwiz" -a $META != "BlackBox" -a $META != "BroadMedia" -a $META != "Ceryon" -a $META != "DAGS" -a $META != "Dinobot" -a $META != "Dreambox" -a $META != "EBox" -a $META != "Edision" -a $META != "Entwopia" -a $META != "Formuler" -a $META != "GFutures" -a $META != "GigaBlue" -a $META != "INI" -a $META != "IXUSS" -a $META != "MaxyTec" -a $META != "Octagon" -a $META != "Odin" -a $META != "Protek" -a $META != "SH4" -a $META != "Tiviar" -a $META != "Tripledot" -a $META != "Uclan" -a $META != "UltraMini" -a $META != "VuPlus" -a $META != "XCore" -a $META != "XP" -a $META != "Xtrend" -a $META != "Zgemma" -a $META != "Specific" ]
+if [ $META != "Amiko" -a $META != "AX" -a $META != "AZBox" -a $META != "Beyonwiz" -a $META != "BlackBox" -a $META != "BroadMedia" -a $META != "Ceryon" -a $META != "DAGS" -a $META != "Dinobot" -a $META != "Dreambox" -a $META != "EBox" -a $META != "Edision" -a $META != "Entwopia" -a $META != "Formuler" -a $META != "GFutures" -a $META != "GigaBlue" -a $META != "INI" -a $META != "IXUSS" -a $META != "MaxyTec" -a $META != "Octagon" -a $META != "Odin" -a $META != "Protek" -a $META != "RPi" -a $META != "SH4" -a $META != "Tiviar" -a $META != "Tripledot" -a $META != "Uclan" -a $META != "UltraMini" -a $META != "VuPlus" -a $META != "XCore" -a $META != "XP" -a $META != "Xtrend" -a $META != "Zgemma" -a $META != "Specific" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -487,6 +487,14 @@ fi
 if [ $META = "Protek" ]
 then
 	MACHINE=9900lx $IMAGECMD
+fi
+if [ $META = "RPi" ]
+then
+	MACHINE=raspberrypi $IMAGECMD
+	MACHINE=raspberrypi0 $IMAGECMD
+	MACHINE=raspberrypi2 $IMAGECMD
+	MACHINE=raspberrypi3 $IMAGECMD
+	MACHINE=raspberrypi4 $IMAGECMD
 fi
 if [ $META = "SH4" ]
 then

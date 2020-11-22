@@ -17,6 +17,14 @@ DEPENDS = "\
 	tuxtxt-enigma2 \
 	"
 
+DEPENDS_append_rpi = " \
+	e2-rpihddevice \
+	ffmpeg \
+	libdvbcsa \
+	libnl \
+	userland \
+	"
+
 DEPENDS_append_sh4 = " \
 	libmme-host \
 	libmme-image \
@@ -35,6 +43,11 @@ RDEPENDS_${PN} = "\
 	openvision-branding \
 	${PYTHON_RDEPS} \
 	${@bb.utils.contains("MACHINE_FEATURES", "emmc", "bzip2 rsync", "", d)} \
+	"
+
+RDEPENDS_${PN}_append_rpi = " \
+	e2-rpihddevice \
+	libdvbcsa \
 	"
 
 RDEPENDS_${PN}_append_sh4 = " \
