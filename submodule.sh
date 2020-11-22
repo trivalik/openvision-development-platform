@@ -309,6 +309,12 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
+	cd meta-rpi
+	echo "Checking out meta-rpi develop branch:"
+	git checkout develop
+	git pull
+	echo -e "\n"
+	cd ..
 	cd meta-sh4
 	echo "Checking out meta-sh4 develop branch:"
 	git checkout develop
