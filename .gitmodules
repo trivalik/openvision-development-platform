@@ -14,6 +14,10 @@
 	path = meta-python2
 	url = https://git.openembedded.org/meta-python2
 	branch = master
+[submodule "meta-qt5"]
+	path = meta-qt5
+	url = https://github.com/meta-qt5/meta-qt5.git
+	branch = master
 [submodule "meta-amiko"]
 	path = meta-amiko
 	url = https://github.com/OpenVisionE2/meta-amiko.git
@@ -80,6 +84,9 @@
 [submodule "meta-protek"]
 	path = meta-protek
 	url = https://github.com/OpenVisionE2/meta-protek.git
+[submodule "meta-rpi"]
+	path = meta-rpi
+	url = https://github.com/OpenVisionE2/meta-rpi.git
 [submodule "meta-sh4"]
 	path = meta-sh4
 	url = https://github.com/OpenVisionE2/meta-sh4.git
@@ -110,9 +117,3 @@
 [submodule "meta-zgemma"]
 	path = meta-zgemma
 	url = https://github.com/OpenVisionE2/meta-zgemma.git
-[submodule "meta-qt5"]
-	path = meta-qt5
-	url = https://github.com/meta-qt5/meta-qt5.git
-[submodule "meta-rpi"]
-	path = meta-rpi
-	url = https://github.com/OpenVisionE2/meta-rpi.git
