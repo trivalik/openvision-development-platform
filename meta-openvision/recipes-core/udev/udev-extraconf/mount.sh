@@ -28,10 +28,13 @@ log() {
 	fi
 }
 
+# (e)udev compatibility
+[[ -z $MDEV ]] && MDEV=$(basename $DEVNAME)
+
 notify() {
 	# we don't really depend on the hotplug_e2_helper, but when it exists, call it
-	if [ -x /usr/bin/hotplug_e2_helper ]; then
-		/usr/bin/hotplug_e2_helper $ACTION $DEVPATH
+	if [ -x /usr/bin/hotplug_e2_helper ] ; then
+		/usr/bin/hotplug_e2_helper $ACTION /dev/$MDEV /block/$DEVBASE/device
 	fi
 }
 
