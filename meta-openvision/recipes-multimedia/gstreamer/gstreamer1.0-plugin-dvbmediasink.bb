@@ -14,8 +14,6 @@ RPROVIDES_${PN} += "virtual/gstreamer1.0-dvbmediasink"
 
 DEPENDS = "glib-2.0-native gstreamer1.0 gstreamer1.0-plugins-base libdca"
 
-GSTVERSION = "1.0"
-
 SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "azbox", "git://github.com/OpenVisionE2/gstreamer1.0-plugin-azbox-dvbmediasink.git", "git://github.com/OpenVisionE2/gstreamer1.0-plugin-multibox-dvbmediasink.git", d)}"
 
 S = "${WORKDIR}/git"
