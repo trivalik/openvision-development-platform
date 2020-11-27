@@ -38,7 +38,6 @@ OPTIONAL_PACKAGES += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3", d)} \
 	fuse-exfat \
 	gdb \
-	google-dns \
 	grep \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstplayer", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "hisil libeplayer", "", "gstreamer1.0-libav", d)} \
