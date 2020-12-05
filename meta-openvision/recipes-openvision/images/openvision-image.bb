@@ -36,6 +36,7 @@ IMAGE_INSTALL = "\
 	tuxbox-common \
 	tzdata \
 	util-linux-ionice \
+	util-linux-mount \
 	volatile-media \
 	vsftpd \
 	"
