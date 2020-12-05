@@ -96,6 +96,8 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-terrestrial \
 	frequency-xml-list-unicable \
 	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "kernel-module-block2mtd libcrypto", "", d)} \
+	kernel-module-autofs4 \
+	kernel-module-fuse \
 	kernel-module-ipv6 \
 	libavahi-client \
 	libcrypto-compat \
