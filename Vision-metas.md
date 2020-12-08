@@ -123,7 +123,7 @@
 * protek4kx1
 * turing
 * viper4kv20
-* vipers
+* vipersingle
 
 # Dreambox
 * dm500hdv2

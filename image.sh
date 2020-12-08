@@ -346,7 +346,7 @@ then
 	MACHINE=protek4kx1 $IMAGECMD
 	MACHINE=turing $IMAGECMD
 	MACHINE=viper4kv20 $IMAGECMD
-	MACHINE=vipers $IMAGECMD
+	MACHINE=vipersingle $IMAGECMD
 fi
 if [ $META = "Dreambox" ]
 then
