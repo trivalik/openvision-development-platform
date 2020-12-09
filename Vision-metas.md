@@ -236,7 +236,7 @@
 
 # MaxyTec
 * multibox
-* multiboxplus
+* multiboxse
 
 # Octagon
 * sf4008

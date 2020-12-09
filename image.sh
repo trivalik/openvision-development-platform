@@ -469,7 +469,7 @@ fi
 if [ $META = "MaxyTec" ]
 then
 	MACHINE=multibox $IMAGECMD
-	MACHINE=multiboxplus $IMAGECMD
+	MACHINE=multiboxse $IMAGECMD
 fi
 if [ $META = "Octagon" ]
 then
