@@ -8,7 +8,6 @@ do_install_append() {
     rm ${D}${sysconfdir}/init.d/vsftpd
     rm ${D}${sysconfdir}/vsftpd.ftpusers
     rm ${D}${sysconfdir}/vsftpd.user_list
-    chown root:root ${D}${sysconfdir}/vsftpd.conf
 }
 
 inherit upx_compress
