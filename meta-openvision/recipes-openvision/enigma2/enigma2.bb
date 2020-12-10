@@ -141,7 +141,7 @@ PV = "develop+git${SRCPV}"
 PKGV = "develop+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
-SRC_URI_append = " ${@bb.utils.contains("MACHINE_FEATURES", "uianimation", " file://use-lv3ddriver-for-uianimation.patch" , "", d)}"
+SRC_URI_append = "${@bb.utils.contains("MACHINE_FEATURES", "uianimation", " file://use-lv3ddriver-for-uianimation.patch" , "", d)}"
 
 LDFLAGS_prepend = " -lxml2 "
 
