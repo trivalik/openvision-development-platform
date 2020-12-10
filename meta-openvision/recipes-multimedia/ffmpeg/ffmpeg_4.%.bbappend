@@ -29,7 +29,7 @@ EXTRA_FFCONF = " \
     --prefix=${prefix} \
     --disable-static \
     --disable-runtime-cpudetect \
-    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--disable-programs", "--enable-ffprobe", d)} \
+    --enable-ffprobe \
     --disable-altivec \
     --disable-amd3dnow \
     --disable-amd3dnowext \
@@ -46,13 +46,13 @@ EXTRA_FFCONF = " \
     --disable-fma3 \
     --disable-fma4 \
     --disable-avx2 \
-    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--enable-inline-asm --enable-asm", "--disable-inline-asm --disable-yasm", d)} \
+    --disable-inline-asm \
+    --disable-yasm \
     --disable-x86asm \
     --disable-fast-unaligned \
     --enable-protocol=http \
+    \
     --disable-muxers \
-    --disable-encoders \
-    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--disable-decoders --disable-decoders --enable-decoder=wmapro --enable-decoder=wmav1 --enable-decoder=wmav2 --enable-decoder=wmavoice --enable-decoder=dca --disable-demuxers --disable-parsers --disable-bsfs --disable-protocols --disable-devices --disable-filters --disable-zlib", " \
     --enable-muxer=mpeg1video \
     --enable-muxer=h264 \
     --enable-muxer=mp4 \
@@ -65,6 +65,7 @@ EXTRA_FFCONF = " \
     --enable-muxer=image2pipe \
     --enable-muxer=apng \
     --enable-muxer=mpegts \
+    --disable-encoders \
     --enable-encoder=mpeg1video \
     --enable-encoder=png \
     --enable-encoder=libx264 \
@@ -74,7 +75,8 @@ EXTRA_FFCONF = " \
     --enable-encoder=jpegls \
     --enable-encoder=rawvideo \
     --disable-decoder=truehd \
-    --disable-decoder=mlp", d)} \
+    --disable-decoder=mlp \
+    \
     --disable-debug \
     --disable-doc \
     --disable-htmlpages \
