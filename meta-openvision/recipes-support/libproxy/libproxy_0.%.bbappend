@@ -1,1 +1,3 @@
-SRC_URI_remove_sh4 += "file://CVE-2020-25219.patch"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+SRC_URI_append_sh4 = " file://0001-include-errno-header.patch"
