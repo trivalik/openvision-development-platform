@@ -15,11 +15,11 @@
 # dialect (for old servers) by choosing "vers=1.0" on the cifs
 # mount e.g. to take advantage of Samba's "CIFS POSIX Extensions".
 
-do_openvision_samba_change_dialect(){
-    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_operations/! {0,/smb1_operations/ s/smb1_operations/smb30_operations/}'
-    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_values/! {0,/smb1_values/ s/smb1_values/smb30_values/}'
-}
-addtask openvision_samba_change_dialect before do_configure after do_unpack
+#do_openvision_samba_change_dialect(){
+#    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_operations/! {0,/smb1_operations/ s/smb1_operations/smb30_operations/}'
+#    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_values/! {0,/smb1_values/ s/smb1_values/smb30_values/}'
+#}
+#addtask openvision_samba_change_dialect before do_configure after do_unpack
 
 # According to https://gcc.gnu.org/gcc-10/changes.html:
 # GCC now defaults to -fno-common. As a result, global variable accesses are more efficient on various targets. In C, global variables with multiple tentative definitions now result in linker errors.
