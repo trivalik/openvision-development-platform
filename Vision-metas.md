@@ -119,6 +119,7 @@
 * dinoboth265
 * dinobotu43
 * dinobotu55
+* iziboxelite4k
 * iziboxx3
 * protek4kx1
 * turing
