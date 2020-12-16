@@ -253,7 +253,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-kravenhd \
 	enigma2-plugin-skins-kravenvb \
 	enigma2-plugin-skins-maxfhdxta-raed \
-	enigma2-plugin-skins-metrix-vision \
 	enigma2-plugin-skins-multibox-raed \
 	enigma2-plugin-skins-mxblack-raed \
 	enigma2-plugin-skins-mxhq9b-raed \
