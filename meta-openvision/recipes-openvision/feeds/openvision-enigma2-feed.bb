@@ -115,7 +115,6 @@ OPTIONAL_PACKAGES += "\
 	tcpdump \
 	tmux \
 	transmission \
-	udpxy \
 	unrar \
 	unzip \
 	upx \
@@ -135,7 +134,6 @@ OPTIONAL_PACKAGES += "\
 OPTIONAL_PACKAGES_remove_sh4 += "\
 	gdb \
 	lirc \
-	rclone \
 	"
 
 FIRMWARE_PACKAGES += "\
