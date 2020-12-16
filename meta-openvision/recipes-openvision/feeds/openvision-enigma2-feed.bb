@@ -29,7 +29,6 @@ OPTIONAL_PACKAGES += "\
 	diffutils \
 	djmount \
 	dosfstools \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "dreamci", "", d)} \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
