@@ -9,4 +9,6 @@ SRC_URI += "file://0004-rtmp-hls-tsdemux-fix.patch \
 	file://0003-Revert-tsdemux-Use-gst_segment_do_seek.patch \
 	"
 
+DEPENDS += "libva"
+
 CFLAGS_append_sh4 = " -std=gnu99"
