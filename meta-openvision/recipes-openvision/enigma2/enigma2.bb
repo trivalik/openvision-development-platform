@@ -197,7 +197,6 @@ EXTRA_OECONF_sh4 = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--with-boxbrand=${BOX_BRAND} \
 	--with-stbplatform=${STB_PLATFORM} \
-	--with-oever=${VISIONVERSION} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
