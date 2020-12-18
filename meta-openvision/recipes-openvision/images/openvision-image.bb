@@ -20,11 +20,11 @@ IMAGE_INSTALL = "\
 	modutils-loadscript \
 	nfs-utils-client \
 	openssh-sftp \
-	openvision-bootlogo \
 	openvision-extra-feed-config \
 	openvision-module \
 	openvision-version-info \
 	opkg \
+	ov-permission-helper \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
@@ -47,7 +47,7 @@ IMAGE_FEATURES += "package-management"
 # of the installer that populates the rootfs. I wanted to call this
 # rootfs_remove_opkg_leftovers but that fails to parse.
 rootfs_removeopkgleftovers() {
-	rm -r ${IMAGE_ROOTFS}${localstatedir}/lib/opkg/lists
+  rm -r ${IMAGE_ROOTFS}${localstatedir}/lib/opkg/lists
 }
 
 # Some features in image.bbclass we do NOT want, so override them
@@ -65,7 +65,10 @@ license_create_manifest() {
 }
 
 do_openvision_chwon_root_image(){
-        chown -R root:root ${IMAGE_ROOTFS}
+  chown 0:0 -R -h ${IMAGE_ROOTFS}
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "rootfs_removeopkgleftovers; do_openvision_chwon_root_image; "
+ROOTFS_POSTPROCESS_COMMAND_append = " \
+  rootfs_removeopkgleftovers; \
+  do_openvision_chwon_root_image; \
+"

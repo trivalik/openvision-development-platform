@@ -1,2 +1,1 @@
 inherit upx_compress
-
