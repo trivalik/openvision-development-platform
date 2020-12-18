@@ -11,4 +11,6 @@ SRC_URI += "file://0004-rtmp-hls-tsdemux-fix.patch \
 
 DEPENDS += "libva"
 
+EXTRA_OEMESON += "${GSTREAMER1_DEBUG}"
+
 CFLAGS_append_sh4 = " -std=gnu99"

@@ -8,4 +8,6 @@ do_configure_prepend() {
 	find ${S}/ -type f -name "*.wrap" | xargs -r -L1 sed -i "s|https://gitlab.freedesktop.org/gstreamer/meson-ports|https://github.com/persianpros|g"
 }
 
+EXTRA_OEMESON += "${GSTREAMER1_DEBUG}"
+
 CFLAGS_append_sh4 = " -std=gnu99"

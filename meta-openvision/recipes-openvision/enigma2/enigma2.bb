@@ -137,12 +137,17 @@ RDEPENDS_${PN}-build-dependencies = "\
 
 inherit gitpkgv ${PYTHONNAMEONLY}native upx_compress autotools pkgconfig rm_python_pyc compile_python_pyo
 
+ENIGMA2_GIT = "${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "enigma2-openvision-sh4", "enigma2-openvision", d)}"
 ENIGMA2_BRANCH = "develop"
+
 PV = "develop+git${SRCPV}"
 PKGV = "develop+git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
-SRC_URI_append = "${@bb.utils.contains("MACHINE_FEATURES", "uianimation", " file://use-lv3ddriver-for-uianimation.patch" , "", d)}"
+SRC_URI = "git://github.com/OpenVisionE2/${ENIGMA2_GIT}.git;branch=${ENIGMA2_BRANCH}"
+
+SRC_URI_append = " ${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "file://use-lv3ddriver-for-uianimation.patch" , "", d)}"
+
+SRC_URI_append_rpi = " file://remote.conf"
 
 LDFLAGS_prepend = " -lxml2 "
 
@@ -281,6 +286,10 @@ do_install_append() {
 		install -m 0644 ${S}/data/rc_models/ini1.xml ${D}${datadir}/enigma2/rc_models/
 		install -m 0644 ${S}/data/rc_models/ini2.png ${D}${datadir}/enigma2/rc_models/
 		install -m 0644 ${S}/data/rc_models/ini2.xml ${D}${datadir}/enigma2/rc_models/
+	fi
+	if [ "${BOX_BRAND}" = "rpi" ]; then
+		install -d ${D}${sysconfdir}/enigma2
+		install -m 0644 ${WORKDIR}/remote.conf ${D}${sysconfdir}/enigma2/
 	fi
 }
 
