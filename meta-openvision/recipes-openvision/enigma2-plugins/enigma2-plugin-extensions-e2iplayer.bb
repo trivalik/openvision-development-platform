@@ -47,5 +47,5 @@ FILES_${PN} += "${sysconfdir}"
 
 do_install_append() {
     install -d ${D}${sysconfdir}
-    cp -r  --preserve=mode,links ${S}/vk ${D}${sysconfdir}/vk
+    cp -fr ${S}/vk ${D}${sysconfdir}/vk
 }
