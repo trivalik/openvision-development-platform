@@ -16,6 +16,6 @@ PACKAGES = "${PN}"
 FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/firmware/video
-    install -m 0644 ${S}/*.bin ${D}${nonarch_base_libdir}/firmware/video/
+	install -d ${D}${nonarch_base_libdir}/firmware/video
+	install -m 0644 ${S}/*.bin ${D}${nonarch_base_libdir}/firmware/video/
 }
