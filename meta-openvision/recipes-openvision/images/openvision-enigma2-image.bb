@@ -111,7 +111,9 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	${MACHINE_FEATURE_RELATED_PLUGINS}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
+	cifs-utils \
 	dvbfetool \
+	nfs-utils \
 	openssh-sftp-server \
 	openvision-core-plugin", d)} \
 	"

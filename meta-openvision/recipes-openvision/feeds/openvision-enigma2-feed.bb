@@ -41,6 +41,7 @@ OPTIONAL_PACKAGES += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstplayer", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "hisil libeplayer", "", "gstreamer1.0-libav", d)} \
 	hddtemp \
+	htop \
 	inadyn-mt \
 	inetutils \
 	iperf3 \
