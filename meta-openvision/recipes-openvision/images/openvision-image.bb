@@ -57,10 +57,6 @@ zap_root_password () {
 	true
 }
 
-ssh_allow_empty_password () {
-	true
-}
-
 license_create_manifest() {
 }
 
