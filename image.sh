@@ -174,7 +174,6 @@ then
 	echo -e "${BLUE}Enter your specific machine name exactly like what you see in ${NC}Vision-metas.md"
 	echo -e "${GREEN}"
 	read MACHINESPECIFIC
-	fi
 	echo -e "${NC}"
 	echo -e "${BLUE}Compiling${GREEN} $MACHINESPECIFIC ${BLUE}image, please wait ...${NC}"
 	echo -e ""
