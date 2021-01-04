@@ -174,37 +174,6 @@ then
 	echo -e "${BLUE}Enter your specific machine name exactly like what you see in ${NC}Vision-metas.md"
 	echo -e "${GREEN}"
 	read MACHINESPECIFIC
-	if [ $MACHINESPECIFIC = "adb_box" -o $MACHINESPECIFIC = "adb_2850" -o $MACHINESPECIFIC = "arivalink200" -o $MACHINESPECIFIC = "atemio520" -o $MACHINESPECIFIC = "atemio530" -o $MACHINESPECIFIC = "atevio7500" -o $MACHINESPECIFIC = "cuberevo" -o $MACHINESPECIFIC = "cuberevo_2000hd" -o $MACHINESPECIFIC = "cuberevo_250hd" -o $MACHINESPECIFIC = "cuberevo_3000hd" -o $MACHINESPECIFIC = "cuberevo_9500hd" -o $MACHINESPECIFIC = "cuberevo_mini" -o $MACHINESPECIFIC = "cuberevo_mini2" -o $MACHINESPECIFIC = "forever_2424hd" -o $MACHINESPECIFIC = "forever_3434hd" -o $MACHINESPECIFIC = "forever_9898hd" -o $MACHINESPECIFIC = "forever_nanosmart" -o $MACHINESPECIFIC = "fortis_hdbox" -o $MACHINESPECIFIC = "hl101" -o $MACHINESPECIFIC = "hs7110" -o $MACHINESPECIFIC = "hs7119" -o $MACHINESPECIFIC = "hs7420" -o $MACHINESPECIFIC = "hs7429" -o $MACHINESPECIFIC = "hs7810a" -o $MACHINESPECIFIC = "hs7819" -o $MACHINESPECIFIC = "ipbox55" -o $MACHINESPECIFIC = "ipbox99" -o $MACHINESPECIFIC = "ipbox9900" -o $MACHINESPECIFIC = "octagon1008" -o $MACHINESPECIFIC = "opt9600" -o $MACHINESPECIFIC = "pace7241" -o $MACHINESPECIFIC = "qboxhd" -o $MACHINESPECIFIC = "qboxhd_mini" -o $MACHINESPECIFIC = "sagemcom88" -o $MACHINESPECIFIC = "spark" -o $MACHINESPECIFIC = "spark7162" -o $MACHINESPECIFIC = "tf7700" -o $MACHINESPECIFIC = "ufc960" -o $MACHINESPECIFIC = "ufs910" -o $MACHINESPECIFIC = "ufs912" -o $MACHINESPECIFIC = "ufs913" -o $MACHINESPECIFIC = "ufs922" -o $MACHINESPECIFIC = "vip1_v1" -o $MACHINESPECIFIC = "vip1_v2" -o $MACHINESPECIFIC = "vip2" -o $MACHINESPECIFIC = "vitamin_hd5000" ]
-	then
-		echo -e ""
-		echo -e "${BLUE}Do you want to use libeplayer instead of GStreamer?"
-		echo -e ""
-		echo -e "Answers are in ${GREEN}green:${NC}"
-		echo -e ""
-		echo -e "${GREEN}Yes ${NC}- ${GREEN}No"
-		echo -e ""
-		echo -e "${BLUE}Enter libeplayer mode:${NC}"
-		echo -e "${GREEN}"
-		read LIBEPLAYER
-		echo -e "${NC}"
-		if [ $LIBEPLAYER != "Yes" -a $LIBEPLAYER != "No" ]
-		then
-			echo -e "${RED}Not a valid answer!${NC}"
-			echo -e ""
-			exit 0
-		fi
-		if [ $LIBEPLAYER = "No" ]
-		then
-			sed -i '/libeplayer/s/^#*/#/g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-			sleep 0.1
-			echo -e "${YELLOW}Use GStreamer!${NC}"
-		fi
-		if [ $LIBEPLAYER = "Yes" ]
-		then
-			sed -i '/libeplayer/s/^#*//g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-			sleep 0.1
-			echo -e "${YELLOW}Use libeplayer!${NC}"
-		fi
 	fi
 	echo -e "${NC}"
 	echo -e "${BLUE}Compiling${GREEN} $MACHINESPECIFIC ${BLUE}image, please wait ...${NC}"
@@ -496,36 +465,6 @@ then
 fi
 if [ $META = "SH4" ]
 then
-	echo -e "${BLUE}Do you want to use libeplayer instead of GStreamer?"
-	echo -e ""
-	echo -e "Answers are in ${GREEN}green:${NC}"
-	echo -e ""
-	echo -e "${GREEN}Yes ${NC}- ${GREEN}No"
-	echo -e ""
-	echo -e "${BLUE}Enter libeplayer mode:${NC}"
-	echo -e "${GREEN}"
-	read LIBEPLAYER
-	echo -e "${NC}"
-	if [ $LIBEPLAYER != "Yes" -a $LIBEPLAYER != "No" ]
-	then
-		echo -e "${RED}Not a valid answer!${NC}"
-		echo -e ""
-		exit 0
-	fi
-	if [ $LIBEPLAYER = "No" ]
-	then
-		sed -i '/libeplayer/s/^#*/#/g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-		sleep 0.1
-		echo -e "${YELLOW}Use GStreamer!${NC}"
-		echo -e ""
-	fi
-	if [ $LIBEPLAYER = "Yes" ]
-	then
-		sed -i '/libeplayer/s/^#*//g' meta-sh4/conf/machine/include/libeplayer-sh4-condition.inc
-		sleep 0.1
-		echo -e "${YELLOW}Use libeplayer!${NC}"
-		echo -e ""
-	fi
 	MACHINE=adb_box $IMAGECMD
 	MACHINE=adb_2850 $IMAGECMD
 	MACHINE=arivalink200 $IMAGECMD
