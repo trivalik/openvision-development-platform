@@ -53,6 +53,10 @@ if [ $(gcc -dumpversion) != '10' ]; then
 	echo -e "${RED}GCC version is wrong!"
 	echo -e "It means you need to choose version 10 of GCC!"
 	sudo update-alternatives --config gcc
+	if [ $(gcc -dumpversion) != '10' ]; then
+		echo -e "You did not choose 10 or you where not able to choose. Please fix it manually with command \"sudo update-alternatives --config gcc\"."
+		exit 0
+	fi
 	echo -e "Done, now GCC version is: $(gcc -dumpfullversion) ${NC}"
 	echo -e ""
 else
